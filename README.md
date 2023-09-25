@@ -1,4 +1,4 @@
-# dvd-rental-system
+# DVD Rental System
 Rental-DVD-System using Angular, Spring Boot and PostgreSQL
 
 Full Stack web application:
