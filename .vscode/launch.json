@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DvdSpringServerApplication<dvd-spring-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "in.mindcraft.controllers.DvdSpringServerApplication",
+            "projectName": "dvd-spring-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
