@@ -25,4 +25,11 @@ public class DvdService {
         String sql = "SELECT * FROM actor";
         return jdbcTemplate.queryForList(sql);
     }
+
+    public List<Map<String, Object>> fetchFilmDataByFilmId(int filmId) {
+        String sql = "SELECT * FROM Search_by_film_id WHERE film_id = ?";
+        return jdbcTemplate.queryForList(sql, filmId);
+    }
+
+    
 }
