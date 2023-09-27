@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-image: url('assets/login.jpg');
+    background-size: 1400px;
+}
+.login-container {
+    position: absolute;
+    top: 50px;
+    left: 400px ;
+    background-color: #A9CCE3;
+    width: 500px;
+    height: 520px;
+    border-radius: 20px;
+}
+.login-form-header {
+    position: absolute;
+    left: 150px;
+    font-size: 900px;
+}
+.username {
+    position: absolute;
+    left: 150px;
+    top: 150px;
+    border-radius: 20px;
+}
+.password {
+    position: absolute;
+    left: 150px;
+    top: 300px;
+}
+.submit-btn {
+    position: absolute;
+    top: 330px;
+    left: 220px;
+}
+.mat-error {
+    font-size: 14px;
+    color: #f44336;
+    margin-top: 5px;
+  }

@@ -1,0 +1,19 @@
+<div class="login-container">
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <h2 class="login-form-header"><b>Login to Your Account</b></h2>
+    <mat-form-field class="username">
+        <input matInput placeholder="Username" formControlName="username">
+        <mat-error *ngIf="usernameControl.hasError('required')">Username is required.</mat-error>
+        <mat-error *ngIf="usernameControl.hasError('pattern')">Invalid username format. Username first letter must be capital and minimum length is 3</mat-error>
+    </mat-form-field>
+    <div style="margin-top: 60px;"></div>
+    <mat-form-field class="password">
+        <input matInput type="password" placeholder="Password" formControlName="password">
+        <mat-error *ngIf="passwordControl.hasError('required')">Password is required.</mat-error>
+        <mat-error *ngIf="passwordControl.hasError('pattern')">Invalid password format. Password must contain special characters and numbers.</mat-error>
+    </mat-form-field>
+    <br>
+    <br>
+    <button class="submit-btn" mat-raised-button type="submit" [disabled]="!this.form.valid">Login</button>
+</form>
+</div>
