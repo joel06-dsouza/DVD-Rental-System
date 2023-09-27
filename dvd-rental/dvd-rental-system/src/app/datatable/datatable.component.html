@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Film Data Table</title>
+</head>
+<body>
+  <div class="mat-elevation-z8">
+    <!-- Enable Filter Button -->
+    <button mat-raised-button (click)="enableFilter()">Enable Filter</button>
+
+    <!-- Filter Input for Film Id -->
+    <mat-form-field>
+      <input matInput [(ngModel)]="filmIdFilter" placeholder="Filter Film Id" [disabled]="!isFilterEnabled">
+    </mat-form-field>
+   {{filmIdFilter}}
+    <!-- Table -->
+    <mat-table [dataSource]="dataSource" matSort>
+
+      <!-- Film Id Column -->
+      <ng-container matColumnDef="filmId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Film Id</mat-header-cell>
+        <mat-cell *matCellDef="let film">{{ film.filmId }}</mat-cell>
+      </ng-container>
+
+      <!-- Title Column -->
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
+        <mat-cell *matCellDef="let film">{{ film.title }}</mat-cell>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Description</mat-header-cell>
+        <mat-cell *matCellDef="let film">{{ film.description }}</mat-cell>
+      </ng-container>
+
+      <!-- Release Year Column -->
+      <ng-container matColumnDef="releaseYear">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Release Year</mat-header-cell>
+        <mat-cell *matCellDef="let film">{{ film.releaseYear }}</mat-cell>
+      </ng-container>
+
+      <!-- Language Column -->
+      <ng-container matColumnDef="language">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Language</mat-header-cell>
+        <mat-cell *matCellDef="let film">{{ film.language }}</mat-cell>
+      </ng-container>
+
+      <!-- Rental Duration Column -->
+      <ng-container matColumnDef="rentalDuration">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Rental Duration</mat-header-cell>
+        <mat-cell *matCellDef="let film">{{ film.rentalDuration }}</mat-cell>
+      </ng-container>
+
+      <!-- Rental Rate Column -->
+      <ng-container matColumnDef="rentalRate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Rental Rate</mat-header-cell>
+        <mat-cell *matCellDef="let film">{{ film.rentalRate }}</mat-cell>
+      </ng-container>
+
+      <!-- Length Column -->
+      <ng-container matColumnDef="length">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Length</mat-header-cell>
+        <mat-cell *matCellDef="let film">{{ film.length }}</mat-cell>
+      </ng-container>
+
+      <!-- Rating Column -->
+      <ng-container matColumnDef="rating">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Rating</mat-header-cell>
+        <mat-cell *matCellDef="let film">{{ film.rating }}</mat-cell>
+      </ng-container>
+
+      <!-- Actor Column -->
+      <ng-container matColumnDef="actor">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Actor</mat-header-cell>
+        <mat-cell *matCellDef="let film">
+          <button mat-button>Show Details</button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: columns;"></mat-row>
+    </mat-table>
+
+    <!-- Paginator -->
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+  </div>
+</body>
+</html>
