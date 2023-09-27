@@ -1,1 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+/* style.css */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* .example-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+   */
+
+   .example-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }
+  
+  /* login.component.css */
+
+.form-title {
+  color: blueviolet;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-field {
+  margin: 10px 0;
+  width: 100%;
+}
+
+.input-field {
+  width: 100%;
+}
+
+.submit-button {
+  margin: 20px 0;
+  padding: 10px 20px;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #005a9c;
+}
+
