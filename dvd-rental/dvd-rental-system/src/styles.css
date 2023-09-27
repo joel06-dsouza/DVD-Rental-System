@@ -1,1 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* styles.css */
+
+/* Define global styles for the entire application */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #dcdee0; /* Light white background for the entire app */
+  }
+  
+  /* Define specific styles for the login component */
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('C:\Users\user\dvd-rental-system\dvd-rental\dvd-rental-system\src\assets\mindcraft.jpg'
+    ); /* Replace 'background.jpg' with your image file's path */
+    background-size: cover; /* Scale the background image to cover the entire container */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    background-position: center center; 
+  }
+  
+  .login-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    box-shadow: 0 0 20px rgba(174, 26, 26, 0.4);
+    border-radius: 10px;
+    background-color: #b2d0ef;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .login-title {
+    font-size: 24px;
+    color: #302a2a; 
+    text-align: center; 
+    margin-top: 10px; 
+  }
+  
+  .login-input {
+    width: 100%;
+    margin-top: 20px;
+    color: #ece6e6; /* Dark text color */
+  }
+  
+  .login-button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-button:hover {
+    background-color: #2980b9;
+  }
+  
