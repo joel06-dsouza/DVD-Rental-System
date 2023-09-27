@@ -8,3 +8,6 @@ Frontend -> Angular
 Backend -> Spring boot 
 
 Database -> Postgresql
+
+
+Requirements
