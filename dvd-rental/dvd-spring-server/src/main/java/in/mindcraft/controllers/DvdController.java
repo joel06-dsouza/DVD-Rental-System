@@ -16,7 +16,7 @@ public class DvdController {
 		this.databaseService = databaseService;
 		
 	}
-    
+    //Test 
     @RequestMapping("films")
     public List<Map<String, Object>> getFilmData() {
         return databaseService.fetchfilmFromDatabase();
