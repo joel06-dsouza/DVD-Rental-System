@@ -31,5 +31,9 @@ public class DvdService {
         return jdbcTemplate.queryForList(sql, filmId);
     }
 
-    
+    public List<Map<String, Object>> fetchFilmViewData(int storeId) {
+        String sql = "SELECT * FROM filmview where store_id = ?";
+        return jdbcTemplate.queryForList(sql, storeId);
+    }
+
 }

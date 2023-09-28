@@ -34,6 +34,8 @@ public class DvdController {
         return databaseService.fetchFilmDataByFilmId(filmId);
     }
 
-    
+    @GetMapping("/film-view")
+    public List<Map<String, Object>> getFilmViewData(@RequestParam int storeId) {
+        return databaseService.fetchFilmViewData(storeId);
+    }
 }
-
