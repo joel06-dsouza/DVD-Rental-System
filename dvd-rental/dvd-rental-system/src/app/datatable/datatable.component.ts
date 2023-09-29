@@ -1,95 +1,136 @@
-// src/app/datatable/datatable.component.ts
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-
 
 @Component({
   selector: 'app-datatable',
   templateUrl: './datatable.component.html',
-  styleUrls: ['./datatable.component.css']
+  styleUrls: ['./datatable.component.css'],
 })
-export class DatatableComponent {
-
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // Convert to lowercase
-  
-    this.dataSource.filter = filterValue;
-  }
+export class DatatableComponent implements AfterViewInit {
   displayedColumns: string[] = [
-    'filmId',
+    'filmid',
     'title',
     'description',
     'releaseYear',
-    'languageId',
+    'language',
     'rentalDuration',
     'rentalRate',
     'length',
     'rating',
-    'actor'
+    'action',
   ];
+  dataSource: MatTableDataSource<any>;
+  public searchValue: any = {};
 
-  films = [
-    {
-      filmId: 1,
-      title: 'Film 1',
-      description: 'Description for Film 1',
-      releaseYear: 2022,
-      languageId: 1,
-      rentalDuration: 5,
-      rentalRate: 2.99,
-      length: 120,
-      rating: 'PG',
-      actor: 'Actor 1 Details'
-    },
-    {
-      filmId: 2,
-      title: 'Film 2',
-      description: 'Description for Film 1',
-      releaseYear: 2022,
-      languageId: 1,
-      rentalDuration: 5,
-      rentalRate: 2.99,
-      length: 120,
-      rating: 'PG',
-      actor: 'Actor 1 Details'
-    },
-    {
-      filmId: 3,
-      title: 'Film 3',
-      description: 'Description for Film 1',
-      releaseYear: 2023,
-      languageId: 1,
-      rentalDuration: 5,
-      rentalRate: 2.99,
-      length: 120,
-      rating: 'PG',
-      actor: 'Actor 1 Details'
-    },
-    {
-      filmId: 4,
-      title: 'Film 4',
-      description: 'Description for Film 1',
-      releaseYear: 2023,
-      languageId: 1,
-      rentalDuration: 5,
-      rentalRate: 2.99,
-      length: 120,
-      rating: 'PG',
-      actor: 'Actor 1 Details'
-    },
-    // ... Add more film data
-  ];
+  @ViewChild(MatPaginator) paginator: MatPaginator; // Access the paginator element in your template
 
-  dataSource = new MatTableDataSource(this.films);
-
-  actorDetails: string | null = null;
-
-  showActorDetails(actor: string) {
-    this.actorDetails = actor;
+  constructor() {
+    // Initialize the dataSource with dummy data
+    this.dataSource = new MatTableDataSource([
+      {
+        filmid: 1,
+        title: 'Harry Potter',
+        description: 'Goblet of fire',
+        releaseYear: 2007,
+        language: 'English',
+        rentalDuration: 3,
+        rentalRate: 2.99,
+        length: 120,
+        rating: 'PG-13',
+      },
+      {
+        filmid: 2,
+        title: 'Avengers End Game',
+        description: 'Iron Man Dies',
+        releaseYear: 2018,
+        language: 'English',
+        rentalDuration: 2,
+        rentalRate: 1.99,
+        length: 95,
+        rating: 'R'
+      },
+      {
+        filmid: 3,
+        title: 'KGF',
+        description: 'Sanjay Dutt',
+        releaseYear: 2021,
+        language: 'Hindi',
+        rentalDuration: 4,
+        rentalRate: 4,
+        length: 220,
+        rating: 'R'
+      },
+      {
+        filmid: 4,
+        title: 'PawanKhind',
+        description: 'Shivaji Maharaj',
+        releaseYear: 2021,
+        language: 'Marathi',
+        rentalDuration: 3,
+        rentalRate: 3.5,
+        length: 200,
+        rating: 'R'
+      },
+      {
+        filmid: 5,
+        title: 'Day Dreamer',
+        description: 'Turkish Drama',
+        releaseYear: 2021,
+        language: 'Turkish',
+        rentalDuration: 4,
+        rentalRate: 5.5,
+        length: 300,
+        rating: 'R'
+      },
+      {
+        filmid: 6,
+        title: 'ABCD',
+        description: 'Dance Movie',
+        releaseYear: 2021,
+        language: 'Hindi',
+        rentalDuration: 4,
+        rentalRate: 5.5,
+        length: 300,
+        rating: 'R'
+      },
+    ]);
   }
 
-  hideActorDetails() {
-    this.actorDetails = null;
+  ngAfterViewInit() {
+    // Assign the paginator to your data source
+    this.dataSource.paginator = this.paginator;
   }
+
+  // Function to apply filters
+  applyFilters() {
+    // Convert search values to lowercase for case-insensitive search
+    const searchFilmId = (this.searchValue.filmid || '').trim().toLowerCase();
+    const searchTitle = (this.searchValue.title || '').trim().toLowerCase();
+    const searchDescription = (this.searchValue.description || '').trim().toLowerCase();
+    const searchReleaseYear = (this.searchValue.releaseYear || '').trim().toLowerCase();
+    const searchLanguage = (this.searchValue.language || '').trim().toLowerCase();
+    const searchRentalDuration = (this.searchValue.rentalDuration || '').trim().toLowerCase();
+    const searchRentalRate = (this.searchValue.rentalRate || '').trim().toLowerCase();
+    const searchLength = (this.searchValue.length || '').trim().toLowerCase();
+    const searchRating = (this.searchValue.rating || '').trim().toLowerCase();
+  
+    // Apply the combined filter value to the data source
+    this.dataSource.filterPredicate = (data, filter) => {
+      return (
+        data.filmid.toString().toLowerCase().includes(searchFilmId) &&
+        data.title.toLowerCase().includes(searchTitle) &&
+        data.description.toLowerCase().includes(searchDescription) &&
+        data.releaseYear.toString().toLowerCase().includes(searchReleaseYear) &&
+        data.language.toLowerCase().includes(searchLanguage) &&
+        data.rentalDuration.toString().toLowerCase().includes(searchRentalDuration) &&
+        data.rentalRate.toString().toLowerCase().includes(searchRentalRate) &&
+        data.length.toString().toLowerCase().includes(searchLength) &&
+        data.rating.toLowerCase().includes(searchRating)
+      );
+    };
+  
+    this.dataSource.filter = 'filter'; // Apply the filter
+  }
+  
 }

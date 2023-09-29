@@ -3,7 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { DatatableComponent } from './datatable/datatable.component';
 
 const routes: Routes = [
-  {path: 'table', component: DatatableComponent}
+
+  {path: 'table', component: DatatableComponent},
+
+
 ];
 
 @NgModule({
