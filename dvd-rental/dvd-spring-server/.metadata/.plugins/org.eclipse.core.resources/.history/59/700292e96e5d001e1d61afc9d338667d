@@ -1,0 +1,87 @@
+package in.mindcraft.trialDVD.Staff;
+import java.math.BigDecimal;
+
+
+public class FilmInfo {
+    private Long filmId;
+    private String title;
+    private String description;
+    private int releaseYear;
+    private String language;
+    private int rentalDuration;
+    private BigDecimal rentalRate;
+    private int length;
+    private String rating;
+	public FilmInfo() {
+		super();
+	}
+	public FilmInfo(Long filmId, String title, String description, int releaseYear, String language, int rentalDuration,
+			BigDecimal rentalRate, int length, String rating) {
+		super();
+		this.filmId = filmId;
+		this.title = title;
+		this.description = description;
+		this.releaseYear = releaseYear;
+		this.language = language;
+		this.rentalDuration = rentalDuration;
+		this.rentalRate = rentalRate;
+		this.length = length;
+		this.rating = rating;
+	}
+	public Long getFilmId() {
+		return filmId;
+	}
+	public void setFilmId(Long filmId) {
+		this.filmId = filmId;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public int getReleaseYear() {
+		return releaseYear;
+	}
+	public void setReleaseYear(int releaseYear) {
+		this.releaseYear = releaseYear;
+	}
+	public String getLanguage() {
+		return language;
+	}
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+	public int getRentalDuration() {
+		return rentalDuration;
+	}
+	public void setRentalDuration(int rentalDuration) {
+		this.rentalDuration = rentalDuration;
+	}
+	public BigDecimal getRentalRate() {
+		return rentalRate;
+	}
+	public void setRentalRate(BigDecimal rentalRate) {
+		this.rentalRate = rentalRate;
+	}
+	public int getLength() {
+		return length;
+	}
+	public void setLength(int length) {
+		this.length = length;
+	}
+	public String getRating() {
+		return rating;
+	}
+	public void setRating(String rating) {
+		this.rating = rating;
+	}
+
+  
+}
