@@ -1,39 +1,46 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule, MatIconButton } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
-import { DialogComponent } from './dialog/dialog.component'; 
-import { DialogService } from './dialog/dialog.service';
-import { MatDialogModule } from '@angular/material/dialog';
+import { RouterModule } from '@angular/router';
+import { AppComponent } from './app.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { DisplayComponent } from './display/display.component';
+import { AppRoutingModule } from './app-routing.module';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
+import { CdkTableModule } from '@angular/cdk/table';
+import {MatMenuModule} from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    DialogComponent
-  ],
+  declarations: [AppComponent, LoginFormComponent, DisplayComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
+    MatTableModule,
     MatButtonModule,
-    MatCardModule ,
-    MatInputModule,
-    MatFormFieldModule,
     MatIconModule,
-    MatDialogModule
+    MatPaginatorModule,
+    FormsModule,
+    MatCardModule,
+    CdkTableModule,
+    MatInputModule,
+    MatMenuModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
