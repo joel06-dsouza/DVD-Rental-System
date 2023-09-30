@@ -29,7 +29,7 @@ body {
 }
 
 /* Define the keyframes animation */
-@keyframes slideIn {
+@keyframes fadeInSlideIn {
     0% {
       transform: translateX(-100%);
       opacity: 0;
@@ -40,9 +40,10 @@ body {
     }
   }
   
+  
   /* Apply the animation to the login box */
   .animation {
-    animation: slideIn 0.5s ease-in-out;
+    animation: fadeInSlideIn 0.5s ease-in-out;
   }
   
   /* Add hover effect to the login button */

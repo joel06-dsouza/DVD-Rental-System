@@ -19,9 +19,10 @@ import { MatCardModule } from '@angular/material/card';
 import { CdkTableModule } from '@angular/cdk/table';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginFormComponent, DisplayComponent],
+  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
