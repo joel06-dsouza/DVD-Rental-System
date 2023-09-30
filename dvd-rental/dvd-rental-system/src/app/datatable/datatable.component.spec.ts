@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DatatableComponent } from './datatable.component';
+import { Bogustab2Component } from './datatable.component';
 
-describe('DatatableComponent', () => {
-  let component: DatatableComponent;
-  let fixture: ComponentFixture<DatatableComponent>;
+describe('Bogustab2Component', () => {
+  let component: Bogustab2Component;
+  let fixture: ComponentFixture<Bogustab2Component>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DatatableComponent]
+      declarations: [Bogustab2Component]
     });
-    fixture = TestBed.createComponent(DatatableComponent);
+    fixture = TestBed.createComponent(Bogustab2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

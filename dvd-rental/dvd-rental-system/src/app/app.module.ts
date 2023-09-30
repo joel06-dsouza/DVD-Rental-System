@@ -15,19 +15,25 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {FormsModule} from '@angular/forms'
 import { LoginComponent } from './login/login.component';
+import { MatPaginator } from '@angular/material/paginator';
 
-
+import { NgModel } from '@angular/forms';
 @NgModule({
   declarations: [
-    AppComponent,DatatableComponent
+    AppComponent
   ],
 
   imports: [
+   DatatableComponent,
+
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,LoginComponent,ReactiveFormsModule,
+    BrowserAnimationsModule,LoginComponent,
+    ReactiveFormsModule,
   MatTableModule,MatSortModule,MatPaginatorModule
-    ,MatFormFieldModule,MatInputModule,MatButtonModule,MatIconModule,FormsModule
+    ,MatFormFieldModule,MatInputModule,MatButtonModule,
+    
+    MatIconModule,FormsModule
 
   ],
   providers: [],
