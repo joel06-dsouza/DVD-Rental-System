@@ -19,7 +19,7 @@
 
                 <div mat-menu-item mat-filter-item [disableRipple]="true">
                     <mat-form-field>
-                        <input matInput placeholder="Film Id" [(ngModel)]="searchValue.filmid"
+                        <input matInput placeholder="Film Id" [(ngModel)]="searchValue.id"
                             (click)="$event.stopPropagation()">
                     </mat-form-field>
                 </div>
@@ -281,5 +281,5 @@
     </table>
     
     <!-- Add MatPaginator below your table -->
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons></mat-paginator>
 </div>

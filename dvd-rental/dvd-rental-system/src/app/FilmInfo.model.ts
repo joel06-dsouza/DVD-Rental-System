@@ -1,7 +1,7 @@
 // film-info.model.ts
 
 export interface FilmInfo {
-    film_id: number;
+    id: number;
     title: string;
     description: string;
     category_name: string;

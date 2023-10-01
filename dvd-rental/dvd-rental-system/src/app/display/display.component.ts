@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { FilmInfo } from '../FilmInfo.model'; 
 import { DvdRentalService } from '../dvdrental.service';
-import { Subscription } from 'rxjs';
+import { Subscription, filter } from 'rxjs';
 
 
 @Component({
@@ -38,94 +38,92 @@ export class DisplayComponent {
     this.dataSource = new MatTableDataSource<any>([]);
   }
 
+  
+
   ngAfterViewInit() {
     // Assign the paginator to your data source
     this.StoreID=localStorage.getItem('StoreId')
     this.fetchFilmData(this.StoreID);
     this.dataSource.paginator = this.paginator;
    
-    
   }
 
-  // applyFilters() {
-  //   // Convert search values to lowercase for case-insensitive search
-  //   const searchFilmId = (this.searchValue.filmid || '').trim().toLowerCase();
-  //   const searchTitle = (this.searchValue.title || '').trim().toLowerCase();
-  //   const searchDescription = (this.searchValue.description || '').trim().toLowerCase();
-  //   const searchReleaseYear = (this.searchValue.releaseYear || '').trim().toLowerCase();
-  //   const searchLanguage = (this.searchValue.language || '').trim().toLowerCase();
-  //   const searchRentalDuration = (this.searchValue.rentalDuration || '').trim().toLowerCase();
-  //   const searchRentalRate = (this.searchValue.rentalRate || '').trim().toLowerCase();
-  //   const searchLength = (this.searchValue.length || '').trim().toLowerCase();
-  //   const searchRating = (this.searchValue.rating || '').trim().toLowerCase();
+  
+  filterPredicate(data: FilmInfo, filter: string): boolean {
+    const filterObject = JSON.parse(filter);
+    let matchFound = true;
+  
+    for (const key in filterObject) {
+      if (filterObject.hasOwnProperty(key)) {
+        const value = filterObject[key];
+  
+        if (key === 'id') {
+          if (data.id !== Number(value)) {
+            matchFound = false;
+            console.log(`Film ID: ${data.id} does not match filter: ${value}`);
+            break;
+          }
+        } else {
+          const dataValue = data[key as keyof FilmInfo];
+  
+          if (!dataValue?.toString().includes(value)) {
+            matchFound = false;
+            console.log(`${key}: ${dataValue} does not match filter: ${value}`);
+            break;
+          }
+        }
+      }
+    }
+  
+    console.log(`Match found: ${matchFound}`);
+    return matchFound;
+  }
+  
 
-  //   // Apply the combined filter value to the data source
-  //   this.dataSource.filterPredicate = (data, filter) => {
-  //     return (
-  //       data.filmid.toString().toLowerCase().includes(searchFilmId) &&
-  //       data.title.toLowerCase().includes(searchTitle) &&
-  //       data.description.toLowerCase().includes(searchDescription) &&
-  //       data.releaseYear.toString().toLowerCase().includes(searchReleaseYear) &&
-  //       data.language.toLowerCase().includes(searchLanguage) &&
-  //       data.rentalDuration.toString().toLowerCase().includes(searchRentalDuration) &&
-  //       data.rentalRate.toString().toLowerCase().includes(searchRentalRate) &&
-  //       data.length.toString().toLowerCase().includes(searchLength) &&
-  //       data.rating.toLowerCase().includes(searchRating)
-  //     );
-  //   };
-  //   // Apply the filter
-  //   this.dataSource.filter = JSON.stringify(searchFilmId + searchTitle + searchDescription);
-  // }
   applyFilters() {
-    // Convert search values to lowercase for case-insensitive search
-    const searchFilmId = (this.searchValue.filmid || '').trim().toLowerCase();
-    const searchTitle = (this.searchValue.title || '').trim().toLowerCase();
-    const searchDescription = (this.searchValue.description || '').trim().toLowerCase();
-    const searchReleaseYear = (this.searchValue.releaseYear || '').trim().toLowerCase();
-    const searchLanguage = (this.searchValue.language || '').trim().toLowerCase();
-    const searchRentalDuration = (this.searchValue.rentalDuration || '').trim().toLowerCase();
-    const searchRentalRate = (this.searchValue.rentalRate || '').trim().toLowerCase();
-    const searchLength = (this.searchValue.length || '').trim().toLowerCase();
-    const searchRating = (this.searchValue.rating || '').trim().toLowerCase();
-  
-    console.log('searchFilmId:', searchFilmId);
-  
-    // Apply the combined filter value to the data source
-    // Apply the filter values to the dataSource
+    // Apply the filter predicate to the data source
+    this.dataSource.filterPredicate = this.filterPredicate;
+    
+    console.log(filter);
+    // Apply the filter
     this.dataSource.filter = JSON.stringify({
-      filmid: searchFilmId,
-      title: searchTitle,
-      description: searchDescription,
-      releaseYear: searchReleaseYear,
-      language: searchLanguage,
-      rentalDuration: searchRentalDuration,
-      rentalRate: searchRentalRate,
-      length: searchLength,
-      rating: searchRating,
+      id: this.searchValue.id,
+      title: this.searchValue.title,
+      description: this.searchValue.description,
+      releaseYear: this.searchValue.releaseYear,
+      language: this.searchValue.language,
+      rentalDuration: this.searchValue.rentalDuration,
+      rentalRate: this.searchValue.rentalRate,
+      length: this.searchValue.length,
+      rating: this.searchValue.rating,
     });
   }
+  
   
 
 
   fetchFilmData(storeId: number) {
-    // Unsubscribe from previous subscriptions to avoid memory leaks
-    this.filmInfoSubscription.unsubscribe();
+  // Unsubscribe from previous subscriptions to avoid memory leaks
+  this.filmInfoSubscription.unsubscribe();
 
-    // Call the film service method to fetch film data by store ID and subscribe with an observer
-    this.filmInfoSubscription = this.dvdRentalService.getAllFilmInfoByStoreId(storeId).subscribe({
-      next: (data) => {
-        this.filmInfoList = data;
-       console.log("From Display ");
-        console.log(data);
-         // Update the dataSource with the fetched data
-        this.dataSource = new MatTableDataSource(this.filmInfoList);
-      },
-      error: (error) => {
-        console.error('Error fetching film information:', error);
-        // Handle errors here
-      }
-    });
-  }
+  // Call the film service method to fetch film data by store ID and subscribe with an observer
+  this.filmInfoSubscription = this.dvdRentalService.getAllFilmInfoByStoreId(storeId).subscribe({
+    next: (data) => {
+      this.filmInfoList = data;
+
+      // Update the dataSource with the fetched data
+      this.dataSource = new MatTableDataSource(this.filmInfoList);
+
+      // Set the paginator after updating the data source
+      this.dataSource.paginator = this.paginator;
+    },
+    error: (error) => {
+      console.error('Error fetching film information:', error);
+      // Handle errors here
+    }
+  });
+}
+
 
   ngOnDestroy() {
     // Unsubscribe from the filmInfoSubscription when the component is destroyed
