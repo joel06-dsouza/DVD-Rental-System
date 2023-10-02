@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DatatableComponent } from './datatable/datatable.component';
 import { LoginComponent } from './login/login.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 
 const routes: Routes = [
@@ -11,9 +12,9 @@ const routes: Routes = [
  {
   path:'login',component:LoginComponent
  } ,
- /* {
-  path:'bogustab2',component:Bogustab2Component
- } */
+ {
+  path:'sidenav',component:SidenavComponent
+ }
 ];
 
 @NgModule({

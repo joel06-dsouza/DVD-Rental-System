@@ -1,4 +1,4 @@
-/* login.component.ts*/
+/* sidenav.component.ts*/
 import { NgModule, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder,Validators } from '@angular/forms';
 import {Component} from '@angular/core';
@@ -11,20 +11,21 @@ import { NgModel } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-
-
+import { MatCardModule } from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
+import { MatToolbarModule } from '@angular/material/toolbar';
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: 'app-sidenav',
+  templateUrl: './sidenav.component.html',
+  styleUrls: ['./sidenav.component.css'],
   standalone: true,
   imports: [MatFormFieldModule, MatInputModule, MatSelectModule,CommonModule,
-  MatButtonModule,MatIconModule,ReactiveFormsModule,
+  MatButtonModule,MatIconModule,ReactiveFormsModule,MatCardModule,FormsModule,
+  MatToolbarModule
 ],
-}
-)
+})
 
-export class LoginComponent  implements OnInit{
+export class SidenavComponent  implements OnInit{
   hide = true;
   loginForm: FormGroup; 
 
@@ -35,18 +36,18 @@ export class LoginComponent  implements OnInit{
         '',
         [
           Validators.required,
-          Validators.minLength(3),
+          /* Validators.minLength(3),
           Validators.maxLength(10),
           Validators.pattern(/^[a-zA-Z0-9]+$/), // Alphanumeric characters only
-        ],
+         */],
       ],
       password: [
         '',
         [
           Validators.required,
-          Validators.minLength(8), // Minimum password length
+          /* Validators.minLength(8), // Minimum password length
           Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]+$/), // At least one letter and one number
-          Validators.maxLength(10),
+          Validators.maxLength(10), */
         ],
       ],
     });
@@ -62,13 +63,10 @@ export class LoginComponent  implements OnInit{
         Validators.maxLength(10), 
         Validators.pattern(/^[a-zA-Z0-9]*$/)]],
 
-      password: ['', [
-        
-        Validators.required, 
-       /*  Validators.minLength(5), 
+      password: ['', [Validators.required, 
+        Validators.minLength(8), 
         Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/),
-        Validators.maxLength(10) */
-      ]]
+        Validators.maxLength(10)]]
     });
   }
 
@@ -102,6 +100,13 @@ export class LoginComponent  implements OnInit{
       console.log('Form is invalid. Please check the fields.');
     }
   }
+
+
+  signOut() {
+    // Add your signout logic here
+    console.log('Signed out');
+  }
+
 }
 
 

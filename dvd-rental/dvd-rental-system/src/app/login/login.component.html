@@ -1,3 +1,4 @@
+
 <!-- login.component.html -->
 <h1 style="display: block;color:rgb(255, 255, 255);
 width: 50;
@@ -19,14 +20,14 @@ WELCOME TO DVD RENTALS
 
 <form   style="border: 5px solid rgba(12, 72, 234, 0.841);
 text-align:left;
-border-radius: 4%;
+border-radius: 5%;
 padding: 0%;
 border-style:inset;
 padding-right: 1%;
 padding-left: 1%;
 border-color: rgba(13, 13, 13, 0.841);
-background-color: #f8f5f5;
-margin-left: 70%;"
+background-color: #f8f5f5;margin-right: 2%;
+margin-left: 75%;"
 
 [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
   <div class="form-field" 
@@ -72,7 +73,7 @@ margin-left: 70%;"
 
   <!-- Submit button -->
   <button mat-raised-button color="primary" type="submit" 
-  
+  style="text-align:center;width: fit-content;"
   class="submit-button"    
   [disabled]="isSubmitDisabled()"
   >Login</button>
@@ -86,4 +87,3 @@ text-align:center;
 padding: 1%;
 align-self: baseline;
 ">DEVELOPED BY MINDCRAFT(2023 - 2024)</footer>
-

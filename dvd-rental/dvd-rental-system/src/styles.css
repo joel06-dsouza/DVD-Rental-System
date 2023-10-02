@@ -69,3 +69,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 
+/* styles.css */
+h1 {
+  background-color: #6f6868; /* Adjust the background color as needed */
+  padding: 10px; /* Add padding for spacing */
+  position:static; /* Make the header a positioned element */
+}
+
+#profile-icon {
+  position: absolute;
+  top: 10px; /* Adjust the top position as needed for spacing from the top */
+  right: 10px; /* Adjust the right position as needed for spacing from the right */
+  width: 40px; /* Set the width of the profile photo icon */
+  height: 40px; /* Set the height of the profile photo icon */
+  border-radius: 50%; /* Make it a circle */
+}

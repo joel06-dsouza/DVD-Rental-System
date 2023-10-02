@@ -18,13 +18,20 @@ import { LoginComponent } from './login/login.component';
 import { MatPaginator } from '@angular/material/paginator';
 
 import { NgModel } from '@angular/forms';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
 
   imports: [
-   DatatableComponent,
+   DatatableComponent,SidenavComponent,MatCardModule,MatToolbarModule,
 
     BrowserModule,
     AppRoutingModule,
