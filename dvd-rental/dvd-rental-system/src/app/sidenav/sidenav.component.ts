@@ -14,20 +14,59 @@ import { Router } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { trigger,state,style,animate,transition } from '@angular/animations';
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.css'],
   standalone: true,
+
+  animations: [
+    trigger('slideInOut', [
+      state('in', style({
+        transform: 'translateX(0)',
+        opacity: 1
+      })),
+      state('out', style({
+        transform: 'translateX(100%)',
+        opacity: 0
+      })),
+      transition('in => out', animate('300ms ease-out')),
+      transition('out => in', animate('300ms ease-in'))
+    ])
+  
+  ]
+,
   imports: [MatFormFieldModule, MatInputModule, MatSelectModule,CommonModule,
   MatButtonModule,MatIconModule,ReactiveFormsModule,MatCardModule,FormsModule,
   MatToolbarModule
 ],
+
 })
 
 export class SidenavComponent  implements OnInit{
+  profileBoxState = 'out';
   hide = true;
   loginForm: FormGroup; 
+
+
+  toggleProfileBox() {
+    this.profileBoxState = this.profileBoxState === 'in' ? 'out' : 'in';
+  }
+
+
+  userProfile: UserProfile = {
+    fullName: 'John Doe',
+    id: '12345',
+    email: 'example@email.com',
+    profilePhoto: 'C:/Users/user/Pictures/Screenshots/mind.png' // Replace with the default photo path
+  };
+
+  user={
+    fullname:'John Doe',
+    id:'12345',
+    email:'example@email.com'
+   };
 
   constructor(private fb: FormBuilder) {
 
@@ -53,7 +92,21 @@ export class SidenavComponent  implements OnInit{
     });
   }
 
+  selectedProfilePhoto: string = '';
 
+  // Function to handle profile photo upload
+  onProfilePhotoChange(event: any) {
+    const file = event.target.files[0];
+
+    if (file) {
+        // Read the selected file and set it as the source for the img element
+        const reader = new FileReader();
+        reader.onload = (e: any) => {
+            this.selectedProfilePhoto = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+}
 
 
   ngOnInit() {
@@ -105,11 +158,23 @@ export class SidenavComponent  implements OnInit{
   signOut() {
     // Add your signout logic here
     console.log('Signed out');
+    alert('signout successful ');
   }
+
+
+
+  
 
 }
 
+interface UserProfile {
+  fullName: string;
+  id: string;
+  email: string;
+  profilePhoto: string; // Path to the user's profile photo
 
+  
+}
 
 
 

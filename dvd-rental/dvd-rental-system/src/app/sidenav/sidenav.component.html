@@ -1,8 +1,12 @@
 <!-- sidenav.component.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
     <link rel="stylesheet" type="text/css" href="C:\Users\user\dvd-rental-system\dvd-rental\dvd-rental-system\src\styles.css">
     <!-- Add Angular Material styles here if not already included -->
     <style>
@@ -71,28 +75,41 @@
     <div id="container">
         <mat-toolbar color="primary">
             <span class="toolbar-center text-white">MINDCRAFT SOFTWARE PVT. LTD.</span>
-            <mat-icon class="mr-2">account_circle</mat-icon>
+            <mat-icon class="mr-2" (click)="toggleProfileBox()">account_circle</mat-icon>
         </mat-toolbar>
 
-        <div id="login-box" class="move-right">
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
-                <!-- The rest of your login form code here -->
-            </form>
+
+
+        <div [@slideInOut]="profileBoxState" 
+         id="login-box" class="move-right">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form"></form>
         </div>
 
-        <div id="profile-box" class="move-right">
+        <div [@slideInOut]="profileBoxState" id="profile-box" class="move-right">
             <mat-card class="profile-card">
-                <mat-card-header>
-                    <mat-icon class="mr-2">account_circle</mat-icon><br/>
-                    <mat-card-title>WELCOME</mat-card-title>
-                    <mat-card-subtitle style="text-align: center;">FULLNAME</mat-card-subtitle>
-                </mat-card-header>
+            <mat-card-header>
+
+                <mat-icon class="mr-2" (click)="profilePhotoInput.click()">account_circle</mat-icon>
+                <input type="file" #profilePhotoInput style="display: none;" (change)="onProfilePhotoChange($event)">
+                <br/>
+
+
+                <mat-card-title>WELCOME</mat-card-title>
+
+                <mat-card-subtitle style="text-align: center;">
+                        {{ user.fullname }}
+                </mat-card-subtitle>
+
+            </mat-card-header>
                 <mat-card-content>
                     <div style="text-align: center;">ID <br/>
-                        <span>12345</span></div>
+                    <span>{{ user.id }}</span></div>
+
                     <div style="text-align: center;">Email <br/>
-                        <span>example@email.com</span></div>
+                    <span>{{ user.email }}</span></div>
+
                 </mat-card-content>
+
                 <mat-card-actions style="border: 50px;">
                     <button mat-icon-button (click)="signOut()"  
                     style="border: 2px solid black;">
@@ -100,32 +117,16 @@
                     </button>
                     <span>Sign Out</span>
                 </mat-card-actions>
-            </mat-card>
+               </mat-card>
         </div>
 
         
-        <div  class="content"
+        <div  class="content"></div>
         
-        ></div>
-        
-        <!-- <mat-toolbar class="mat-toolbar mat-primary mt-4 p-2" 
-        style="position: absolute; bottom: 0; width: 100%;"   >
-            <span 
-            style="padding: 0%;align-self: center;text-align: center;"
-            
-            class="text-white">DEVELOPED BY MINDCRAFT (2023 - 2024)</span>
-        </mat-toolbar> -->
-        <mat-toolbar color="primary"
-        style="position: absolute; bottom: 0; width: 100%;"
-        >
-            
-
+        <mat-toolbar color="primary" style="position: absolute; bottom: 0; width: 100%;">
             <span 
             class="toolbar-center text-white">DEVELOPED BY MINDCRAFT (2023 - 2024)</span>
         </mat-toolbar>
-
-
-
 
     </div>
 </body>
