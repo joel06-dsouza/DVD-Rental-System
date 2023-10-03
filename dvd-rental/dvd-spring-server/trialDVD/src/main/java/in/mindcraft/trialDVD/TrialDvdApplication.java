@@ -4,6 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
+
+
 import javax.sql.DataSource;
 //@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 @SpringBootApplication
