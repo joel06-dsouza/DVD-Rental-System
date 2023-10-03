@@ -9,6 +9,16 @@
             "projectName": "dvd-spring-server",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-DvdSpringServerApplication<TrialApplication>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "in.mindcraft.controllers.DvdSpringServerApplication",
+            "projectName": "TrialApplication",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
