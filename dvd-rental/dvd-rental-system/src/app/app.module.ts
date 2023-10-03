@@ -19,9 +19,11 @@ import { MatCardModule } from '@angular/material/card';
 import { CdkTableModule } from '@angular/cdk/table';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
+import { DialogueComponent } from './dialogue/dialogue.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-  declarations: [AppComponent, LoginFormComponent, DisplayComponent],
+  declarations: [AppComponent, LoginFormComponent, DisplayComponent, DialogueComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -38,7 +40,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatSelectModule,
     ReactiveFormsModule,
     HttpClientModule,
-    
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],
