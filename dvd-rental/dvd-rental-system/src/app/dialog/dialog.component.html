@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content>
+  <!-- Display the filmId here -->
+  <p>Film ID: {{ data.filmId }}</p>
+  <!-- Display the list of actors here -->
+  <ul>
+    <li *ngFor="let actor of data.actors">{{ actor }}</li>
+  </ul>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="closeDialog()">Close</button>
+</div>
+    

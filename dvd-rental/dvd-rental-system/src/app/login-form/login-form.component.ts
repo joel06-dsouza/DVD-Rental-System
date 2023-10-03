@@ -41,22 +41,26 @@ export class LoginFormComponent implements OnInit {
 
       this.dvdRentalService.loginUser(username, enteredPasswordHash).subscribe(
         (response) => {
-          alert("Login Successfull")
+          alert("Login Successfull");
           console.log("Login Successful");
-          console.log('Store ID:', response);
-          localStorage.setItem("StoreId",response)
-
+          console.log('Store ID:', response.storeId); 
+          console.log('Full Name:', response.fullName);
+      
+          
+          localStorage.setItem("StoreId", response.storeId);
+          localStorage.setItem("Name",response.fullName)
           // After a successful login, fetch the film data
           this.route.navigate(['display']);
-          this.fetchFilmData(response);
+          this.fetchFilmData(response.storeId); // Pass the storeId to the fetchFilmData function
         },
         (error) => {
           // Handle errors here
-          alert("Login Failed ")
+          alert("Login Failed");
           console.log('Login failed:', error);
           console.error('Login failed:', error);
         }
       );
+      
     }
   }
 
