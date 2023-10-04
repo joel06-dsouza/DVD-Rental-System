@@ -1,6 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef } from '@angular/material/bottom-sheet';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { MatDialogRef } from '@angular/material/dialog';
 
 
 @Component({
@@ -9,19 +8,15 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
   styleUrls: ['./side-dialogue.component.css']
 })
 export class SideDialogueComponent {
-  constructor(
-    @Inject(MAT_BOTTOM_SHEET_DATA) public data: any,
-    private bottomSheetRef: MatBottomSheetRef<SideDialogueComponent>,
-    private bottomSheet: MatBottomSheet // Add MatBottomSheet here
-  ) { }
+  constructor(public dialogRef: MatDialogRef<SideDialogueComponent>) {}
 
-  // Function to close the bottom sheet
-  closeDialogue() {
-    this.bottomSheetRef.dismiss();
+  closeDialogue(): void {
+    this.dialogRef.close();
   }
 
   logout() {
+    // Implement your logout logic here
     console.log('Logout clicked');
-    this.bottomSheetRef.dismiss('logout'); // Pass 'logout' as the result to the afterDismissed event
+    this.dialogRef.close('logout'); // Pass 'logout' as the result to the afterDismissed event
   }
 }

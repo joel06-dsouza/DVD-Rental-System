@@ -1,22 +1,30 @@
-<!-- <h2>User Details</h2>
-<p><strong>Username:</strong> {{ data.username }}</p>
-<p><strong>Store ID:</strong> {{ data.storeId }}</p>
+<!DOCTYPE html>
+<html lang="en">
 
-<button mat-button (click)="closeDialogue()">Close</button>
-<button mat-button (click)="logout()">Logout</button> -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-<ng-template #dialogTemplate>
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>User Profile</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>Welcome to your profile!</p>
-        <p><strong>Name:</strong> John Doe</p>
-        <p><strong>Employee Code:</strong> 3666</p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button color="warn" (click)="logout()">Logout</button>
-      </mat-card-actions>
-    </mat-card>
-  </ng-template>
+<body>
+
+    <div id="yash">
+        <mat-card id="card">
+            <mat-card-header>
+                <mat-card-title id="heading">User Profile</mat-card-title>
+            </mat-card-header>
+            <mat-card-content id="content">
+                <p id="wlcm">Welcome to your profile!</p>
+                <p><strong>Name:</strong> John Doe</p>
+                <p><strong>Employee Code:</strong> 3666</p>
+                <p><strong>Email:</strong> abc@gmail.com</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="warn" (click)="logout()" id="btn">Logout</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</body>
+
+</html>
