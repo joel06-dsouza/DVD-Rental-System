@@ -41,7 +41,7 @@ h1 {
 /*TABLE HEADER ROW CSS*/
 #thcolor {
     /* background-color: rgb(244, 143, 143); */
-    background-color: rgb(249, 195, 101);
+    background-color: #3BC3FF;
     padding: 10px;
     text-align: left;
     color: white;
@@ -62,7 +62,7 @@ h1 {
 #tdpadid {
     font-weight: bold;
     text-align: center;
-    color: #ebb609;
+    color: black;
     font-size: 15px;
     text-decoration: underline;
     text-underline-offset: 5px;

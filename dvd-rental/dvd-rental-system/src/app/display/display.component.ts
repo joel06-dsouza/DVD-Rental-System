@@ -6,7 +6,10 @@ import { DvdRentalService } from '../dvdrental.service';
 import { Subscription, filter } from 'rxjs';
 import * as XLSX from 'xlsx';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from '../dialog/dialog.component';
+import { DialogueComponent } from '../dialogue/dialogue.component';
+import { HeaderComponent } from '../header/header.component';
+import { MatButtonModule } from '@angular/material/button';
+import { SideDialogueComponent } from '../side-dialogue/side-dialogue.component';
 
 @Component({
   selector: 'app-display',
@@ -130,7 +133,7 @@ export class DisplayComponent {
 
   fetchActors(id: number) {
     console.log(`Actors with ID: ${id}`);
-    
+      
     if (this.actorsSubscription) { // Check if actorsSubscription is defined
       this.actorsSubscription.unsubscribe();
     } else {
@@ -142,14 +145,14 @@ export class DisplayComponent {
     this.actorsSubscription = this.dvdRentalService.getActorsByFilmId(filmIdToFetch).subscribe({
       next: (actors) => {
         this.actors = actors;
-        // alert(`Actors ${actors} \n ID : ${id}`);
-        alert(` Id : ${id} \n Actor : ${actors}`)
+        // No more alert here
       },
       error: (error) => {
         console.error('Error fetching actors:', error);
       }
     });
   }
+  
   
 
   
@@ -210,11 +213,10 @@ convertToExcel(): void {
  
 openActorListDialog(filmId: number) {
   this.fetchActors(filmId);
-  
-  const dialogRef = this.dialog.open(DialogComponent, {
+
+  const dialogRef = this.dialog.open(DialogueComponent, {
     width: '400px',
-    data: { filmId: filmId }, // Pass the filmId here
-    
+    data: { title: 'Actors List', actors: this.actors }, // Pass the title and actors here
   });
 
   dialogRef.afterClosed().subscribe((result) => {
@@ -223,4 +225,37 @@ openActorListDialog(filmId: number) {
 }
 
 
+
+openActorDialog(actors: any) {
+  // Open the dialog and pass actors data
+  this.dialog.open(DialogueComponent, {
+    data: {
+      title: 'Actors List',
+      actors: actors // Pass the actors' data here
+    }
+  });
+
+
+}
+
+openSideDialogue() {
+  // Open the side dialogue component
+  const dialogRef = this.dialog.open(SideDialogueComponent, {
+    width: '300px', // Adjust the width as needed
+    data: {
+      // Pass user details here
+      username: 'John Doe', // Replace with the actual username
+      storeId: '12345' // Replace with the actual store ID
+    }
+  });
+
+  // Subscribe to the afterClosed event to perform actions after the dialogue is closed
+  dialogRef.afterClosed().subscribe(result => {
+    if (result === 'logout') {
+      // Implement your logout logic here
+      console.log('Logout clicked');
+      // Call your logout function or navigate to the logout page
+    }
+  });
+}
 }

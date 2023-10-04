@@ -24,13 +24,15 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { FooterComponent } from './footer/footer.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
-import { DialogComponent } from './dialog/dialog.component';
+
 import { MatDialogModule } from '@angular/material/dialog';
+import { DialogueComponent } from './dialogue/dialogue.component';
+import { SideDialogueComponent } from './side-dialogue/side-dialogue.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, DialogComponent,],
+  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent,DialogueComponent, SideDialogueComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

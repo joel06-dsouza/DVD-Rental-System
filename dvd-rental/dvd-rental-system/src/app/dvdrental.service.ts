@@ -13,11 +13,6 @@ export class DvdRentalService {
 
 
 
-
-  // loginUser(username: string, password: string): Observable<any> {
-  //     return this.http.get<any>(`${this.apiUrl}/staff/login?username=${username}&password=${password}`);
-  //   }
-
   loginUser(username: string, password: string): Observable<any> {
     const requestBody = {
       username: username,
@@ -28,16 +23,10 @@ export class DvdRentalService {
       'Content-Type': 'application/json'
     });
 
-    return this.http.post<any>(`${this.apiUrl}/staff/login`, requestBody, { headers: headers });
+    return this.http.post<any>(`${this.apiUrl}/Staff/login`, requestBody, { headers: headers });
   }
 
 
-
-
-  // getAllFilmInfoByStoreId(storeId: number): Observable<FilmInfo[]> {
-  //   const url = `${this.apiUrl}/Staff/filmByStoreId?storeId=${storeId}`;
-  //   return this.http.get<FilmInfo[]>(url);
-  // }
   getAllFilmInfoByStoreId(storeId: number): Observable<FilmInfo[]> {
     const requestBody = {
       storeId: storeId
@@ -50,10 +39,7 @@ export class DvdRentalService {
     return this.http.post<FilmInfo[]>(`${this.apiUrl}/Staff/filmByStoreId`, requestBody, { headers: headers });
   }
 
-  // getActorsByFilmId(filmId: number): Observable<string[]> {
-  //   const url = `${this.apiUrl}/Staff/actors?filmId=${filmId}`;
-  //   return this.http.get<string[]>(url);
-  // }
+ 
   getActorsByFilmId(filmId: number): Observable<string[]> {
     const requestBody = {
       filmId: filmId
