@@ -1,9 +1,12 @@
+
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
+    <!-- <app-header (openSideDialogue)="openSideDialogue()"></app-header> -->
+    <app-sidenav></app-sidenav>
     <h1>FILM DETAILS</h1>
     <div class="mat-table-container">
         <!-- id takli -->
@@ -249,5 +252,10 @@
         <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
 
         <button (click)="convertToExcel()" class="convert">Convert To Excel</button>
+        <!-- <button class="convert">Convert To Excel</button> -->
+
+        <app-footer></app-footer>
     </div>
+    
 </body>
+
