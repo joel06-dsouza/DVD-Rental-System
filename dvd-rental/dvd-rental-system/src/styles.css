@@ -1,1 +1,708 @@
-/* You can add global styles to this file, and also import other style files */
+/*****************DATATABLE HTML**************/
+h1 {
+    text-align: center;
+    font-size: 40px;
+    margin: 20px 0;
+    color: #22c8ff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.mat-table-container {
+    margin: 10px;
+    overflow-x: auto;
+}
+
+/* Styles for screens smaller than 600px (typical mobile screens) */
+@media (max-width: 600px) {
+    .mat-table-container {
+        overflow-x: auto;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    table.mat-table {
+        display: block;
+    }
+}
+
+/*TABLE CSS*/
+#dataTable {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #b8a9a9;
+}
+
+/*TABLE HEADER ROW CSS*/
+#thcolor {
+    /* background-color: rgb(244, 143, 143); */
+    background-color: #51a5ff;
+    padding: 10px;
+    text-align: center;
+    word-break: break-all;
+    color: white;
+    border: 1px solid #b8a9a9;
+    font-weight: 450;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+/*TABLE HEADER ROW CSS*/
+#tdpad {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #b8a9a9;
+}
+
+/*TABLE TD ROW CSS*/
+#tdpadid {
+    font-weight: bold;
+    text-align: center;
+    color: #ebb609;
+    font-size: 15px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    border: 1px solid #b8a9a9;
+}
+
+/* CONVERT TO EXCEL BUTTON CSS */
+.convert {
+    display: block;
+    margin: 20px auto;
+    background-color: #51a2f9;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* CONVERT TO EXCEL BUTTON CSS */
+.convert:hover {
+    background-color: #007bff;
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+
+/* FILTER ICON */
+.btn-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* FILTER ICON */
+.btn-toggle mat-icon {
+    font-size: 20px;
+}
+
+/* FILTER ICON */
+.btn-toggle mat-icon {
+    font-size: 20px;
+    color: #efd009;
+}
+
+/* PAGINATOR */
+.mat-paginator {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ALTERNATE COLOR FOR ROWS */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* EYE ICON */
+#iconcolor {
+    color: #09ebeb;
+}
+
+
+/******************************LOGIN COMPONENT********************/
+
+/* Style for custom login button */
+#custom-button {
+    background-color: #d5e3f3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#custom-button:enabled {
+    background-color: #007bff;
+}
+
+#custom-button:hover {
+    background-color: #0056b3;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .hide-on-mobile {
+        display: none;
+    }
+}
+
+
+.login-box {
+    background: url(https://i.imgur.com/73BxBuI.png);
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+    margin: 50px auto;
+    min-height: 600px;
+}
+
+.logo {
+    font-family: "Script MT";
+    font-size: 54px;
+    text-align: left;
+    color: #888888;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* Define the keyframes animation */
+@keyframes fadeInSlideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+/* Apply the animation to the login box */
+.animation {
+    animation: fadeInSlideIn 0.5s ease-in-out;
+}
+
+/* Add hover effect to the login button */
+.login-form .login-button:hover {
+    background-color: #3BC3FF;
+}
+
+
+.logo .logo-font {
+    color: #3BC3FF;
+}
+
+@media only screen and (max-width: 767px) {
+    .logo {
+        font-size: 34px;
+    }
+}
+
+.header-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.login-form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.login-form .form-control {
+    border-radius: 0;
+    margin-bottom: 30px;
+}
+
+.login-form .form-group {
+    position: relative;
+}
+
+.login-form .form-group .forgot-password {
+    position: absolute;
+    top: 6px;
+    right: 15px;
+}
+
+.login-form .btn {
+    border-radius: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.login-form .btn.btn-primary {
+    background: #3BC3FF;
+    border-color: #31c0ff;
+}
+
+.slider-feature-card {
+    background: #fff;
+    max-width: 280px;
+    margin: 0 auto;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 2px 25px -3px rgba(0, 0, 0, 0.1);
+}
+
+.slider-feature-card img {
+    height: 80px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.slider-feature-card h3,
+.slider-feature-card p {
+    margin-bottom: 30px;
+}
+
+.carousel-indicators {
+    bottom: -50px;
+}
+
+.carousel-indicators li {
+    cursor: pointer;
+}
+
+.hover-effect:hover {
+    box-shadow: 0 0 5px 0px #3BC3FF;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.horizontal-align {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.mat-form-field {
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.mat-input-element {
+    height: 40px;
+}
+
+
+/*********************ERROR PAGE*************************/
+@import url('https://fonts.googleapis.com/css?family=Dosis:300,400,500');
+
+@-moz-keyframes rocket-movement {
+    100% {
+        -moz-transform: translate(1200px, -600px);
+    }
+}
+
+@-webkit-keyframes rocket-movement {
+    100% {
+        -webkit-transform: translate(1200px, -600px);
+    }
+}
+
+@keyframes rocket-movement {
+    100% {
+        transform: translate(1200px, -600px);
+    }
+}
+
+@-moz-keyframes spin-earth {
+    100% {
+        -moz-transform: rotate(-360deg);
+        transition: transform 20s;
+    }
+}
+
+@-webkit-keyframes spin-earth {
+    100% {
+        -webkit-transform: rotate(-360deg);
+        transition: transform 20s;
+    }
+}
+
+@keyframes spin-earth {
+    100% {
+        -webkit-transform: rotate(-360deg);
+        transform: rotate(-360deg);
+        transition: transform 20s;
+    }
+}
+
+@-moz-keyframes move-astronaut {
+    100% {
+        -moz-transform: translate(-160px, -160px);
+    }
+}
+
+@-webkit-keyframes move-astronaut {
+    100% {
+        -webkit-transform: translate(-160px, -160px);
+    }
+}
+
+@keyframes move-astronaut {
+    100% {
+        -webkit-transform: translate(-160px, -160px);
+        transform: translate(-160px, -160px);
+    }
+}
+
+@-moz-keyframes rotate-astronaut {
+    100% {
+        -moz-transform: rotate(-720deg);
+    }
+}
+
+@-webkit-keyframes rotate-astronaut {
+    100% {
+        -webkit-transform: rotate(-720deg);
+    }
+}
+
+@keyframes rotate-astronaut {
+    100% {
+        -webkit-transform: rotate(-720deg);
+        transform: rotate(-720deg);
+    }
+}
+
+@-moz-keyframes glow-star {
+    40% {
+        -moz-opacity: 0.3;
+    }
+
+    90%,
+    100% {
+        -moz-opacity: 1;
+        -moz-transform: scale(1.2);
+    }
+}
+
+@-webkit-keyframes glow-star {
+    40% {
+        -webkit-opacity: 0.3;
+    }
+
+    90%,
+    100% {
+        -webkit-opacity: 1;
+        -webkit-transform: scale(1.2);
+    }
+}
+
+@keyframes glow-star {
+    40% {
+        -webkit-opacity: 0.3;
+        opacity: 0.3;
+    }
+
+    90%,
+    100% {
+        -webkit-opacity: 1;
+        opacity: 1;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+        border-radius: 999999px;
+    }
+}
+
+.spin-earth-on-hover {
+
+    transition: ease 200s !important;
+    transform: rotate(-3600deg) !important;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 300;
+    -webkit-user-select: none;
+    /* Safari 3.1+ */
+    -moz-user-select: none;
+    /* Firefox 2+ */
+    -ms-user-select: none;
+    /* IE 10+ */
+    user-select: none;
+    /* Standard syntax */
+}
+
+.bg-purple {
+    background: url(http://salehriaz.com/404Page/img/bg_purple.png);
+    background-repeat: repeat-x;
+    background-size: cover;
+    background-position: left top;
+    height: 100%;
+    overflow: hidden;
+
+}
+
+.custom-navbar {
+    padding-top: 15px;
+}
+
+.brand-logo {
+    margin-left: 25px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.navbar-links {
+    display: inline-block;
+    float: right;
+    margin-right: 15px;
+    text-transform: uppercase;
+
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+li {
+    float: left;
+    padding: 0px 15px;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 12px;
+
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+li a:hover {
+    color: #ffcb39;
+}
+
+.btn-request {
+    padding: 10px 25px;
+    border: 1px solid #FFCB39;
+    border-radius: 100px;
+    font-weight: 400;
+}
+
+.btn-request:hover {
+    background-color: #FFCB39;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-go-home {
+    position: relative;
+    z-index: 200;
+    margin: 15px auto;
+    width: 100px;
+    padding: 10px 15px;
+    border: 1px solid #FFCB39;
+    border-radius: 100px;
+    font-weight: 400;
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 11px;
+
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+.btn-go-home:hover {
+    background-color: #FFCB39;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+.central-body {
+    /*    width: 100%;*/
+    padding: 17% 5% 10% 5%;
+    text-align: center;
+}
+
+.objects img {
+    z-index: 90;
+    pointer-events: none;
+}
+
+.object_rocket {
+    z-index: 95;
+    position: absolute;
+    transform: translateX(-50px);
+    top: 75%;
+    pointer-events: none;
+    animation: rocket-movement 200s linear infinite both running;
+}
+
+.object_earth {
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    z-index: 90;
+    /*    animation: spin-earth 100s infinite linear both;*/
+}
+
+.object_moon {
+    position: absolute;
+    top: 12%;
+    left: 25%;
+    /*
+    transform: rotate(0deg);
+    transition: transform ease-in 99999999999s;
+*/
+}
+
+
+
+.object_astronaut {
+    animation: rotate-astronaut 200s infinite linear both alternate;
+}
+
+.box_astronaut {
+    z-index: 110 !important;
+    position: absolute;
+    top: 60%;
+    right: 20%;
+    will-change: transform;
+    animation: move-astronaut 50s infinite linear both alternate;
+}
+
+.image-404 {
+    position: relative;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.stars {
+    background: url(http://salehriaz.com/404Page/img/overlay_stars.svg);
+    background-repeat: repeat;
+    background-size: contain;
+    background-position: left top;
+}
+
+.glowing_stars .star {
+    position: absolute;
+    border-radius: 100%;
+    background-color: #fff;
+    width: 3px;
+    height: 3px;
+    opacity: 0.3;
+    will-change: opacity;
+}
+
+.glowing_stars .star:nth-child(1) {
+    top: 80%;
+    left: 25%;
+    animation: glow-star 2s infinite ease-in-out alternate 1s;
+}
+
+.glowing_stars .star:nth-child(2) {
+    top: 20%;
+    left: 40%;
+    animation: glow-star 2s infinite ease-in-out alternate 3s;
+}
+
+.glowing_stars .star:nth-child(3) {
+    top: 25%;
+    left: 25%;
+    animation: glow-star 2s infinite ease-in-out alternate 5s;
+}
+
+.glowing_stars .star:nth-child(4) {
+    top: 75%;
+    left: 80%;
+    animation: glow-star 2s infinite ease-in-out alternate 7s;
+}
+
+.glowing_stars .star:nth-child(5) {
+    top: 90%;
+    left: 50%;
+    animation: glow-star 2s infinite ease-in-out alternate 9s;
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar-links {
+        display: none;
+    }
+
+    .custom-navbar {
+        text-align: center;
+    }
+
+    .brand-logo img {
+        width: 120px;
+    }
+
+    .box_astronaut {
+        top: 70%;
+    }
+
+    .central-body {
+        padding-top: 25%;
+    }
+}
+
+/*******************************HEADER COMPONENT***********************/
+.header {
+    background-color: #333;
+    color: #fff;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 29px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.toolbar-center {
+    flex: 1;
+    text-align: center;
+}
+
+.mr-2 {
+    margin-right: 8px;
+}
+
+
+/*********************************FOOTER COMPONENT****************/
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 10PX;
+}
