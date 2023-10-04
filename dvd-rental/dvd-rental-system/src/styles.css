@@ -484,3 +484,11 @@ footer {
     font-weight: 600;
   }
   
+  body {
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+  }
+  
+  .header {
+    margin-bottom: 0; /* Remove margin from the header */
+  }
