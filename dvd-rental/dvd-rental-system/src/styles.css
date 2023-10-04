@@ -7,10 +7,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-/* .example-container mat-form-field + mat-form-field {
-    margin-left: 8px;
-  }
-   */
+
 
    .example-container mat-form-field + mat-form-field {
     margin-left: 8px;
@@ -80,8 +77,8 @@ h1 {
   position: absolute;
   top: 10px; /* Adjust the top position as needed for spacing from the top */
   right: 10px; /* Adjust the right position as needed for spacing from the right */
-  width: 40px; /* Set the width of the profile photo icon */
-  height: 40px; /* Set the height of the profile photo icon */
+  width: 80px; /* Set the width of the profile photo icon */
+  height: 80px; /* Set the height of the profile photo icon */
   border-radius: 50%; /* Make it a circle */
 }
 .profile-photo {
@@ -121,4 +118,77 @@ h1 {
 
 .profile-photo-container:hover .overlay {
   opacity: 1;
+}
+
+.profile-icon {
+  font-size: 100px; /* Adjust the size as needed */
+}
+.profile-icon-container {
+  width: 50%; /* Adjust the width to your desired size */
+  height: 50%; /* Adjust the height to your desired size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.profile-box-expanded {
+  transform: scale(2); /* Increase the size by using the scale transform */
+  transition: transform 0.3s ease; /* Add a smooth transition */
+}
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Change to flex-start for responsiveness */
+}
+
+body {
+position: relative;
+min-height: 100vh;
+margin: 0;
+padding: 0;
+display: flex;
+flex-direction: column;
+}
+.content {
+flex: 1;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+.right-align {
+  text-align: right;
+}
+
+.move-right {
+  margin-left: auto;
+}
+
+.toolbar-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+/* Adjustments for responsiveness */
+@media (max-width: 768px) {
+  .toolbar-center {
+      padding-left: 0;
+      text-align: center;
+  }
+
+  .mat-icon {
+      padding-left: 0;
+      padding-right: 10px;
+  }
+
+  .move-right {
+      margin-left: 0;
+  }
+
+  footer.mat-toolbar {
+      text-align: center;
+  }
 }

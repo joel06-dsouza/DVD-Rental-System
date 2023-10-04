@@ -17,6 +17,12 @@
             align-items: flex-start; /* Change to flex-start for responsiveness */
         }
 
+
+        .profile-box-expanded {
+  transform: scale(2); /* Increase the size by using the scale transform */
+  transition: transform 0.3s ease; /* Add a smooth transition */
+}
+
         body {
       position: relative;
       min-height: 100vh;
@@ -68,37 +74,43 @@
                 text-align: center;
             }
         }
-    </style>
+</style>
 </head>
 
 <body>
-    <div id="container">
+    <div id="container" >
         <mat-toolbar color="primary">
             <span class="toolbar-center text-white">MINDCRAFT SOFTWARE PVT. LTD.</span>
-            <mat-icon class="mr-2" (click)="toggleProfileBox()">account_circle</mat-icon>
+        <div class="profile-icon-container" (click)="toggleProfileBox()">   
+            <mat-icon class="mr-2" >account_circle</mat-icon>
+        </div> 
         </mat-toolbar>
-
+       
 
 
         <div [@slideInOut]="profileBoxState" 
-         id="login-box" class="move-right">
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form"></form>
+         id="login-box" 
+         class="move-right"
+         [ngClass]="{'profile-box-expanded': profileBoxState === 'in'}">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" 
+            class="login-form"></form>
         </div>
 
-        <div [@slideInOut]="profileBoxState" id="profile-box" class="move-right">
+        <div [@slideInOut]="profileBoxState" id="profile-box" 
+        class="move-right">
             <mat-card class="profile-card">
             <mat-card-header>
 
-                <mat-icon class="mr-2" (click)="profilePhotoInput.click()">account_circle</mat-icon>
-                <input type="file" #profilePhotoInput style="display: none;" (change)="onProfilePhotoChange($event)">
-                <br/>
+        <mat-icon class="mr-2" (click)="profilePhotoInput.click()">account_circle</mat-icon>
+        <input type="file" #profilePhotoInput style="display: none;" (change)="onProfilePhotoChange($event)">
+        <br/>&nbsp;
 
 
-                <mat-card-title>WELCOME</mat-card-title>
+        <mat-card-title>WELCOME</mat-card-title>
 
-                <mat-card-subtitle style="text-align: center;">
-                        {{ user.fullname }}
-                </mat-card-subtitle>
+        <mat-card-subtitle style="text-align: center;">
+                {{ user.fullname }}
+        </mat-card-subtitle>
 
             </mat-card-header>
                 <mat-card-content>
