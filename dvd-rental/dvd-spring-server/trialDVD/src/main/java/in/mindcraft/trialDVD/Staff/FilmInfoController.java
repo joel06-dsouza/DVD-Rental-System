@@ -19,7 +19,7 @@ public class FilmInfoController {
         this.filmInfoRepository = filmInfoRepository;
     }
 
-    @PostMapping("/filmlist")
+    @PostMapping("/filmlist") 
     public List<FilmInfo> getAllFilmInfo() {
     	
         return filmInfoRepository.findAll();

@@ -2,11 +2,11 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Spring Boot-DvdSpringServerApplication<TrialApplication>",
+            "name": "Spring Boot-TrialDvdApplication<trialDVD>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "mainClass": "in.mindcraft.controllers.DvdSpringServerApplication",
-            "projectName": "TrialApplication",
+            "mainClass": "in.mindcraft.trialDVD.TrialDvdApplication",
+            "projectName": "trialDVD",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
