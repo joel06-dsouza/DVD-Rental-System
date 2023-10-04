@@ -2,6 +2,7 @@ import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
+import * as Papa from 'papaparse';
 @Component({
   selector: 'app-datatable',
   templateUrl: './datatable.component.html',
@@ -110,7 +111,7 @@ export class DatatableComponent implements AfterViewInit {
     const searchDescription = (this.searchValue.description || '').trim().toLowerCase();
     const searchReleaseYear = (this.searchValue.releaseYear || '').trim().toLowerCase();
     const searchLanguage = (this.searchValue.language || '').trim().toLowerCase();
-    const searchRentalDuration = (this.searchValue.rentalDuration || '').trim().toLowerCase();
+    const searchRentalDuration = (this.searchValue.rentalDuwration || '').trim().toLowerCase();
     const searchRentalRate = (this.searchValue.rentalRate || '').trim().toLowerCase();
     const searchLength = (this.searchValue.length || '').trim().toLowerCase();
     const searchRating = (this.searchValue.rating || '').trim().toLowerCase();
@@ -131,6 +132,17 @@ export class DatatableComponent implements AfterViewInit {
     };
   
     this.dataSource.filter = 'filter'; // Apply the filter
+  }
+
+  exportToCSV() {
+    const csvData = Papa.unparse(this.dataSource.data);
+    const blob = new Blob([csvData], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'film-data.csv';
+    a.click();
+    window.URL.revokeObjectURL(url);
   }
   
 }

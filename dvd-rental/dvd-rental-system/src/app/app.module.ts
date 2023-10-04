@@ -14,13 +14,15 @@ import {MatInputModule} from '@angular/material/input'
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatMenuModule} from '@angular/material/menu';
+import { LoginComponent } from './login/login.component';
 
 import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DatatableComponent
+    DatatableComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

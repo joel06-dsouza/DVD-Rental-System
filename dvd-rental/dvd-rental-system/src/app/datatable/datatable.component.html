@@ -1,3 +1,4 @@
+
 <div class="mat-table-container">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -282,4 +283,6 @@
     
     <!-- Add MatPaginator below your table -->
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+    <button class="export-button" (click)="exportToCSV()">Export CSV</button>
 </div>

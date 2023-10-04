@@ -2,3 +2,139 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* styles.css */
+
+/* Define global styles for the entire application */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #dcdee0; /* Light white background for the entire app */
+  }
+  
+  /* Define specific styles for the login component */
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('C:\Users\user\dvd-rental-system\dvd-rental\dvd-rental-system\src\assets\mindcraft.jpg'
+    ); /* Replace 'background.jpg' with your image file's path */
+    background-size: cover; /* Scale the background image to cover the entire container */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    background-position: center center; 
+  }
+  
+  .login-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    box-shadow: 0 0 20px rgba(174, 26, 26, 0.4);
+    border-radius: 10px;
+    background-color: #b2d0ef;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .login-title {
+    font-size: 24px;
+    color: #302a2a; 
+    text-align: center; 
+    margin-top: 10px; 
+  }
+  
+  .login-input {
+    width: 100%;
+    margin-top: 20px;
+    color: #ece6e6; /* Dark text color */
+  }
+  
+  .login-button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+  /* datatable style */
+
+  /* Add space between the links */
+a {
+    margin-right: 10px; /* Adjust the value to set the desired space */
+  }
+  
+  /* Style the links */
+  a {
+    text-decoration: none; /* Remove the default underline */
+    color: #007bff; /* Set the link color to blue, you can change this */
+    font-weight: bold; /* Make the link text bold, you can change this */
+  }
+  
+  a:hover {
+    text-decoration: underline; /* Add underline on hover, you can change this */
+  }
+  
+  /* Style the router-outlet container */
+  router-outlet {
+    border: 1px solid #ccc; /* Add a border around the router outlet */
+    padding: 10px; /* Add some padding to the router outlet */
+  }
+  
+  /* Style the form container (if applicable) */
+  .form-container {
+    border: 1px solid #ddd; /* Add a border around the form container */
+    padding: 20px; /* Add padding to the form container */
+  }
+  
+  /* Style the table (if applicable) */
+  table {
+    width: 100%; /* Make the table fill its container */
+    border-collapse: collapse; /* Collapse table borders */
+  }
+  
+  th, td {
+    padding: 8px 12px; /* Add padding to table cells */
+    text-align: left; /* Align text to the left in cells */
+    border-bottom: 1px solid #ddd; /* Add a bottom border to table rows */
+  }
+  
+  th {
+    background-color: #351717; /* Set background color for table headers */
+    font-weight: bold; /* Make table headers bold */
+  }
+  
+  /* Style the paginator (if applicable) */
+  .mat-paginator {
+    margin-top: 20px; /* Add space above the paginator */
+  }
+  
+  /* Style any other custom elements in your component */
+  
+  /* Style the Export CSV button */
+.export-button {
+    background-color: #007bff; /* Set the background color */
+    color: #fff; /* Set the text color */
+    padding: 10px 20px; /* Add padding to the button */
+    border: none; /* Remove the button border */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    border-radius: 4px; /* Add rounded corners */
+  }
+  
+  .export-button:hover {
+    background-color: #0056b3; /* Change the background color on hover */
+  }
+ 
+  
+  
+  
