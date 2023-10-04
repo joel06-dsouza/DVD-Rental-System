@@ -1,3 +1,4 @@
+/* Datatable.component.ts */
 import { FormsModule } from '@angular/forms';
 import { Component, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
