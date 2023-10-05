@@ -1,4 +1,3 @@
-/* sidenav.component.ts*/
 import { NgModule, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder,Validators } from '@angular/forms';
 import {Component} from '@angular/core';
@@ -85,7 +84,7 @@ export class SidenavComponent  implements OnInit{
         [
           Validators.required,
           /* Validators.minLength(8), // Minimum password length
-          Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]+$/), // At least one letter and one number
+          Validators.pattern(/^(?=.[A-Za-z])(?=.\d)[A-Za-z\d@$!%*#?&]+$/), // At least one letter and one number
           Validators.maxLength(10), */
         ],
       ],
@@ -118,7 +117,7 @@ export class SidenavComponent  implements OnInit{
 
       password: ['', [Validators.required, 
         Validators.minLength(8), 
-        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/),
+        Validators.pattern(/^(?=.[A-Za-z])(?=.\d)[A-Za-z\d]{8,}$/),
         Validators.maxLength(10)]]
     });
   }
@@ -175,9 +174,3 @@ interface UserProfile {
 
   
 }
-
-
-
-
-
-

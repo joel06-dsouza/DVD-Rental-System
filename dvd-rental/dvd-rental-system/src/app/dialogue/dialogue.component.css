@@ -1,0 +1,36 @@
+/* Custom styles for the dialog box */
+.custom-dialog-title {
+  font-size: 24px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.custom-dialog-content {
+  font-size: 18px;
+  color: #666;
+}
+
+.custom-actor-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.custom-actor-item {
+  margin-bottom: 10px;
+}
+
+.custom-dialog-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.custom-dialog-button {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.custom-dialog-button:hover {
+  background-color: #0056b3;
+}

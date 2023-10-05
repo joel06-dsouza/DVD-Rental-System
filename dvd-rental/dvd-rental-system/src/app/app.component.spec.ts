@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'dvd-rental-system'`, () => {
+  it(`should have as title 'dvdrental'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('dvd-rental-system');
+    expect(app.title).toEqual('dvdrental');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('dvd-rental-system app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('dvdrental app is running!');
   });
 });

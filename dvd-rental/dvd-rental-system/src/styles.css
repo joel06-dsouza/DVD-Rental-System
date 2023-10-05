@@ -1,194 +1,489 @@
 /* You can add global styles to this file, and also import other style files */
-/* style.css */
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+/* 
+body {
+    background: #f5f5f5;
+} */
 
-/* style.css */
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@media only screen and (max-width: 767px) {
+    .hide-on-mobile {
+        display: none;
+    }
+}
 
 
+/* 
+login page from line 14 to  158 
+*/
 
-   .example-container mat-form-field + mat-form-field {
-    margin-left: 8px;
+
+.login-box {
+    background: url(https://i.imgur.com/73BxBuI.png);
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+    margin: 50px auto;
+    min-height: 700px;  
+   /* Set the desired width */
+}
+
+.logo {
+    font-family: "Script MT";
+    font-size: 54px;
+    text-align: center;
+    color: #888888;
+    margin-bottom: 10px; /* Reduce the margin between the logo and "Staff Login" */
+    margin-top: 10px; /* Add margin to move "Staff Login" up */
+    
+}
+
+/* Define the keyframes animation */
+@keyframes fadeInSlideIn {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
   
-  .example-right-align {
-    text-align: right;
+  
+  /* Apply the animation to the login box */
+  .animation {
+    animation: fadeInSlideIn 0.5s ease-in-out;
   }
   
-  input.example-right-align::-webkit-outer-spin-button,
-  input.example-right-align::-webkit-inner-spin-button {
-    display: none;
+  /* Add hover effect to the login button */
+  .login-form .login-button:hover {
+    background-color: #3BC3FF;
   }
   
-  input.example-right-align {
-    -moz-appearance: textfield;
-  }
-  
-  /* login.component.css */
 
-.form-title {
-  color: blueviolet;
-  font-size: 24px;
-  margin-bottom: 20px;
+.logo .logo-font {
+    color: #3BC3FF;
+}
+
+@media only screen and (max-width: 767px) {
+    .logo {
+        font-size: 34px;
+    }
+}
+
+.header-title {
+    text-align: center;
+    margin-bottom: 50px;
 }
 
 .login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
-.form-field {
-  margin: 10px 0;
-  width: 100%;
+.login-form .form-control {
+    border-radius: 0;
+    margin-bottom: 30px;
 }
 
-.input-field {
-  width: 100%;
+.login-form .form-group {
+    position: relative;
 }
 
-.submit-button {
-  margin: 20px 0;
-  padding: 10px 20px;
-  background-color: #007acc;
-  color: white;
-  border: none;
-  transition: background-color 0.3s;
+.login-form .form-group .forgot-password {
+    position: absolute;
+    top: 6px;
+    right: 15px;
 }
 
-.submit-button:hover {
-  background-color: #005a9c;
+.login-form .btn {
+    border-radius: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
 }
 
-
-/* styles.css */
-h1 {
-  background-color: #6f6868; /* Adjust the background color as needed */
-  padding: 10px; /* Add padding for spacing */
-  position:static; /* Make the header a positioned element */
+.login-form .btn.btn-primary {
+    background: #3BC3FF;
+    border-color: #31c0ff;
 }
 
-#profile-icon {
-  position: absolute;
-  top: 10px; /* Adjust the top position as needed for spacing from the top */
-  right: 10px; /* Adjust the right position as needed for spacing from the right */
-  width: 80px; /* Set the width of the profile photo icon */
-  height: 80px; /* Set the height of the profile photo icon */
-  border-radius: 50%; /* Make it a circle */
-}
-.profile-photo {
-  width: 5px; /* Adjust the width as needed */
-  height: 5px; /* Adjust the height as needed */
-  border-radius: 1%; /* Make it circular */
-  margin: 1px auto; /* Center the image */
-
-}
-.profile-photo {
-  border: 3px solid transparent;
-  border-radius: 50%;
-  transition: border-color 0.3s ease-in-out;
+.slider-feature-card {
+    background: #fff;
+    max-width: 280px;
+    margin: 0 auto;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 2px 25px -3px rgba(0, 0, 0, 0.1);
 }
 
-.profile-photo:hover {
-  border-color: #007bff; /* Change to your desired hover color */
-}
-.profile-photo-container {
-  position: relative;
-  display: inline-block;
+.slider-feature-card img {
+    height: 80px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.5); /* Change the overlay color and opacity as needed */
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+.slider-feature-card h3,
+.slider-feature-card p {
+    margin-bottom: 30px;
 }
 
-.profile-photo-container:hover .overlay {
-  opacity: 1;
+.carousel-indicators {
+    bottom: -50px;
 }
 
-.profile-icon {
-  font-size: 100px; /* Adjust the size as needed */
-}
-.profile-icon-container {
-  width: 50%; /* Adjust the width to your desired size */
-  height: 50%; /* Adjust the height to your desired size */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-.profile-box-expanded {
-  transform: scale(2); /* Increase the size by using the scale transform */
-  transition: transform 0.3s ease; /* Add a smooth transition */
-}
-#container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Change to flex-start for responsiveness */
+.carousel-indicators li {
+    cursor: pointer;
 }
 
-body {
-position: relative;
-min-height: 100vh;
-margin: 0;
-padding: 0;
-display: flex;
-flex-direction: column;
-}
-.content {
-flex: 1;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
-
-.right-align {
-  text-align: right;
+.hover-effect:hover {
+    box-shadow: 0 0 5px 0px #3BC3FF;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+/* Add this CSS class in your styles.css or a custom CSS file */
+.horizontal-align {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* Align left */
+    align-items: center; /* Center vertically */
+    margin-bottom: 10px; /* Reduce the margin between the logo and "Staff Login" */
+    margin-top: 10px;  /* Add margin for spacing between fields */
 }
 
-.move-right {
-  margin-left: auto;
-}
-
-.toolbar-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-/* Adjustments for responsiveness */
-@media (max-width: 768px) {
-  .toolbar-center {
-      padding-left: 0;
-      text-align: center;
+.mat-form-field {
+    width: 100%; /* Set the width to 100% to fill the container */
+    font-size: 16px; /* Adjust font size */
+    margin-bottom: 15px; /* Add margin between fields */
+  }
+  
+  /* Increase the height of the input field */
+  .mat-input-element {
+    height: 40px; /* Adjust the height */
   }
 
-  .mat-icon {
-      padding-left: 0;
-      padding-right: 10px;
-  }
 
-  .move-right {
-      margin-left: 0;
-  }
+  
+/* 
+   404 page from line 182 to  471
+*/
 
-  footer.mat-toolbar {
-      text-align: center;
-  }
+
+  /*
+
+  404  page 
+
+VIEW IN FULL SCREEN MODE
+FULL SCREEN MODE: http://salehriaz.com/404Page/404.html
+
+DRIBBBLE: https://dribbble.com/shots/4330167-404-Page-Lost-In-Space
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Dosis:300,400,500');
+
+@-moz-keyframes rocket-movement { 100% {-moz-transform: translate(1200px,-600px);} }
+@-webkit-keyframes rocket-movement {100% {-webkit-transform: translate(1200px,-600px); } }
+@keyframes rocket-movement { 100% {transform: translate(1200px,-600px);} }
+@-moz-keyframes spin-earth { 100% { -moz-transform: rotate(-360deg); transition: transform 20s;  } }
+@-webkit-keyframes spin-earth { 100% { -webkit-transform: rotate(-360deg); transition: transform 20s;  } }
+@keyframes spin-earth{ 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); transition: transform 20s; } }
+
+@-moz-keyframes move-astronaut {
+    100% { -moz-transform: translate(-160px, -160px);}
 }
+@-webkit-keyframes move-astronaut {
+    100% { -webkit-transform: translate(-160px, -160px);}
+}
+@keyframes move-astronaut{
+    100% { -webkit-transform: translate(-160px, -160px); transform:translate(-160px, -160px); }
+}
+@-moz-keyframes rotate-astronaut {
+    100% { -moz-transform: rotate(-720deg);}
+}
+@-webkit-keyframes rotate-astronaut {
+    100% { -webkit-transform: rotate(-720deg);}
+}
+@keyframes rotate-astronaut{
+    100% { -webkit-transform: rotate(-720deg); transform:rotate(-720deg); }
+}
+
+@-moz-keyframes glow-star {
+    40% { -moz-opacity: 0.3;}
+    90%,100% { -moz-opacity: 1; -moz-transform: scale(1.2);}
+}
+@-webkit-keyframes glow-star {
+    40% { -webkit-opacity: 0.3;}
+    90%,100% { -webkit-opacity: 1; -webkit-transform: scale(1.2);}
+}
+@keyframes glow-star{
+    40% { -webkit-opacity: 0.3; opacity: 0.3;  }
+    90%,100% { -webkit-opacity: 1; opacity: 1; -webkit-transform: scale(1.2); transform: scale(1.2); border-radius: 999999px;}
+}
+
+.spin-earth-on-hover{
+    
+    transition: ease 200s !important;
+    transform: rotate(-3600deg) !important;
+}
+
+html, body{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 300;
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+.bg-purple{
+    background: url(http://salehriaz.com/404Page/img/bg_purple.png);
+    background-repeat: repeat-x;
+    background-size: cover;
+    background-position: left top;
+    height: 100%;
+    overflow: hidden;
+    
+}
+
+.custom-navbar{
+    padding-top: 15px;
+}
+
+.brand-logo{
+    margin-left: 25px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.navbar-links{
+    display: inline-block;
+    float: right;
+    margin-right: 15px;
+    text-transform: uppercase;
+    
+    
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+/*    overflow: hidden;*/
+    display: flex; 
+    align-items: center; 
+}
+
+li {
+    float: left;
+    padding: 0px 15px;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing : 2px;
+    font-size: 12px;
+    
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+li a:hover {
+    color: #ffcb39;
+}
+
+.btn-request{
+    padding: 10px 25px;
+    border: 1px solid #FFCB39;
+    border-radius: 100px;
+    font-weight: 400;
+}
+
+.btn-request:hover{
+    background-color: #FFCB39;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0px 20px 20px rgba(0,0,0,0.1);
+}
+
+.btn-go-home{
+    position: relative;
+    z-index: 200;
+    margin: 15px auto;
+    width: 100px;
+    padding: 10px 15px;
+    border: 1px solid #FFCB39;
+    border-radius: 100px;
+    font-weight: 400;
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing : 2px;
+    font-size: 11px;
+    
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+.btn-go-home:hover{
+    background-color: #3BC3FF;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0px 20px 20px rgba(0,0,0,0.1);
+}
+
+.central-body{
+/*    width: 100%;*/
+    padding: 17% 5% 10% 5%;
+    text-align: center;
+}
+
+.objects img{
+    z-index: 90;
+    pointer-events: none;
+}
+
+.object_rocket{
+    z-index: 95;
+    position: absolute;
+    transform: translateX(-50px);
+    top: 75%;
+    pointer-events: none;
+    animation: rocket-movement 200s linear infinite both running;
+}
+
+.object_earth{
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    z-index: 90;
+/*    animation: spin-earth 100s infinite linear both;*/
+}
+
+.object_moon{
+    position: absolute;
+    top: 12%;
+    left: 25%;
+/*
+    transform: rotate(0deg);
+    transition: transform ease-in 99999999999s;
+*/
+}
+
+.earth-moon{
+    
+}
+
+.object_astronaut{
+    animation: rotate-astronaut 200s infinite linear both alternate;
+}
+
+.box_astronaut{
+    z-index: 110 !important;
+    position: absolute;
+    top: 60%;
+    right: 20%;
+    will-change: transform;
+    animation: move-astronaut 50s infinite linear both alternate;
+}
+
+.image-404{
+    position: relative;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.stars{
+    background: url(http://salehriaz.com/404Page/img/overlay_stars.svg);
+    background-repeat: repeat;
+    background-size: contain;
+    background-position: left top;
+}
+
+.glowing_stars .star{
+    position: absolute;
+    border-radius: 100%;
+    background-color: #fff;
+    width: 3px;
+    height: 3px;
+    opacity: 0.3;
+    will-change: opacity;
+}
+
+.glowing_stars .star:nth-child(1){
+    top: 80%;
+    left: 25%;
+    animation: glow-star 2s infinite ease-in-out alternate 1s;
+}
+.glowing_stars .star:nth-child(2){
+    top: 20%;
+    left: 40%;
+    animation: glow-star 2s infinite ease-in-out alternate 3s;
+}
+.glowing_stars .star:nth-child(3){
+    top: 25%;
+    left: 25%;
+    animation: glow-star 2s infinite ease-in-out alternate 5s;
+}
+.glowing_stars .star:nth-child(4){
+    top: 75%;
+    left: 80%;
+    animation: glow-star 2s infinite ease-in-out alternate 7s;
+}
+.glowing_stars .star:nth-child(5){
+    top: 90%;
+    left: 50%;
+    animation: glow-star 2s infinite ease-in-out alternate 9s;
+}
+
+@media only screen and (max-width: 600px){
+    .navbar-links{
+        display: none;
+    }
+    
+    .custom-navbar{
+        text-align: center;
+    }
+    
+    .brand-logo img{
+        width: 120px;
+    }
+    
+    .box_astronaut{
+        top: 70%;
+    }
+    
+    .central-body{
+        padding-top: 25%;
+    }
+}
+
+  
+/* 
+foooter from line 473 to 482 
+*/
+    
+footer {
+    text-align: center;
+    padding: 10px; /* Add padding for spacing */
+    background-color: #333; /* Add a background color */
+    color: #fff; /* Set text color to white */
+    padding: 29px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

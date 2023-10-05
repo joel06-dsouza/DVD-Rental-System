@@ -1,20 +1,15 @@
-/* app-routing.module.ts */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DatatableComponent } from './datatable/datatable.component';
-import { LoginComponent } from './login/login.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
-
+import { LoginFormComponent } from './login-form/login-form.component';
+import { DisplayComponent } from './display/display.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  {path:'table',component:DatatableComponent}
- ,
- {
-  path:'login',component:LoginComponent
- } ,
- {
-  path:'sidenav',component:SidenavComponent
- }
+  {path:'',component:LoginFormComponent},
+  {path:'login' ,component:LoginFormComponent},
+  {path:'display',component:DisplayComponent,canActivate:[AuthGuard]},
+  { path: '**', component: ErrorPageComponent}
 ];
 
 @NgModule({
