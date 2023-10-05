@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { FilmInfo } from './FilmInfo.model';
+import { FilmInfo } from './filminfo.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,7 +23,7 @@ export class DvdRentalService {
       'Content-Type': 'application/json'
     });
 
-    return this.http.post<any>(`${this.apiUrl}/Staff/login`, requestBody, { headers: headers });
+    return this.http.post<any>(`${this.apiUrl}/staff/login`, requestBody, { headers: headers });
   }
 
 

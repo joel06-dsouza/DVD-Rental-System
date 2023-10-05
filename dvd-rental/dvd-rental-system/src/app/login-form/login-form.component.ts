@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DvdRentalService } from '../dvdrental.service'; // Replace with the actual path
-import { FilmInfo } from '../FilmInfo.model'; 
+import { FilmInfo } from '../filminfo.model'; 
 import { Router } from '@angular/router';
 import { LoginModel } from './login.model';
 import * as crypto from 'crypto-js';
