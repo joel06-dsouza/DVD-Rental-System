@@ -166,6 +166,8 @@ public class StaffController {
                 long S_id = staff.getStoreId();
                 String token = jwtTokenProvider.generateToken(username, S_id);
                 String S_fullName = staff.getFirstName() + " " + staff.getLastName();
+                String S_email = staff.getEmail();
+
 
                  JwtToken jwtToken = new JwtToken();
                  jwtToken.setJwtToken(token);
@@ -173,10 +175,12 @@ public class StaffController {
                 response.put("storeId", S_id);
                 response.put("fullName", S_fullName);
                 response.put("jwtToken", jwtToken);
+                response.put("email", S_email);
                 System.out.println("Full Name: " + S_fullName);
                 // Assuming getStoreId() is the getter method for storeId
                 System.out.println("Store ID " + S_id);
                 System.out.println("jwtToke" +jwtToken);
+                System.out.println("Email"+S_email);
                 return ResponseEntity.ok(response);
             }
         }
