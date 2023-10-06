@@ -28,11 +28,13 @@ import { HeaderComponent } from './header/header.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { SideDialogueComponent } from './side-dialogue/side-dialogue.component';
-
+import { CommonModule } from '@angular/common';
+import { DialogueComponent } from './dialogue/dialogue.component';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent],
+  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, DialogueComponent, AdmindashboardComponent],
   imports: [
     MatDialogModule,
     HttpClientModule,
@@ -53,7 +55,8 @@ import { SideDialogueComponent } from './side-dialogue/side-dialogue.component';
     HttpClientModule,
     MatToolbarModule,
     SidenavComponent,
-    MatDialogModule
+    MatDialogModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent],

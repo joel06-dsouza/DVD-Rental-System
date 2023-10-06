@@ -12,6 +12,6 @@ export class AdminDvdRentalService {
 
   loginAdmin(username: string, password: string): Observable<any> {
     const requestBody = { username, password };
-    return this.http.post(`${this.apiUrl}/admin/authenticate`, requestBody);
+    return this.http.post(`${this.apiUrl}/admin/login`, requestBody);
   }
 }
