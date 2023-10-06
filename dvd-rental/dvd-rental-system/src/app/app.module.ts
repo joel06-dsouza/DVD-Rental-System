@@ -24,19 +24,18 @@ import { FooterComponent } from './footer/footer.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
 import { MatDialogModule } from '@angular/material/dialog';
+
+import { SideDialogueComponent } from './side-dialogue/side-dialogue.component';
+import { CommonModule } from '@angular/common';
 import { DialogueComponent } from './dialogue/dialogue.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
-import { FilmDialogComponent } from './film-dialog/film-dialog.component';
-
-
-
 
 
 @NgModule({
-  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent,DialogueComponent, AdmindashboardComponent, FilmDialogComponent],
+  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, DialogueComponent, AdmindashboardComponent],
   imports: [
+    MatDialogModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -54,8 +53,7 @@ import { FilmDialogComponent } from './film-dialog/film-dialog.component';
     HttpClientModule,
     MatToolbarModule,
     MatDialogModule,
-    MatSidenavModule,
-    MatListModule 
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent],

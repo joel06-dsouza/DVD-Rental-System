@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { FilmInfo } from '../FilmInfo.model';
 import { FilmDialogComponent } from '../film-dialog/film-dialog.component';
-
 
 interface YourData {
   storeid: number;
@@ -57,3 +55,4 @@ export class AdmindashboardComponent {
     // Handle view action
   }
 }
+

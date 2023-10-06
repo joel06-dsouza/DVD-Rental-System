@@ -71,8 +71,12 @@
             <td mat-cell *matCellDef="let row">
                 <button mat-button color="primary" (click)="edit(row)" id="mbtn">Staff</button>
                 &nbsp;
+<<<<<<< HEAD
                 <!-- Add the button to open the dialog -->
         <button mat-button color="accent" (click)="openFilmDialogue()" id="mbtn">Film</button>
+=======
+                <button mat-button color="accent" (click)="view(row)" id="mbtn">Film</button>
+>>>>>>> 513d616ad935877e551705a7c63c8dfb24c12eb1
             </td>
         </ng-container>
 
@@ -80,6 +84,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 </div>
+<<<<<<< HEAD
 <br>
 <br>
 <br>
@@ -91,3 +96,7 @@
 <br>
 <app-footer></app-footer>
 
+=======
+
+<app-footer></app-footer>
+>>>>>>> 513d616ad935877e551705a7c63c8dfb24c12eb1
