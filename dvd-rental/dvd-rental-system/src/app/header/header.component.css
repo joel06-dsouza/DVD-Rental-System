@@ -1,23 +1,19 @@
+/* Add CSS styles for the header and side navigation */
+
 .header {
-    background-color: #333; /* Header background color */
-    color: #fff; /* Text color */
-  
-    display: flex; /* Use flexbox for centering */
-    justify-content: space-between; /* Space elements evenly */
-    align-items: center; /* Center vertically */
-    padding: 29px;
-    font-size: 20px;
-    font-weight: 600;
-  }
-  
-  .toolbar-center {
-    flex: 1; /* Allow the center span to grow and take available space */
-    text-align: center; /* Center the text horizontally */
-  }
-  
-  .mr-2 {
-    margin-right: 8px; /* Add margin to the icon for spacing */
-  }
-  
-  /* Add more styles as needed */
-  
+  background-color: #131313; /* Example background color */
+  color: #fff; /* Example text color */
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidenav-container {
+  position: relative;
+  height: 100%;
+}
+
+.mat-sidenav {
+  width: 250px; /* Adjust the width as needed */
+}

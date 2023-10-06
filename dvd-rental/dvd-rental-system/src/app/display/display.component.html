@@ -6,7 +6,7 @@
 
 <body>
     <!-- <app-header (openSideDialogue)="openSideDialogue()"></app-header> -->
-    <app-sidenav></app-sidenav>
+    <app-header></app-header>
     <h1>FILM DETAILS</h1>
     <div class="mat-table-container">
         <!-- id takli -->
@@ -19,8 +19,7 @@
                         <mat-icon>filter_alt</mat-icon>
                     </button>
                 </th>
-                <td mat-cell *matCellDef="let element" id="tdpadid"> {{element.id}} </td>
-
+                <td mat-cell *matCellDef="let element" id="tdpadid"> {{element?.id}} </td>
                 <mat-menu #filmidMenu="matMenu">
                     <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title"
                         (click)="$event.stopPropagation()">

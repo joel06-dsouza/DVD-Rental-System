@@ -1,15 +1,15 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { FilmInfo } from '../FilmInfo.model';
 import { DvdRentalService } from '../dvdrental.service';
 import { Subscription, filter } from 'rxjs';
 import * as XLSX from 'xlsx';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DialogueComponent } from '../dialogue/dialogue.component';
 import { HeaderComponent } from '../header/header.component';
 import { MatButtonModule } from '@angular/material/button';
-import { SideDialogueComponent } from '../side-dialogue/side-dialogue.component';
+
 
 @Component({
   selector: 'app-display',
@@ -17,8 +17,8 @@ import { SideDialogueComponent } from '../side-dialogue/side-dialogue.component'
   styleUrls: ['./display.component.css']
 })
 export class DisplayComponent {
-
-  
+  @Input() dataSource: any;
+  @Input() searchValue: any;
   filmInfoList: FilmInfo[] = [];
   StoreID: any | undefined;
   private filmInfoSubscription: Subscription;
@@ -36,8 +36,8 @@ export class DisplayComponent {
     'rating',
     'action',
   ];
-  dataSource: MatTableDataSource<any>;
-  public searchValue: any = {};
+  // dataSource: MatTableDataSource<any>;
+  // public searchValue: any = {};
 
   @ViewChild(MatPaginator) paginator!: MatPaginator; // Access the paginator element in your template
 
@@ -46,6 +46,7 @@ export class DisplayComponent {
     this.actorsSubscription = new Subscription();
     this.dataSource = new MatTableDataSource<any>([]);
   }
+
 
   ngAfterViewInit() {
     // Assign the paginator to your data source
@@ -215,7 +216,8 @@ openActorListDialog(filmId: number) {
   this.fetchActors(filmId);
 
   const dialogRef = this.dialog.open(DialogueComponent, {
-    width: '400px',
+    width: '80%', // Adjust the width as needed
+    height: '80%', // Adjust the height as needed
     data: { title: 'Actors List', actors: this.actors }, // Pass the title and actors here
   });
 
@@ -238,24 +240,4 @@ openActorDialog(actors: any) {
 
 }
 
-openSideDialogue() {
-  // Open the side dialogue component
-  const dialogRef = this.dialog.open(SideDialogueComponent, {
-    width: '300px', // Adjust the width as needed
-    data: {
-      // Pass user details here
-      username: 'John Doe', // Replace with the actual username
-      storeId: '12345' // Replace with the actual store ID
-    }
-  });
-
-  // Subscribe to the afterClosed event to perform actions after the dialogue is closed
-  dialogRef.afterClosed().subscribe(result => {
-    if (result === 'logout') {
-      // Implement your logout logic here
-      console.log('Logout clicked');
-      // Call your logout function or navigate to the logout page
-    }
-  });
-}
 }

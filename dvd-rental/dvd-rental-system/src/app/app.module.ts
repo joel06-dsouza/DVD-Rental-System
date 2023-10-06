@@ -20,19 +20,22 @@ import { CdkTableModule } from '@angular/cdk/table';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { ErrorPageComponent } from './error-page/error-page.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
 import { FooterComponent } from './footer/footer.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
-
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogueComponent } from './dialogue/dialogue.component';
-import { SideDialogueComponent } from './side-dialogue/side-dialogue.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { FilmDialogComponent } from './film-dialog/film-dialog.component';
+
+
 
 
 
 @NgModule({
-  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent,DialogueComponent, SideDialogueComponent],
+  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent,DialogueComponent, AdmindashboardComponent, FilmDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -50,8 +53,9 @@ import { SideDialogueComponent } from './side-dialogue/side-dialogue.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatToolbarModule,
-    SidenavComponent,
-    MatDialogModule
+    MatDialogModule,
+    MatSidenavModule,
+    MatListModule 
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -492,3 +492,15 @@ footer {
   .header {
     margin-bottom: 0; /* Remove margin from the header */
   }
+
+
+  /* ------------------------------------------- */
+/* actor box */
+  .actor-dialog {
+    background-color: #fff; /* Background color */
+    padding: 10px; /* Padding around the actor dialog content */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 4px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift */
+  }
+  

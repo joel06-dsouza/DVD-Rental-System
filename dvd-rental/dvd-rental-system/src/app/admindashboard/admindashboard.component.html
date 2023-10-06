@@ -1,0 +1,93 @@
+<app-header></app-header>
+<div class="dashboard-container">
+    <mat-card class="dashboard-card bounce-animation">
+        <mat-card-header id="header">
+            <mat-icon class="cartoon-icon">person</mat-icon>
+            <mat-card-title id="title">Staff</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p id="count-label">Count: 10</p>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="dashboard-card bounce-animation">
+        <mat-card-header id="header">
+            <mat-icon class="cartoon-icon">store</mat-icon>
+            <mat-card-title id="title">Stores</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p id="count-label">Count: 20</p>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="dashboard-card bounce-animation">
+        <mat-card-header id="header">
+            <mat-icon class="cartoon-icon">movie</mat-icon>
+            <mat-card-title id="title">Films</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p id="count-label">Count: 30</p>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="dashboard-card bounce-animation">
+        <mat-card-header id="header">
+            <mat-icon class="cartoon-icon">people</mat-icon>
+            <mat-card-title id="title">Customer</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p id="count-label">Count: 40</p>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<!-- Table -->
+
+<h2 id="storedhead">STORE DETAILS</h2>
+<!-- Your Component's HTML File -->
+<div id="table-responsive">
+    <table mat-table [dataSource]="dataSource" id="mtable">
+        <!-- Store ID Column -->
+        <ng-container matColumnDef="storeid">
+            <th mat-header-cell *matHeaderCellDef> Store ID </th>
+            <td mat-cell *matCellDef="let row"> {{ row.storeid }} </td>
+        </ng-container>
+
+        <!-- Manager ID Column -->
+        <ng-container matColumnDef="managerid">
+            <th mat-header-cell *matHeaderCellDef> Manager ID </th>
+            <td mat-cell *matCellDef="let row"> {{ row.managerid }} </td>
+        </ng-container>
+
+        <!-- Address Column -->
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef> Address </th>
+            <td mat-cell *matCellDef="let row"> {{ row.address }} </td>
+        </ng-container>
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let row">
+                <button mat-button color="primary" (click)="edit(row)" id="mbtn">Staff</button>
+                &nbsp;
+                <!-- Add the button to open the dialog -->
+        <button mat-button color="accent" (click)="openFilmDialogue()" id="mbtn">Film</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<app-footer></app-footer>
+
