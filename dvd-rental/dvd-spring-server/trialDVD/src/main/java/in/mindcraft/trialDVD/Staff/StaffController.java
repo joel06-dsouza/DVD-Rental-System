@@ -166,12 +166,14 @@ public class StaffController {
                 long S_id = staff.getStoreId();
                 String token = jwtTokenProvider.generateToken(username, S_id);
                 String S_fullName = staff.getFirstName() + " " + staff.getLastName();
+                String S_email = staff.getEmail();
 
                  JwtToken jwtToken = new JwtToken();
                  jwtToken.setJwtToken(token);
                 Map<String, Object> response = new HashMap<>();
                 response.put("storeId", S_id);
                 response.put("fullName", S_fullName);
+                response.put("email", S_email);
                 response.put("jwtToken", jwtToken);
                 System.out.println("Full Name: " + S_fullName);
                 // Assuming getStoreId() is the getter method for storeId

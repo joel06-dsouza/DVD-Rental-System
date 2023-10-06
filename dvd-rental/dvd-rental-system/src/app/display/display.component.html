@@ -1,4 +1,3 @@
-
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +15,7 @@
                 <th mat-header-cell *matHeaderCellDef data-column-name="Film ID" id="thcolor"> Film ID
                     <button mat-button class="btn-toggle" [matMenuTriggerFor]="filmidMenu">
                         <mat-icon>filter_alt</mat-icon>
+                        
                     </button>
                 </th>
                 <td mat-cell *matCellDef="let element" id="tdpadid"> {{element.id}} </td>
@@ -234,7 +234,7 @@
                 <td mat-cell *matCellDef="let element" id="tdpad">
                     <!-- Add action buttons or icons here -->
                     <button mat-icon-button color="primary" (click)="openActorListDialog(element.id)">
-                        <mat-icon>visibility</mat-icon>
+                        <mat-icon id="iconcolor">visibility</mat-icon>
                     </button>
                 </td>
             </ng-container>
@@ -256,4 +256,3 @@
         <app-footer></app-footer>
     </div>
 </body>
-

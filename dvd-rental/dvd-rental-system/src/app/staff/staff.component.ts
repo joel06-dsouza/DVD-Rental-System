@@ -1,16 +1,16 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-side-dialogue',
-  templateUrl: './side-dialogue.component.html',
-  styleUrls: ['./side-dialogue.component.css']
+  selector: 'app-staff',
+  templateUrl: './staff.component.html',
+  styleUrls: ['./staff.component.css']
 })
-export class SideDialogueComponent {
-  constructor(public dialogRef: MatDialogRef<SideDialogueComponent>, private authService: AuthService, private router: Router) { }
+export class StaffComponent {
+  constructor(public dialogRef: MatDialogRef<StaffComponent>, private authService: AuthService, private router: Router) { }
   // GETTING ITEMS FROM LOCAL STORAGE
   name = localStorage.getItem('FullName');
   id = localStorage.getItem('StoreId');

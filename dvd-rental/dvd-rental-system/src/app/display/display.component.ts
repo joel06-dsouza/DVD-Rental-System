@@ -39,6 +39,19 @@ export class DisplayComponent {
   dataSource: MatTableDataSource<any>;
   public searchValue: any = {};
 
+
+  //changes kele aata
+  filmIdFilter: string = '';
+  titleFilter: string = '';
+  descriptionFilter: string = '';
+  releaseYearFilter: string = '';
+  languageFilter: string = '';
+  rentalDurationFilter: string = '';
+  rentalRateFilter: string = '';
+  lengthFilter: string = '';
+  ratingFilter: string = '';
+
+  
   @ViewChild(MatPaginator) paginator!: MatPaginator; // Access the paginator element in your template
 
   constructor(private dvdRentalService: DvdRentalService,private dialog: MatDialog) {

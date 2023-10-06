@@ -5,16 +5,16 @@ import { AuthService } from './auth.service';
 @Injectable({providedIn:'root'})
 
 export class AuthGuard{
-    constructor(private router:Router,private authService:AuthService){
+    constructor(private router: Router) {}
 
-    }
-    canActivate():boolean{
-        if(this.authService.loggedIn()){
-            return true;
+    canActivate(): boolean {
+        const token = localStorage.getItem('jwtToken');
 
-        }else{
+        if (token) {
+            return true; // User is authenticated
+        } else {
             this.router.navigate(['/login']);
-            return false;
+            return false; // User is not authenticated
         }
     }
 }

@@ -8,21 +8,19 @@
 </head>
 
 <body>
-
-    <div id="yash">
-        <mat-card id="card">
+    <div id="staff">
+        <mat-card id="staffcard">
             <mat-card-header>
-                <mat-card-title id="heading">User Profile</mat-card-title>
+                <mat-card-title id="staffheading">Staff Profile</mat-card-title>
             </mat-card-header>
-            <mat-card-content id="content">
-                <p id="wlcm">Welcome to your profile!</p>
-                <img src="../../assets/user.svg" alt="Company Logo" class="company-logo" id="dvd">
-                <p style="margin-top: 20px;"><strong>Name: </strong>{{name}}</p>
+            <mat-card-content id="staffcontent">
+                <p id="staffwlcm">Welcome to your profile!</p>
+                <p><strong>Name: </strong>{{name}}</p>
                 <p><strong>Staff ID: </strong> {{id}}</p>
                 <p><strong>Email ID: </strong> {{email}}</p>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button color="warn" (click)="logout()" id="btn">Logout</button>
+                <button mat-raised-button color="warn" (click)="logout()" id="staffbtn">Logout</button>
             </mat-card-actions>
         </mat-card>
     </div>

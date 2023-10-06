@@ -1,20 +1,15 @@
 import { Injectable } from "@angular/core";
 
 @Injectable({
-    providedIn:'root'
+  providedIn: 'root'
 })
+export class AuthService {
+  constructor() {}
+  logout() {
+    localStorage.removeItem('jwtToken'); // Remove the token from local storage
+  }
 
-export class AuthService{
-    constructor(){
-
-
-        
-    }
-
-    loggedIn(){
-        return !!localStorage.getItem('StoreId');
-
-    }
-
-    
+  loggedIn() {
+    return !!localStorage.getItem('jwtToken');
+  }
 }
