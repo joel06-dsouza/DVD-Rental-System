@@ -1,0 +1,125 @@
+h1 {
+    text-align: center;
+    font-size: 36px;
+    margin: 20px 0;
+    color: #ff5722;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.mat-table-container {
+    margin: 10px;
+    overflow-x: auto;
+    /* Add horizontal scrollbar for small screens */
+}
+
+/* Styles for screens smaller than 600px (typical mobile screens) */
+@media (max-width: 600px) {
+    .mat-table-container {
+        overflow-x: auto;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    table.mat-table {
+        display: block;
+    }
+}
+
+/*TABLE CSS*/
+#dataTable {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #b8a9a9;
+}
+
+/*TABLE HEADER ROW CSS*/
+#thcolor {
+    /* background-color: rgb(244, 143, 143); */
+    background-color: #3BC3FF;
+    padding: 10px;
+    text-align: left;
+    color: white;
+    border: 1px solid #b8a9a9;
+    font-weight: 450;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+/*TABLE HEADER ROW CSS*/
+#tdpad {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #b8a9a9;
+}
+
+/*TABLE TD ROW CSS*/
+#tdpadid {
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    font-size: 15px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    border: 1px solid #b8a9a9;
+}
+
+/* CONVERT TO EXCEL BUTTON CSS */
+.convert {
+    display: block;
+    margin: 20px auto;
+    background-color: #f37878;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* CONVERT TO EXCEL BUTTON CSS */
+.convert:hover {
+    background-color: #f93c3c;
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+
+/* FILTER ICON */
+.btn-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* FILTER ICON */
+.btn-toggle mat-icon {
+    font-size: 20px;
+}
+
+/* FILTER ICON */
+.btn-toggle mat-icon {
+    font-size: 20px;
+    color: #09ebeb;
+}
+
+/* PAGINATOR */
+.mat-paginator {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ALTERNATE COLOR FOR ROWS */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* EYE ICON */
+#iconcolor {
+    color: #09ebeb;
+}

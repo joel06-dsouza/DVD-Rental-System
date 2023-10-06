@@ -1,0 +1,12 @@
+package in.mindcraft.trialDVD.Staff;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+public interface ActorsRepository extends JpaRepository<ActorsInfo, Long> {
+    @Query("SELECT actors FROM film_list WHERE fid = :filmId")
+    List<String> findActorsByFilmId(@Param("filmId") long filmId);
+}
