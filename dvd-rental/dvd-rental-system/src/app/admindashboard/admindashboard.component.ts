@@ -1,58 +1,72 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { FilmDialogComponent } from '../film-dialog/film-dialog.component';
+import { AdminDvdRentalService } from '../admindvdrental.service';
 
 interface YourData {
-  storeid: number;
-  managerid: number;
+  id: number;
   address: string;
+
 }
+
 @Component({
   selector: 'app-admindashboard',
   templateUrl: './admindashboard.component.html',
   styleUrls: ['./admindashboard.component.css']
 })
 export class AdmindashboardComponent {
-  displayedColumns: string[] = ['storeid', 'managerid', 'address', 'action'];
+  displayedColumns: string[] = ['storeid', 'address', 'action'];
 
   dataSource = new MatTableDataSource<YourData>();
-  // dataSource: MatTableDataSource<FilmInfo>;
-  searchValue: any;
 
+  constructor(private adminService: AdminDvdRentalService) {}
 
-  YOUR_DATA: YourData[] = [
-    { storeid: 1, managerid: 101, address: '123 Main St' },
-    { storeid: 2, managerid: 102, address: '456 Elm St' },
-  ];
-
-  constructor(private dialog: MatDialog) {
-    // Set the data source in the constructor
-    this.dataSource.data = this.YOUR_DATA;
-    // this.dataSource = new MatTableDataSource<FilmInfo>([]); // Provide initial data
-    this.searchValue = {};
+  ngOnInit() {
+    const storeId1 = "1";
+    const storeId2 = "2"; // Replace with the actual store IDs you want to fetch
+    this.loadData1(storeId1);
+    this.loadData2(storeId2);
+    // this.getFilmByStoreId() 
   }
   
+  loadData1(storeId: string) {
+    this.adminService.AdminStore(storeId).subscribe((data: YourData[]) => {
+      // Update the data source with the fetched data
+      this.dataSource.data = data;
 
-
-
-  // Function to open the film dialogue
-  openFilmDialogue() {
-    const dialogRef = this.dialog.open(FilmDialogComponent, {
-      data: { dataSource: this.dataSource, searchValue: this.searchValue }
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed', result);
+      console.log(data);
     });
   }
 
-  edit(row: YourData) {
-    // Handle edit action
+  loadData2(storeId: string) {
+    this.adminService.AdminStore(storeId).subscribe((data: YourData[]) => {
+      // Append the fetched data to the existing data source
+      this.dataSource.data = this.dataSource.data.concat(data);
+      console.log(data)
+      console.log(this.dataSource.data);
+    });
   }
 
-  view(row: YourData) {
-    // Handle view action
+  staff(id:string) {
+    console.log(id);
+    this.adminService.AdminStoreDetail(id).subscribe((data) => {
+      // Handle the response data here
+      console.log(data);
+    });
+
+  }
+
+
+  film(id:string) {
+    const storeId = id; // Replace with the actual store ID
+    this.adminService.AdminFilm(storeId).subscribe(
+      (response) => {
+        // Handle the response data here
+        console.log(response);
+      },
+      (error) => {
+        // Handle any errors here
+        console.error(error);
+      }
+    );
   }
 }
-

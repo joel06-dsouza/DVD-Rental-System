@@ -12,12 +12,9 @@ h1 {
 
 .mat-table-container {
     margin: 10px;
-    overflow-x: auto; /* Add horizontal scrollbar if content overflows */
-    max-width: 100%; /* Ensure the table container is responsive */
-  }
-.mat-table-responsive {
     overflow-x: auto;
-  }
+    /* Add horizontal scrollbar for small screens */
+}
 
 /* Styles for screens smaller than 600px (typical mobile screens) */
 @media (max-width: 600px) {

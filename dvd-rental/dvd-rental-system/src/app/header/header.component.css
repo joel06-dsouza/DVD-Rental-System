@@ -1,9 +1,4 @@
-/* Add CSS styles for the header and side navigation */
-
 .header {
-  background-color: #131313; /* Example background color */
-  color: #fff; /* Example text color */
-  padding: 10px;
   background-color: #4e4e4e;
   color: #fff;
   padding: 10px 20px;
@@ -12,14 +7,6 @@
   align-items: center;
 }
 
-.sidenav-container {
-  position: relative;
-  height: 100%;
-}
-
-.mat-sidenav {
-  width: 250px; /* Adjust the width as needed */
-}
 .logo-container {
   display: flex;
   align-items: center;
