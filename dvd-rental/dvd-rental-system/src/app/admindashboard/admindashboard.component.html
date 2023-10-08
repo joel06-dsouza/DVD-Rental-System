@@ -50,7 +50,7 @@
         <!-- Store ID Column -->
         <ng-container matColumnDef="storeid">
             <th mat-header-cell *matHeaderCellDef> Store ID </th>
-            <td mat-cell *matCellDef="let row"> {{ row.storeid }} </td>
+            <td mat-cell *matCellDef="let row"> {{ row.id }} </td>
         </ng-container>
 
         <!-- Manager ID Column -->
@@ -69,9 +69,9 @@
         <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef> Action </th>
             <td mat-cell *matCellDef="let row">
-                <button mat-button color="primary" (click)="edit(row)" id="mbtn">Staff</button>
+                <button mat-button color="primary" (click)="staff(row.id)" id="mbtn">Staff</button>
                 &nbsp;
-                <button mat-button color="accent" (click)="view(row)" id="mbtn">Film</button>
+                <button mat-button color="accent" (click)="getFilmByStoreId(row.id)" id="mbtn">Film</button>
             </td>
         </ng-container>
 

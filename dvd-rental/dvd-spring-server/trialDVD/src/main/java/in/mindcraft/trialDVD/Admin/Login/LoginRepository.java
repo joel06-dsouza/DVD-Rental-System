@@ -1,4 +1,4 @@
-package in.mindcraft.trialDVD.Admin;
+package in.mindcraft.trialDVD.Admin.Login;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

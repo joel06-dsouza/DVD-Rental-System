@@ -1,4 +1,4 @@
-package in.mindcraft.trialDVD.Admin;
+package in.mindcraft.trialDVD.Admin.Login;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

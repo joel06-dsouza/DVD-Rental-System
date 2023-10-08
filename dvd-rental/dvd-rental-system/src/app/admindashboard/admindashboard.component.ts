@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { AdminDvdRentalService } from '../admindvdrental.service';
 
 interface YourData {
-  storeid: number;
-  managerid: number;
+  id: number;
   address: string;
+
 }
 
 @Component({
@@ -13,26 +14,61 @@ interface YourData {
   styleUrls: ['./admindashboard.component.css']
 })
 export class AdmindashboardComponent {
-  displayedColumns: string[] = ['storeid', 'managerid', 'address', 'action'];
+  displayedColumns: string[] = ['storeid', 'address', 'action'];
 
   dataSource = new MatTableDataSource<YourData>();
 
-  YOUR_DATA: YourData[] = [
-    { storeid: 1, managerid: 101, address: '123 Main St' },
-    { storeid: 2, managerid: 102, address: '456 Elm St' },
-  ];
+  constructor(private adminService: AdminDvdRentalService) {}
 
-  constructor() {
-    // Set the data source in the constructor
-    this.dataSource.data = this.YOUR_DATA;
+  ngOnInit() {
+    const storeId1 = "1";
+    const storeId2 = "2"; // Replace with the actual store IDs you want to fetch
+    this.loadData1(storeId1);
+    this.loadData2(storeId2);
+    // this.getFilmByStoreId() 
+  }
+  
+  loadData1(storeId: string) {
+    this.adminService.AdminStore(storeId).subscribe((data: YourData[]) => {
+      // Update the data source with the fetched data
+      this.dataSource.data = data;
+
+      console.log(data);
+    });
   }
 
-  edit(row: YourData) {
-    // Handle edit action
+  loadData2(storeId: string) {
+    this.adminService.AdminStore(storeId).subscribe((data: YourData[]) => {
+      // Append the fetched data to the existing data source
+      this.dataSource.data = this.dataSource.data.concat(data);
+      console.log(data)
+      console.log(this.dataSource.data);
+    });
+  }
+
+  staff(id:string) {
+    console.log(id);
+    this.adminService.AdminStoreDetail(id).subscribe((data) => {
+      // Handle the response data here
+      console.log(data);
+    });
+
   }
 
   view(row: YourData) {
     // Handle view action
   }
+  getFilmByStoreId(id:string) {
+    const storeId = id; // Replace with the actual store ID
+    this.adminService.AdminFilm(storeId).subscribe(
+      (response) => {
+        // Handle the response data here
+        console.log(response);
+      },
+      (error) => {
+        // Handle any errors here
+        console.error(error);
+      }
+    );
+  }
 }
-

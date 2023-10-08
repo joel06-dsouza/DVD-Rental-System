@@ -1,4 +1,4 @@
-package in.mindcraft.trialDVD.Admin;
+package in.mindcraft.trialDVD.Admin.Login;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

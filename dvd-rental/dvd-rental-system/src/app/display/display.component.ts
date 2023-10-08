@@ -10,6 +10,7 @@ import { DialogueComponent } from '../dialogue/dialogue.component';
 import { HeaderComponent } from '../header/header.component';
 import { MatButtonModule } from '@angular/material/button';
 import { SideDialogueComponent } from '../side-dialogue/side-dialogue.component';
+import { AdminDvdRentalService } from '../admindvdrental.service';
 
 @Component({
   selector: 'app-display',
@@ -17,6 +18,8 @@ import { SideDialogueComponent } from '../side-dialogue/side-dialogue.component'
   styleUrls: ['./display.component.css']
 })
 export class DisplayComponent {
+  currentPage: number=0;
+  pageSize: number=50;
 
   
   filmInfoList: FilmInfo[] = [];
@@ -39,20 +42,54 @@ export class DisplayComponent {
   dataSource: MatTableDataSource<any>;
   public searchValue: any = {};
 
+  
+
   @ViewChild(MatPaginator) paginator!: MatPaginator; // Access the paginator element in your template
 
-  constructor(private dvdRentalService: DvdRentalService,private dialog: MatDialog) {
+  constructor(private dvdRentalService: DvdRentalService,private dialog: MatDialog,private admindvdRentalService: AdminDvdRentalService) {
     this.filmInfoSubscription = new Subscription();
     this.actorsSubscription = new Subscription();
     this.dataSource = new MatTableDataSource<any>([]);
+    // this.currentPage = 7; 
+    // this.pageSize = 20;
   }
 
-  ngAfterViewInit() {
-    // Assign the paginator to your data source
-    this.StoreID = localStorage.getItem('StoreId')
-    this.fetchFilmData(this.StoreID);
-    this.dataSource.paginator = this.paginator;
-  }
+//  ngAfterViewInit() {
+//   // Assign the paginator to your data source
+//   this.StoreID = localStorage.getItem('StoreId');
+//   this.fetchFilmData(this.StoreID);
+//   this.dataSource.paginator = this.paginator;
+
+//   // Subscribe to the paginator's page event here
+//   this.paginator.page.subscribe((event) => {
+//     this.currentPage = event.pageIndex; // Set currentPage based on event data
+//     this.pageSize = event.pageSize;     // Set pageSize based on event data
+//     this.fetchPaginatedData(this.currentPage.toString(), this.pageSize.toString());
+//   });
+// }
+
+ngAfterViewInit() {
+  // Assign the paginator to your data source
+  this.StoreID = localStorage.getItem('StoreId');
+  this.fetchFilmData(this.StoreID);
+  this.dataSource.paginator = this.paginator;
+
+  // Set initial currentPage and pageSize based on the paginator's initial values
+  // this.currentPage = this.paginator.pageIndex;
+  // this.pageSize = this.paginator.pageSize;
+
+  // // Fetch initial data
+  // this.fetchPaginatedData();
+
+  this.dataSource.paginator = this.paginator;
+  // Set initial currentPage and pageSize based on the paginator's initial values
+  this.currentPage = this.paginator.pageIndex;
+  this.pageSize = this.paginator.pageSize;
+  // Fetch initial data
+  this.fetchPaginatedData(null);
+}
+
+
 
   filterPredicate(data: FilmInfo, filter: string): boolean {
     const filterObject = JSON.parse(filter);
@@ -152,6 +189,43 @@ export class DisplayComponent {
       }
     });
   }
+  
+  // fetchPaginatedData() {
+  //   const page = (this.currentPage + 1).toString(); // Add 1 to currentPage because pagination usually starts from 0
+  //   const size = this.pageSize.toString();
+  
+  //   this.admindvdRentalService.getPaginatedData(page, size).subscribe((data: any) => {
+  //     // Handle the paginated data here
+  //     console.log(data);
+  
+  //     // Update your data source with the new data
+  //     this.dataSource.data = data.content; // Assuming 'content' contains your paginated data
+  //   });
+  // }
+
+  // onPageChange(event: any) {
+  //   this.currentPage = event.pageIndex;
+  //   console.log(this.currentPage)
+  //   // You can also update your data or perform other actions here based on the new page
+  // }
+  
+
+  fetchPaginatedData(event: any) {
+    this.currentPage = event.pageIndex;
+    console.log(this.currentPage)
+    console.log(this.currentPage)
+    const page = (this.currentPage + 1).toString(); // Add 1 to currentPage because pagination usually starts from 0
+    const size = this.pageSize.toString(); // Convert pageSize to string
+  
+    this.admindvdRentalService.getPaginatedData(page, size).subscribe((data: any) => {
+      // Handle the paginated data here
+      console.log(data);
+  
+  
+      this.dataSource.data = data.content; // Assuming 'content' contains your paginated data
+    });
+  }
+  
   
   
 
