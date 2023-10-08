@@ -55,10 +55,8 @@ export class AdmindashboardComponent {
 
   }
 
-  view(row: YourData) {
-    // Handle view action
-  }
-  getFilmByStoreId(id:string) {
+
+  film(id:string) {
     const storeId = id; // Replace with the actual store ID
     this.adminService.AdminFilm(storeId).subscribe(
       (response) => {
