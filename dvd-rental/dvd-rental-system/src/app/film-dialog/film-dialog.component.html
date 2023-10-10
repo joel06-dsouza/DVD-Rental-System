@@ -9,10 +9,10 @@
   <app-header></app-header>
   <h1>FILM DETAILS</h1>
   <div class="dialog-content">
-  <div class="mat-table-container">
+  <div class="mat-table-container" style="max-height: 600px; overflow-y: auto;">
       <!-- id takli -->
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" id="dataTable">
-
+              
           <!---------------------------FILM ID COLUMN----------------------------->
           <ng-container matColumnDef="filmid">
               <th mat-header-cell *matHeaderCellDef data-column-name="Film ID" id="thcolor"> Film ID
