@@ -1,34 +1,29 @@
-<section class="body" >
-  <div class="container" fxLayout="row" fxLayoutAlign="center center">
-    <div class="login-box horizontal-align" fxFlex="50%">
-      <div class="row">
-        <div class="col-sm-4 animation" style="box-shadow: 0 10px 100px 20px rgba(0, 0, 0, 0.1); border: px solid #cccccc; padding: 30px; width: 400px; border-radius: 30px;">
-          <div class="logo" style="margin-left: 80px;">
-            <span class="logo-font">Login </span>
-          </div>
-          <br>
-          <h3 class="header-title"></h3>
-          <form class="login-form " style="margin-left: 70px;" [formGroup]="loginForm" (submit)="onSubmit()">
-            <div class="">
-              <mat-form-field appearance="outline" style="width: 300px;">
-                <mat-label>Username</mat-label>
-                <input matInput formControlName="username" >
-              </mat-form-field>
-            </div>
-            <div class="">
-              <mat-form-field appearance="outline" style="width: 300px;" >
-                  <mat-label>PassWord</mat-label>
-                <input matInput type="password" formControlName="password" >
-              </mat-form-field>
-            </div>
-            <div class="horizontal-align">
-              <button type="submit" mat-raised-button color="primary">LOGIN</button>
-            </div>
-          </form>
-        </div>
+<div class="login-box" fxLayoutAlign="center center" fxFlexFill>
+  <mat-card class="login-card">
+    <mat-toolbar>
+      Login
+    </mat-toolbar>
+    <form [formGroup]="loginModel.loginForm" (submit)="onSubmit()">
+      <mat-form-field class="input-container1">
+        <input placeholder="Username" formControlName="username" id="input">
+        <img src="../../assets/username1.svg" class="icon">
+      </mat-form-field>
+      <div *ngIf="loginModel.username.invalid && (loginModel.username.dirty || loginModel.username.touched)">
+        <mat-error>Username is required</mat-error>
       </div>
-    </div>
-  </div>
-</section>
-
-  
+      <mat-form-field class="input-container">
+        <input type="password" placeholder="Password" formControlName="password" id="input1">
+        <img src="../../assets/password1.svg" class="icon">
+      </mat-form-field>
+      <div *ngIf="loginModel.password.invalid && (loginModel.password.dirty || loginModel.password.touched)">
+        <mat-error>Password is required</mat-error>
+      </div>
+      <!-- Add a div to display error message -->
+      <div *ngIf="loginFailed" class="error-message">
+         Incorrect Credentials
+      </div>
+      <button type="submit" id="loginbtn" [disabled]="!loginModel.loginForm.valid"
+        [class.aqua]="loginModel.loginForm.valid">Login</button>
+    </form>
+  </mat-card>
+</div>

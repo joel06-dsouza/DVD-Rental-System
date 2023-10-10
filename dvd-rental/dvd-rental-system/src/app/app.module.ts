@@ -25,18 +25,23 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SideDialogueComponent } from './side-dialogue/side-dialogue.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { DialogueComponent } from './dialogue/dialogue.component';
 import { StaffComponent } from './staff/staff.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ProgressDialogComponent } from './progress-dialog/progress-dialog.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, SidenavComponent, AdmindashboardComponent, DialogueComponent, StaffComponent],
+  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, SidenavComponent, AdmindashboardComponent, DialogueComponent, StaffComponent, ProgressDialogComponent],
   imports: [
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    FlexLayoutModule,
     MatDialogModule,
     HttpClientModule,
     BrowserModule,

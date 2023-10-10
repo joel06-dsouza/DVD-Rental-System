@@ -1,10 +1,21 @@
-<h1 mat-dialog-title class="custom-dialog-title">{{ data.title }}</h1>
+<div class="custom-dialog-header">
+  <h1 mat-dialog-title class="custom-dialog-title">{{ data.title }}</h1>
+  <img src="../../assets/actor.svg" id="svgicon">
+</div>
 <div mat-dialog-content class="custom-dialog-content">
-  <!-- Display the list of actors here -->
-  <ul class="custom-actor-list">
-    <li *ngFor="let actor of data.actors" class="custom-actor-item">{{ actor }}</li>
-  </ul>
+  <table class="custom-actor-table">
+    <thead>
+      <tr>
+        <th>Actor Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let actor of data.actors">
+        <td>{{ actor }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 <div mat-dialog-actions class="custom-dialog-actions">
-  <button mat-button (click)="closeDialog()" class="custom-dialog-button">Close</button>
+  <button mat-button (click)="closeDialog()" id="closebtn">Close</button>
 </div>

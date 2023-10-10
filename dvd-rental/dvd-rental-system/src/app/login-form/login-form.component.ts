@@ -5,6 +5,7 @@ import { FilmInfo } from '../FilmInfo.model';
 import { Router } from '@angular/router';
 import { LoginModel } from './login.model';
 import * as crypto from 'crypto-js';
+
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -15,6 +16,8 @@ export class LoginFormComponent implements OnInit {
   loginModel: LoginModel;
   loginForm!: FormGroup;
   filmInfoList: FilmInfo[] = [];
+  loginFailed: boolean = false; //login failed
+
 
   constructor(private fb: FormBuilder, private dvdRentalService: DvdRentalService, private route: Router) {
     this.loginModel = new LoginModel(new FormBuilder());
@@ -27,9 +30,9 @@ export class LoginFormComponent implements OnInit {
     });
   }
   onSubmit() {
-    if (this.loginForm && this.loginForm.valid) {
-      const username = this.loginForm.get('username')!.value;
-      const password = this.loginForm.get('password')!.value;
+    if (this.loginModel.loginForm && this.loginModel.loginForm.valid) {
+      const username = this.loginModel.loginForm.get('username')!.value;
+      const password = this.loginModel.loginForm.get('password')!.value;
       const enteredPasswordHash = crypto.SHA1(password).toString();
 
       // Create a LoginRequest object with the username and hashed password
@@ -43,9 +46,12 @@ export class LoginFormComponent implements OnInit {
         (response) => {
           alert('Login Successful');
           console.log('Store ID:', response.storeId);
-          console.log('JWT Token:', response.token);
+          console.log('JWT Token:', response.jwtToken);
           console.log('Full Name:', response.fullName);
-          console.log('Emial:', response.S_email);
+          console.log('Email:', response.email);
+
+          // Reset loginFailed to false on successful login
+          this.loginFailed = false;
 
 
           // Store the JWT token in local storage
@@ -58,9 +64,10 @@ export class LoginFormComponent implements OnInit {
           this.route.navigate(['display']);
         },
         (error) => {
-          // Handle login errors here
-          alert('Login Failed Wrong Username or Password');
           console.error('Login failed:', error);
+
+          // Set loginFailed to true on failed login
+          this.loginFailed = true;
         }
       );
     }
