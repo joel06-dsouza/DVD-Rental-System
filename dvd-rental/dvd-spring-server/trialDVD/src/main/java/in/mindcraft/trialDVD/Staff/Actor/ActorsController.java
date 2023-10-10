@@ -1,4 +1,4 @@
-package in.mindcraft.trialDVD.Staff;
+package in.mindcraft.trialDVD.Staff.Actor;
 
 import java.util.List;
 import java.util.Map;

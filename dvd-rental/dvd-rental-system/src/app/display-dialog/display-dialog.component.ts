@@ -7,6 +7,5 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./display-dialog.component.css']
 })
 export class DisplayDialogComponent {
-  
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
 }

@@ -1,4 +1,4 @@
-package in.mindcraft.trialDVD.Staff;
+package in.mindcraft.trialDVD.Staff.Film;
 
 import java.util.List;
 import java.util.Map;
@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import in.mindcraft.trialDVD.Staff.Staff.StaffController;
 
 @RestController
 @RequestMapping("Staff")

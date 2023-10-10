@@ -29,11 +29,13 @@ import { CommonModule } from '@angular/common';
 import { DialogueComponent } from './dialogue/dialogue.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { DisplayDialogComponent } from './display-dialog/display-dialog.component';
-// import { FilmDialogComponent } from './film-dialog/film-dialog.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { FilmDialogComponent } from './film-dialog/film-dialog.component';
+import { ProgressDialogComponent } from './progress-dialog/progress-dialog.component';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, DialogueComponent, AdmindashboardComponent, DisplayDialogComponent],
+  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, DialogueComponent, AdmindashboardComponent, DisplayDialogComponent,FilmDialogComponent, ProgressDialogComponent],
   imports: [
     MatDialogModule,
     HttpClientModule,
@@ -54,7 +56,8 @@ import { DisplayDialogComponent } from './display-dialog/display-dialog.componen
     HttpClientModule,
     MatToolbarModule,
     MatDialogModule,
-    CommonModule
+    CommonModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

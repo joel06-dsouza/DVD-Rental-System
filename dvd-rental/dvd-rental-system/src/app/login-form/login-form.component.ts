@@ -16,6 +16,7 @@ export class LoginFormComponent implements OnInit {
   loginModel: LoginModel; 
   loginForm!: FormGroup;
   filmInfoList: FilmInfo[] = []; // Declare and initialize an empty array for film data
+  loginFailed: boolean = false; //login failed
 
   constructor(private fb: FormBuilder, private dvdRentalService: DvdRentalService,private adminDvdRentalService: AdminDvdRentalService, private route:Router) {
     this.loginModel = new LoginModel(new FormBuilder());

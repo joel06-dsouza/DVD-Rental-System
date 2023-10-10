@@ -1,8 +1,12 @@
-package in.mindcraft.trialDVD.Staff;
+package in.mindcraft.trialDVD.Staff.Staff;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import in.mindcraft.trialDVD.Staff.JwtToken;
+import in.mindcraft.trialDVD.Staff.JwtTokenProvider;
+
 import java.util.Map;
 import java.util.HashMap;
 

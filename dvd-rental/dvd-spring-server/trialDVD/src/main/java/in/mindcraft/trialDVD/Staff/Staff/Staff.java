@@ -1,4 +1,4 @@
-package in.mindcraft.trialDVD.Staff;
+package in.mindcraft.trialDVD.Staff.Staff;
 
 
 import jakarta.persistence.Column;

@@ -1,4 +1,4 @@
-package in.mindcraft.trialDVD.Staff;
+package in.mindcraft.trialDVD.Admin.Film;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "filmview")
-public class FilmInfo {
+public class AdminFilmInfo {
     @Id
     private Long id;
 
@@ -37,15 +37,13 @@ public class FilmInfo {
     
     @Column(name = "rating")
     private String rating;
+    
 
-//    @Column(name = "actor_name")
-//    private String ActorName;
-
-	public FilmInfo() {
+    public AdminFilmInfo() {
 		super();
 	}
 
-	public FilmInfo(Long id, String title, String description, Integer releaseYear, String languageName,
+    public AdminFilmInfo(Long id, String title, String description, Integer releaseYear, String languageName,
 			Integer rentalDuration, Double rentalRate, Integer length, String rating) {
 		super();
 		this.id = id;
@@ -60,7 +58,8 @@ public class FilmInfo {
 //		this.ActorName = ActorName;
 	}
 
-	public Long getId() {
+
+    public Long getId() {
 		return id;
 	}
 
@@ -131,17 +130,4 @@ public class FilmInfo {
 	public void setRating(String rating) {
 		this.rating = rating;
 	}
-//
-//	public String getActorName() {
-//		return ActorName;
-//	}
-//
-//	public void setActorName(String ActorName) {
-//		this.ActorName = ActorName;
-//	}
-    
-    
-    
-    
-    
 }

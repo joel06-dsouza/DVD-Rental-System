@@ -1,6 +1,5 @@
-<div *ngIf="data.component === 'film'">
-    <app-display></app-display>
-  </div>
-  <div *ngIf="data.component === 'staff'">
-    <!-- Include your staff component here if needed -->
-  </div>
+<h2>{{ data.title }}</h2>
+<div *ngIf="data.content">
+  <pre>{{ data.content | json }}</pre>
+</div>
+
