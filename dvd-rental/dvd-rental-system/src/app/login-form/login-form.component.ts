@@ -102,20 +102,12 @@ export class LoginFormComponent implements OnInit {
       // Attempt to login as an admin first
       this.adminDvdRentalService.loginAdmin(username, enteredPasswordHash).subscribe(
         (adminResponse) => {
-          // Handle admin login success
+          console.log(adminResponse)
+          localStorage.setItem("id",adminResponse.adminId);
+          localStorage.setItem("Full_Name",adminResponse.adminFullName);
+       
           alert('Admin Login Successful');
           this.route.navigate(['admin-display'])
-          // console.log('Store ID:', adminResponse.storeId);
-          // console.log('JWT Token:', adminResponse.jwtToken);
-          // console.log('Full Name:', adminResponse.fullName);
-  
-          // // Store the JWT token in local storage or a secure storage method
-          // localStorage.setItem('jwtToken', JSON.stringify(adminResponse.jwtToken));
-          // localStorage.setItem('StoreId', adminResponse.storeId);
-          // localStorage.setItem('FullName', adminResponse.fullName);
-  
-          // Redirect to a protected route or perform other actions
-          // this.route.navigate(['display']);
         },
         (adminError) => {
           
