@@ -11,19 +11,17 @@ import jakarta.persistence.Table;
 @Table(name = "film_list")
 public class ActorsInfo {
 	 @Id
+
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 @Column(name = "fid")
 	    private Long id;
-	 
-	 
+	 	 
 	 @Column(name="actors")
 	 private String actors;
-
 
 	public ActorsInfo() {
 		super();
 	}
-
 
 	public ActorsInfo(Long id, String actors) {
 		super();
@@ -31,21 +29,17 @@ public class ActorsInfo {
 		this.actors = actors;
 	}
 
-
 	public Long getId() {
 		return id;
 	}
-
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
 	public String getActors() {
 		return actors;
 	}
-
 
 	public void setActors(String actors) {
 		this.actors = actors;

@@ -5,18 +5,24 @@ import { FilmInfo } from '../FilmInfo.model';
 import { Router } from '@angular/router';
 import { LoginModel } from './login.model';
 import * as crypto from 'crypto-js';
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
+  credentials ={username:'',password :''}   //my
   token: string|undefined;
   loginModel: LoginModel; 
   loginForm!: FormGroup;
   filmInfoList: FilmInfo[] = []; // Declare and initialize an empty array for film data
 
-  constructor(private fb: FormBuilder, private dvdRentalService: DvdRentalService, private route:Router) {
+  constructor(private fb: FormBuilder, 
+    private dvdRentalService: DvdRentalService, 
+    private route:Router, 
+    private authService:AuthService  //my
+    ) {
     this.loginModel = new LoginModel(new FormBuilder());
   }
 
@@ -122,4 +128,17 @@ export class LoginFormComponent implements OnInit {
       }
     );
   }
+  //my
+ /*  login(): void {
+  
+    this.authService.login(this.credentials).subscribe(response => {
+        console.log('Logged in:', response);
+        console.log('MyToken : ',response.token);
+        this.authService.saveToken(response.token);
+        this.router.navigate(['']); // Redirect after successful login
+      }, error => {
+        console.error('Login error:', error);
+      });
+    }
+ */
 }

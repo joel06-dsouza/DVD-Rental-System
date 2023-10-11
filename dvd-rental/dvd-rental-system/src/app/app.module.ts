@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
@@ -31,7 +31,7 @@ import { SideDialogueComponent } from './side-dialogue/side-dialogue.component';
 
 import { Route,Router } from '@angular/router';
 import { SidenavComponent } from './sidenav/sidenav.component';
-
+import { JwtInterceptor } from './jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -60,7 +60,15 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     MatDialogModule,
     RouterModule
   ],
-  providers: [],
+  providers: [
+
+    {
+provide : HTTP_INTERCEPTORS,
+useClass : JwtInterceptor,
+multi : true
+    }
+  ],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}
