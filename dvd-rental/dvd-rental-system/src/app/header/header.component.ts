@@ -1,4 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { SideDialogueComponent } from '../side-dialogue/side-dialogue.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +11,12 @@ export class HeaderComponent implements OnInit {
   // Output event to trigger the side dialogue
   @Output() openSideDialogue = new EventEmitter<void>();
 
-  constructor() {}
-
-  ngOnInit() {}
-
-  // Function to open the side dialogue
-  openSideDialog() {
-    this.openSideDialogue.emit();
+  constructor(public dialog: MatDialog) {} // Inject MatBottomSheet
+  ngOnInit(): void {
+  }
+  openProfileCard(): void {
+    const dialogRef = this.dialog.open(SideDialogueComponent, {
+      width: '350px' // Adjust the width as needed
+    });
   }
 }

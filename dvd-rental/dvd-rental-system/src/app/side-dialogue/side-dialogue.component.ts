@@ -1,5 +1,7 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-dialogue',
@@ -7,21 +9,22 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./side-dialogue.component.css']
 })
 export class SideDialogueComponent {
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef: MatDialogRef<SideDialogueComponent>
-  ) {}
+  // private username:string|undefined;
+  constructor(public dialogRef: MatDialogRef<SideDialogueComponent>,private authService:AuthService,private Router:Router) {}
 
-  // Function to close the dialogue
-  closeDialogue() {
+  username = localStorage.getItem('FullName');
+  id=localStorage.getItem('StoreId');
+  email=localStorage.getItem('Email');
+
+  closeDialogue(): void {
     this.dialogRef.close();
   }
 
   logout() {
     // Implement your logout logic here
-    // For example, you can perform a logout action, clear user data, and navigate to the logout page
     console.log('Logout clicked');
-    // Close the dialogue after handling logout
-    this.dialogRef.close('logout'); // Pass 'logout' as the result to the afterClosed event
+    this.dialogRef.close('logout');
+    this.authService.logedOut();
+     this.Router.navigate(['/login']); 
   }
 }

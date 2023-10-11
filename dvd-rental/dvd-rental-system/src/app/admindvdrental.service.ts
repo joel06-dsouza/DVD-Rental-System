@@ -33,14 +33,14 @@ export class AdminDvdRentalService {
     return this.http.post(`${this.apiUrl}/admin/staffdetails`, requestBody);
   }
 
-  // getPaginatedData(page: string, size: string): Observable<any> {
-  //   const requestBody = { page, size };
-  //   const headers = new HttpHeaders({
-  //     'Content-Type': 'application/json'
-  //   });
+  getPaginatedData(page: string, size: string): Observable<any> {
+    const requestBody = { page, size };
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
 
-  //   return this.http.post(`${this.apiUrl}/api/pagination`, requestBody, { headers });
-  // }
+    return this.http.post(`${this.apiUrl}/api/pagination`, requestBody, { headers });
+  }
 
   AdminFilm(storeId: string): Observable<any> {
     const requestBody = { storeId };
@@ -51,19 +51,5 @@ export class AdminDvdRentalService {
   
     return this.http.post(`${this.apiUrl}/admin/filmByStoreId`, requestBody, { headers });
   }
-
-  getActorsByFilmId(filmId: number): Observable<string[]> {
-    const requestBody = {
-      filmId: filmId
-    };
-  
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
-  
-    return this.http.post<string[]>(`${this.apiUrl}/Staff/actors`, requestBody, { headers: headers });
-  }
-  
-
   
 }

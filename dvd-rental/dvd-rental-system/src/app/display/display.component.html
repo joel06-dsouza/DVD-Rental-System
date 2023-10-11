@@ -5,7 +5,8 @@
 </head>
 
 <body>
-    <app-header (openSideDialogue)="openSideDialogue()"></app-header>
+    <!-- <app-header (openSideDialogue)="openSideDialogue()"></app-header> -->
+    <app-header></app-header>
     <h1>FILM DETAILS</h1>
     <div class="mat-table-container">
         <!-- id takli -->
@@ -247,13 +248,21 @@
 
         </table>
         &nbsp;
-        <!-- Add MatPaginator below your table -->
         <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
-
+        <!-- Add MatPaginator below your table
+        <mat-paginator
+        [pageIndex]="currentPage"
+        (page)="fetchPaginatedData($event)"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+      ></mat-paginator> -->
+      
+      
+      
         <button (click)="convertToExcel()" class="convert">Convert To Excel</button>
-        <!-- <button class="convert">Convert To Excel</button> -->
+        <!-- <button class="convert"(click)="fetchPaginatedData('0','10')">Convert To Excel</button> -->
 
         <app-footer></app-footer>
     </div>
+    
 </body>
 
