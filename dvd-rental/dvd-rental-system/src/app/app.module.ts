@@ -57,7 +57,8 @@ import { ProgressDialogComponent } from './progress-dialog/progress-dialog.compo
     MatToolbarModule,
     MatDialogModule,
     CommonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatFormFieldModule 
   ],
   providers: [],
   bootstrap: [AppComponent],
