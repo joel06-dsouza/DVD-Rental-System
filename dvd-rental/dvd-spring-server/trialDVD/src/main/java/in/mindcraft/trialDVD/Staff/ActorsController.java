@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -41,7 +42,7 @@ public class ActorsController {
 //    }
 //    
 //    
-    
+    @PreAuthorize("hasAuthority('Role_Staff')")
     @PostMapping("/actors")
     public ResponseEntity<List<String>> getActorsByFilmIdWithRequestBody(@RequestBody Map<String, Object> request) {
         Object filmIdObject = request.get("filmId");

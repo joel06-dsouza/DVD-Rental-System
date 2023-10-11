@@ -3,6 +3,7 @@ package in.mindcraft.trialDVD.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,14 +14,16 @@ import java.util.Map;
 @RestController
 @RequestMapping("/admin")
 public class LoginController {
-
+    
+    @Autowired
     private final LoginRepository loginRepository;
 
-    @Autowired
+    
     public LoginController(LoginRepository loginRepository) {
         this.loginRepository = loginRepository;
     }
 
+    @PreAuthorize("hasAuthority('Role_Admin')")
     @PostMapping("/login")
     public ResponseEntity<LoginInfo> loginAdmin(@RequestBody Map<String, String> request) {
         String username = request.get("username");

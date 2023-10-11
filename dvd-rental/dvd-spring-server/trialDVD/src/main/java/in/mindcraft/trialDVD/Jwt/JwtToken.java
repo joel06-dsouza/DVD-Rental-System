@@ -1,4 +1,4 @@
-package in.mindcraft.trialDVD.Staff;
+package in.mindcraft.trialDVD.Jwt;
 
 import lombok.Data;
 

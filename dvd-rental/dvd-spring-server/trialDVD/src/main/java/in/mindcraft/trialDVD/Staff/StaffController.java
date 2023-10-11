@@ -2,9 +2,15 @@ package in.mindcraft.trialDVD.Staff;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import in.mindcraft.trialDVD.Jwt.JwtToken;
+import in.mindcraft.trialDVD.Jwt.JwtTokenProvider;
+
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Arrays;
 
 
 import java.util.List;
@@ -152,6 +158,7 @@ public class StaffController {
     //     return ResponseEntity.notFound().build();
     // }
 
+    @PreAuthorize("hasAuthority('Role_Staff')")
     @PostMapping("/login")
     public ResponseEntity<Map<String, Object>> login(@RequestBody Map<String, String> request) {
         String username = request.get("username");
@@ -159,18 +166,19 @@ public class StaffController {
        
         // Find all Staff with the given username
         List<Staff> staffList = staffRepository.findAllByUsername(username);
-        String msg = "login success";
+        // String msg = "login success";
 
         for (Staff staff : staffList) {
             if (staff.getPassword().equals(password)) {
                 long S_id = staff.getStoreId();
-                String token = jwtTokenProvider.generateToken(username, S_id);
+                List<String> authorities = Arrays.asList("Role_Staff"); // Add the user's authorities here
+                String token = jwtTokenProvider.generateToken(username, S_id, authorities);
                 String S_fullName = staff.getFirstName() + " " + staff.getLastName();
                 String S_email = staff.getEmail();
 
+                JwtToken jwtToken = new JwtToken();
+                jwtToken.setJwtToken(token);
 
-                 JwtToken jwtToken = new JwtToken();
-                 jwtToken.setJwtToken(token);
                 Map<String, Object> response = new HashMap<>();
                 response.put("storeId", S_id);
                 response.put("fullName", S_fullName);
@@ -189,7 +197,3 @@ public class StaffController {
         return ResponseEntity.notFound().build();
     }
 }
-
-
-    
-
