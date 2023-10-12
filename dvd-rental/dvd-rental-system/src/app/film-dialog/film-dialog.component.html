@@ -5,9 +5,9 @@
 </head>
 
 <body>
-  <!-- <app-header (openSideDialogue)="openSideDialogue()"></app-header> -->
-  <app-header></app-header>
-  <h1>FILM DETAILS</h1>
+    <div class="center-heading">
+        <h1>FILM DETAILS</h1>
+      </div>
   <div class="dialog-content">
   <div class="mat-table-container" style="max-height: 600px; overflow-y: auto;">
       <!-- id takli -->
@@ -256,8 +256,6 @@
     
       <button (click)="convertToExcel()" class="convert">Convert To Excel</button>
       <!-- <button class="convert"(click)="fetchPaginatedData('0','10')">Convert To Excel</button> -->
-
-      <app-footer></app-footer>
   </div>
 </div> 
 </body>

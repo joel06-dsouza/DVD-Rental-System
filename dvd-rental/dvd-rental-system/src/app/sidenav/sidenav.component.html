@@ -1,0 +1,21 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" [opened]="!collapsed" (openedChange)="onSidenavToggle($event)">
+      <!-- Empty sidenav content -->
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <div class="sidenav-toggle-button">
+        <button mat-icon-button (click)="toggleSidenav()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+  
+      <div class="sidenav-column" [class.collapsed]="collapsed">
+        <button mat-button (click)="navigateToPayment()">Payment</button>
+        <button mat-button (click)="navigateToFilmDetails()">Film Details</button>
+      </div>
+  
+      <!-- Your content here -->
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

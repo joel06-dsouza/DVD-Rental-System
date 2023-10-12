@@ -32,10 +32,13 @@ import { DisplayDialogComponent } from './display-dialog/display-dialog.componen
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { FilmDialogComponent } from './film-dialog/film-dialog.component';
 import { ProgressDialogComponent } from './progress-dialog/progress-dialog.component';
-
+import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
-  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, DialogueComponent, AdmindashboardComponent, DisplayDialogComponent,FilmDialogComponent, ProgressDialogComponent],
+  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, DialogueComponent, AdmindashboardComponent, DisplayDialogComponent,FilmDialogComponent, ProgressDialogComponent, CustomerDashboardComponent, SidenavComponent],
   imports: [
     MatDialogModule,
     HttpClientModule,
@@ -57,7 +60,10 @@ import { ProgressDialogComponent } from './progress-dialog/progress-dialog.compo
     MatToolbarModule,
     MatDialogModule,
     CommonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatFormFieldModule ,
+    MatSidenavModule,
+    MatListModule 
   ],
   providers: [],
   bootstrap: [AppComponent],

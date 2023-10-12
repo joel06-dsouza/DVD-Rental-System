@@ -6,10 +6,7 @@ import { Injectable } from "@angular/core";
 
 export class AuthService {
     constructor() {
-
-
     }
-
 
     loggedIn() {
         return !!localStorage.getItem('jwtToken');
@@ -21,8 +18,6 @@ export class AuthService {
         localStorage.removeItem('jwtToken');
         localStorage.removeItem('StoreId');
         localStorage.removeItem('FullName');
-
-
     }
 
 
