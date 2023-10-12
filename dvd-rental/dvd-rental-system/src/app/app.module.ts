@@ -32,13 +32,12 @@ import { DisplayDialogComponent } from './display-dialog/display-dialog.componen
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { FilmDialogComponent } from './film-dialog/film-dialog.component';
 import { ProgressDialogComponent } from './progress-dialog/progress-dialog.component';
-import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { SidenavComponent } from './sidenav/sidenav.component';
-import { MatListModule } from '@angular/material/list';
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
+import { AdminSideDialogueComponent } from './admin-side-dialogue/admin-side-dialogue.component';
+
 
 @NgModule({
-  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, DialogueComponent, AdmindashboardComponent, DisplayDialogComponent,FilmDialogComponent, ProgressDialogComponent, CustomerDashboardComponent, SidenavComponent],
+  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, DialogueComponent, AdmindashboardComponent, DisplayDialogComponent,FilmDialogComponent, ProgressDialogComponent, AdminHeaderComponent, AdminSideDialogueComponent],
   imports: [
     MatDialogModule,
     HttpClientModule,
@@ -61,9 +60,7 @@ import { MatListModule } from '@angular/material/list';
     MatDialogModule,
     CommonModule,
     MatProgressSpinnerModule,
-    MatFormFieldModule ,
-    MatSidenavModule,
-    MatListModule 
+    MatFormFieldModule 
   ],
   providers: [],
   bootstrap: [AppComponent],
