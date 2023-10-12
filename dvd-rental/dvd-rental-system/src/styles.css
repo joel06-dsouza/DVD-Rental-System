@@ -590,14 +590,18 @@ li a:hover {
 /************************HEADER USER ICON BOX CSS*****************/
 #yash {
     position: fixed;
-    top: 100px;
+    top: 80px;
     right: 40px;
     z-index: 999;
 }
 
 #card {
-    height: 350px;
+    height: 380px;
     width: 300px;
+}
+
+#time {
+    color: red;
 }
 
 #heading {
@@ -609,8 +613,13 @@ li a:hover {
 
 #btn {
     margin-left: 100px;
-    margin-top: 60px;
+    margin-top: 40px;
     margin-bottom: 10px;
+}
+
+#btn:hover {
+    transform: scale(0.9);
+    transition: 0.2 ease-in-out;
 }
 
 #content {
