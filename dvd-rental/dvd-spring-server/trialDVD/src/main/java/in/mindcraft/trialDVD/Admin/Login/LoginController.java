@@ -28,6 +28,8 @@ public class LoginController {
     private JwtTokenProvider jwtTokenProvider;
 @PostMapping("/login")
 public ResponseEntity<Map<String, Object>> loginAdmin(@RequestBody Map<String, String> request) {
+    // string role= admin
+    
     String username = request.get("username");
     String password = request.get("password");
     long storeId=1;
