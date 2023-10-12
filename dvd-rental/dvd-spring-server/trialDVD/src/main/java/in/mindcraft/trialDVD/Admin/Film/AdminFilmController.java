@@ -20,22 +20,44 @@ public class AdminFilmController {
         this.filmRepository = filmRepository;
     }
 
+    // @PostMapping("/filmByStoreId")
+    // public ResponseEntity<List<AdminFilmInfo>> getAllFilmInfoByStoreId(@RequestBody Map<String, Object> request) {
+    //     Object storeIdObject = request.get("storeId");
+
+    //     if (storeIdObject == null) {
+    //         // Handle the case where 'storeId' is not provided in the request
+    //         return ResponseEntity.badRequest().body(null); // You can customize this response as needed
+    //     }
+
+    //     try {
+    //         Long storeId = Long.parseLong(storeIdObject.toString());
+    //         List<AdminFilmInfo> filmInfoList = filmRepository.findByStoreId(storeId);
+    //         return ResponseEntity.ok(filmInfoList);
+    //     } catch (NumberFormatException e) {
+    //         // Handle the case where 'storeId' cannot be parsed as a Long
+    //         return ResponseEntity.badRequest().body(null); // You can customize this response as needed
+    //     }
+    // }
     @PostMapping("/filmByStoreId")
-    public ResponseEntity<List<AdminFilmInfo>> getAllFilmInfoByStoreId(@RequestBody Map<String, Object> request) {
-        Object storeIdObject = request.get("storeId");
+    public ResponseEntity<?> getAllFilmInfoByStoreId(@RequestBody Map<String, Object> request) {
+    Object storeIdObject = request.get("storeId");
 
-        if (storeIdObject == null) {
-            // Handle the case where 'storeId' is not provided in the request
-            return ResponseEntity.badRequest().body(null); // You can customize this response as needed
-        }
-
-        try {
-            Long storeId = Long.parseLong(storeIdObject.toString());
-            List<AdminFilmInfo> filmInfoList = filmRepository.findByStoreId(storeId);
-            return ResponseEntity.ok(filmInfoList);
-        } catch (NumberFormatException e) {
-            // Handle the case where 'storeId' cannot be parsed as a Long
-            return ResponseEntity.badRequest().body(null); // You can customize this response as needed
-        }
+    if (storeIdObject == null) {
+        return ResponseEntity.badRequest().body("Missing 'storeId' parameter");
     }
+
+    try {
+        Long storeId = Long.parseLong(storeIdObject.toString());
+        List<AdminFilmInfo> filmInfoList = filmRepository.findByStoreId(storeId);
+
+        if (filmInfoList.isEmpty()) {
+            return ResponseEntity.notFound().build(); // Handle the case where no data is found
+        }
+
+        return ResponseEntity.ok(filmInfoList);
+    } catch (NumberFormatException e) {
+        return ResponseEntity.badRequest().body("Invalid 'storeId' value");
+    }
+}
+
 }

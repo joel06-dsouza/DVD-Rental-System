@@ -167,3 +167,9 @@
       color: #1a72b8;
       /* Text color on hover */
   }
+
+  .dialog-content {
+    max-height: 400px; /* Set a maximum height for the dialog content */
+    overflow-y: auto; /* Add a vertical scrollbar if content overflows */
+    width: 100%; /* Make the content occupy the full width of the dialog */
+  }

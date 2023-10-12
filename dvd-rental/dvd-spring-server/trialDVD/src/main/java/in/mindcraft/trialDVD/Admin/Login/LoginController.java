@@ -7,8 +7,6 @@
 // import org.springframework.web.bind.annotation.RequestBody;
 // import org.springframework.web.bind.annotation.RequestMapping;
 // import org.springframework.web.bind.annotation.RestController;
-// import in.mindcraft.trialDVD.JwtToken;
-// import in.mindcraft.trialDVD.JwtTokenProvider;
 
 // import java.util.Map;
 
@@ -22,9 +20,6 @@
 //     public LoginController(LoginRepository loginRepository) {
 //         this.loginRepository = loginRepository;
 //     }
-
-//     @Autowired
-//     private JwtTokenProvider jwtTokenProvider;
 
 //     @PostMapping("/login")
 //     public ResponseEntity<LoginInfo> loginAdmin(@RequestBody Map<String, String> request) {
@@ -46,6 +41,8 @@
 //         }
 //     }
 // }
+
+
 package in.mindcraft.trialDVD.Admin.Login;
 
 
@@ -56,8 +53,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import in.mindcraft.trialDVD.JwtTokenProvider;
-import in.mindcraft.trialDVD.JwtToken;
 
 import java.util.HashMap;
 import java.util.Map;

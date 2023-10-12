@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DvdRentalService } from '../dvdrental.service'; 
 import { AdminDvdRentalService } from '../admindvdrental.service'; 
-import { FilmInfo } from '../FilmInfo.model'; 
+import { FilmInfo } from '../filminfo.model'; 
 import { Router } from '@angular/router';
 import { LoginModel } from './login.model';
 import * as crypto from 'crypto-js';
+import { JwtToken } from '../jwt-token.model';
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -16,6 +17,7 @@ export class LoginFormComponent implements OnInit {
   loginModel: LoginModel; 
   loginForm!: FormGroup;
   filmInfoList: FilmInfo[] = []; // Declare and initialize an empty array for film data
+  loginFailed: boolean = false; //login failed
 
   constructor(private fb: FormBuilder, private dvdRentalService: DvdRentalService,private adminDvdRentalService: AdminDvdRentalService, private route:Router) {
     this.loginModel = new LoginModel(new FormBuilder());
@@ -30,62 +32,9 @@ export class LoginFormComponent implements OnInit {
 
 
 
-  // onSubmit() {
-  //   if (this.loginForm && this.loginForm.valid) {
-  //     const username = this.loginForm.get('username')!.value;
-  //     const password = this.loginForm.get('password')!.value;
-  //     const enteredPasswordHash = crypto.SHA1(password).toString();
+ 
 
 
-  //     const loginRequest = {
-  //       username: username,
-  //       password: enteredPasswordHash
-  //     };
-
-  //     // Send a POST request with the LoginRequest object in the request body
-  //     this.dvdRentalService.loginUser(username, enteredPasswordHash).subscribe(
-  //       (response) => {
-  //         // Handle the response as before
-  //         alert('Login Successful');
-  //         console.log('Store ID:', response.storeId);
-  //         console.log('JWT Token:', response.jwtToken);
-  //         console.log('Full Name:', response.fullName);
-
-
-  //         // Store the JWT token in local storage or a secure storage method
-
-  //         localStorage.setItem('jwtToken', JSON.stringify(response.jwtToken));
-  //         localStorage.setItem('StoreId', response.storeId);
-  //         localStorage.setItem('FullName', response.fullName);
-
-  //         // Redirect to a protected route or perform other actions
-  //         this.route.navigate(['display']);
-  //       },
-  //       (error) => {
-  //         // Handle login errors here
-  //         alert('Login Failed');
-  //         console.error('Login failed:', error);
-  //       }
-  //     );
-  //   }
-  // }
-
-
-  // fetchFilmData(storeId: number) {
-  //   // Call the film service method to fetch film data by store ID
-  //   this.dvdRentalService.getAllFilmInfoByStoreId(storeId).subscribe(
-  //     (data) => {
-  //       console.log('Film Information:', data);
-  //       // Assign the fetched data to the variable for display in the template
-  //       this.filmInfoList = data;
-      
-  //     },
-  //     (error) => {
-  //       console.error('Error fetching film information:', error);
-  //       // Handle errors here
-  //     }
-  //   );
-  // }
 
 
   onSubmit() {
@@ -102,12 +51,16 @@ export class LoginFormComponent implements OnInit {
       // Attempt to login as an admin first
       this.adminDvdRentalService.loginAdmin(username, enteredPasswordHash).subscribe(
         (adminResponse) => {
-          console.log(adminResponse)
-          localStorage.setItem("id",adminResponse.adminId);
-          localStorage.setItem("Full_Name",adminResponse.adminFullName);
-       
+          // Handle admin login success
+          console.log("Admin Respone  ",adminResponse)
+          console.log("Admin Id",adminResponse.adminId)
+          console.log("Admin Name",adminResponse.adminFullName)
+          localStorage.setItem('aName',adminResponse.adminFullName)
+          localStorage.setItem('aId',adminResponse.adminId)
+          localStorage.setItem('ajwtToken',adminResponse.jwtToken)
           alert('Admin Login Successful');
           this.route.navigate(['admin-display'])
+
         },
         (adminError) => {
           

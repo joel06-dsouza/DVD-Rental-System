@@ -10,7 +10,7 @@ const routes: Routes = [
   {path:'',component:LoginFormComponent},
   {path:'login' ,component:LoginFormComponent},
   {path:'staff-display',component:DisplayComponent,canActivate:[AuthGuard]},
-  {path:'admin-display',component:AdmindashboardComponent},
+  {path:'admin-display',component:AdmindashboardComponent,canActivate:[AuthGuard]},
   { path: '**', component: ErrorPageComponent}
 ];
 
