@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DvdRentalService } from '../dvdrental.service'; 
 import { AdminDvdRentalService } from '../admindvdrental.service'; 
-import { FilmInfo } from '../FilmInfo.model'; 
+import { FilmInfo } from '../filminfo.model'; 
 import { Router } from '@angular/router';
 import { LoginModel } from './login.model';
 import * as crypto from 'crypto-js';
@@ -16,6 +16,7 @@ export class LoginFormComponent implements OnInit {
   loginModel: LoginModel; 
   loginForm!: FormGroup;
   filmInfoList: FilmInfo[] = []; // Declare and initialize an empty array for film data
+  loginFailed: boolean = false; //login failed
 
   constructor(private fb: FormBuilder, private dvdRentalService: DvdRentalService,private adminDvdRentalService: AdminDvdRentalService, private route:Router) {
     this.loginModel = new LoginModel(new FormBuilder());

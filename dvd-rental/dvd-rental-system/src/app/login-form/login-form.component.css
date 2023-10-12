@@ -1,0 +1,26 @@
+/* Add these styles to your CSS file for animations and colorful buttons */
+
+.colorful-button {
+    background-color: #007bff; /* Blue background color */
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .colorful-button:hover {
+    background-color: #787775; /* Darker blue on hover */
+    transform: scale(1.05); /* Scale up on hover */
+  }
+  
+  .round-input .mat-form-field-wrapper {
+    border-radius: px;
+  }
+  
+  .login-card {
+    transition: transform 0.3s;
+
+  }
+  
+  .login-card:hover {
+    transform: scale(1.05); /* Scale up the card on hover */
+  }
+  

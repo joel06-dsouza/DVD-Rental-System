@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { FilmInfo } from '../FilmInfo.model';
+import { FilmInfo } from '../filminfo.model';
 import { DvdRentalService } from '../dvdrental.service';
 import { Subscription, filter } from 'rxjs';
 import * as XLSX from 'xlsx';
@@ -81,12 +81,12 @@ ngAfterViewInit() {
   // // Fetch initial data
   // this.fetchPaginatedData();
 
-  this.dataSource.paginator = this.paginator;
-  // Set initial currentPage and pageSize based on the paginator's initial values
-  this.currentPage = this.paginator.pageIndex;
-  this.pageSize = this.paginator.pageSize;
-  // Fetch initial data
-  this.fetchPaginatedData(null);
+  // this.dataSource.paginator = this.paginator;
+  // // Set initial currentPage and pageSize based on the paginator's initial values
+  // this.currentPage = this.paginator.pageIndex;
+  // this.pageSize = this.paginator.pageSize;
+  // // Fetch initial data
+  // this.fetchPaginatedData(null);
 }
 
 
@@ -210,21 +210,21 @@ ngAfterViewInit() {
   // }
   
 
-  fetchPaginatedData(event: any) {
-    this.currentPage = event.pageIndex;
-    console.log(this.currentPage)
-    console.log(this.currentPage)
-    const page = (this.currentPage + 1).toString(); // Add 1 to currentPage because pagination usually starts from 0
-    const size = this.pageSize.toString(); // Convert pageSize to string
+  // fetchPaginatedData(event: any) {
+  //   this.currentPage = event.pageIndex;
+  //   console.log(this.currentPage)
+  //   console.log(this.currentPage)
+  //   const page = (this.currentPage + 1).toString(); // Add 1 to currentPage because pagination usually starts from 0
+  //   const size = this.pageSize.toString(); // Convert pageSize to string
   
-    this.admindvdRentalService.getPaginatedData(page, size).subscribe((data: any) => {
-      // Handle the paginated data here
-      console.log(data);
+  //   this.admindvdRentalService.getPaginatedData(page, size).subscribe((data: any) => {
+  //     // Handle the paginated data here
+  //     console.log(data);
   
   
-      this.dataSource.data = data.content; // Assuming 'content' contains your paginated data
-    });
-  }
+  //     this.dataSource.data = data.content; // Assuming 'content' contains your paginated data
+  //   });
+  // }
   
   
   
