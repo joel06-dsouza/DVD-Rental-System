@@ -31,12 +31,6 @@ export class LoginFormComponent implements OnInit {
   }
 
 
-
- 
-
-
-
-
   onSubmit() {
     if (this.loginForm && this.loginForm.valid) {
       const username = this.loginForm.get('username')!.value;

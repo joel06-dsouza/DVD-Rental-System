@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-
-
-interface SideNavToggle {
-  screenWidth :number;
-  collapsed : boolean;
- }
+import { PaymentcustComponent } from '../paymentcust/paymentcust.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-customer-dashboard',
@@ -13,4 +9,15 @@ interface SideNavToggle {
 })
 export class CustomerDashboardComponent {
 
+  constructor(private dialog: MatDialog){
+    
+  }
+  openPaymentDialog(): void {
+    const dialogRef = this.dialog.open(PaymentcustComponent, {
+      width: '600px', // Set a suitable width
+    });
+  }
+  openFilmCustomer(){
+    
+  }
 }

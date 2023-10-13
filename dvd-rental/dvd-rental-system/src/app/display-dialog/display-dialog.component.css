@@ -1,29 +1,31 @@
-/* DisplayDialogComponent.css */
+.custom-staff-details-card {
+  background: linear-gradient(135deg, #476767, #0e82ad);
+  border-radius: 10px;
+  padding: 20px;
+  color: #f2f5f7;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  margin: 0 auto;
+}
 
-.staff-details-card {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 300px; /* Adjust the width as needed */
-  }
-  
-  .staff-info {
-    margin-top: 20px;
-  }
-  
-  .field {
-    margin-bottom: 10px;
-  }
-  
-  .label {
-    font-weight: bold;
-  }
-  
-  .value {
-    margin-left: 10px;
-  }
-  
-  /* Add more styles as needed */
-  
+.custom-staff-details-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.staff-info {
+  margin-top: 20px;
+}
+
+.field {
+  margin-bottom: 10px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.value {
+  margin-left: 10px;
+}
