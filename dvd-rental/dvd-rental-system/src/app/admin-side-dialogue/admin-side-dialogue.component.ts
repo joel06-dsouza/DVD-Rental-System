@@ -39,6 +39,6 @@ export class AdminSideDialogueComponent {
       // Navigate to the login page
       this.router.navigate(['/login']);
       this.dialogRef.close('logout');
-    }, 2000); // Simulate 2 seconds for demonstration
+    }, 1000); // Simulate 2 seconds for demonstration
   }
 }

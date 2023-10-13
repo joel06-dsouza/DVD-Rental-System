@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SidenavService } from './sidenav.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -8,30 +7,10 @@ import { SidenavService } from './sidenav.service';
 })
 export class SidenavComponent {
   sidenavOpen: boolean = false;
-  paymentDetailsVisible: boolean = false;
-  filmDetailsVisible: boolean = false;
 
-  constructor(private sidenavService: SidenavService) {}
-
-  ngOnInit() {
-    this.sidenavService.toggleSidenav$.subscribe(() => {
-      this.toggleSidenav();
-    });
+  toggleSidenav() {
+    this.sidenavOpen = !this.sidenavOpen;
   }
-  
-  showPaymentDetails() {
-    this.paymentDetailsVisible = true;
-    this.filmDetailsVisible = false;
-  }
-
-  showFilmDetails() {
-    this.paymentDetailsVisible = false;
-    this.filmDetailsVisible = true;
-  }
-
-toggleSidenav() {
-  console.log('Sidenav toggled');
-  this.sidenavOpen = !this.sidenavOpen;
-}
-
+  showPaymentDetails(){}
+  showFilmDetails(){}
 }
