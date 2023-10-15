@@ -41,12 +41,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { PaymentcustComponent } from './paymentcust/paymentcust.component';
 import { FilmcustomerComponent } from './filmcustomer/filmcustomer.component';
+import { CustomerDetailsDialogComponent } from './customer-details-dialog/customer-details-dialog.component';
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, DialogueComponent, AdmindashboardComponent, DisplayDialogComponent,FilmDialogComponent, ProgressDialogComponent, AdminHeaderComponent, AdminSideDialogueComponent, CustHeaderComponent, CustSideDialogueComponent, CustomerDashboardComponent, PaymentcustComponent, FilmcustomerComponent],
+  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, DialogueComponent, AdmindashboardComponent, DisplayDialogComponent,FilmDialogComponent, ProgressDialogComponent, AdminHeaderComponent, AdminSideDialogueComponent, CustHeaderComponent, CustSideDialogueComponent, CustomerDashboardComponent, PaymentcustComponent, FilmcustomerComponent, CustomerDetailsDialogComponent],
   imports: [
     MatDialogModule,
     MatListModule,

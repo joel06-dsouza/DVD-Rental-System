@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PaymentInfo } from './paymentinfo.model';
+import { CustomerFilmInfo } from './customerfilminfo.model';
 @Injectable({
   providedIn: 'root',
 })
@@ -20,17 +21,16 @@ export class CustomerDvdRentalService {
     return this.http.get(url);
   }
 
-  Payment(customerId:number): Observable<PaymentInfo[]>  {
-    console.log(customerId)
+  Payment(customerId: number): Observable<PaymentInfo[]>  {
+    console.log(customerId);
     const requestBody = {
-      customer_id:customerId
+      customer_id: customerId
     };
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-
+  
     return this.http.post<PaymentInfo[]>(`${this.apiUrl}/Customer/Payments`, requestBody, { headers: headers });
-
   }
 
   Details(customerId:number): Observable<string[]>  {
@@ -45,19 +45,28 @@ export class CustomerDvdRentalService {
     return this.http.post<string[]>(`${this.apiUrl}/Customer/customerdetails`, requestBody, { headers: headers });
 
   }
+  
 
-  Films(customerId:number): Observable<string[]>  {
-    console.log(customerId)
+  // Films(customerId:number): Observable<string[]>  {
+  //   console.log(customerId)
+  //   const requestBody = {
+  //     customer_id:customerId
+  //   };
+  //   const headers = new HttpHeaders({
+  //     'Content-Type': 'application/json'
+  //   });
+
+  //   return this.http.post<string[]>(`${this.apiUrl}/Customer/Films`, requestBody, { headers: headers });
+
+  // }
+  getCustomerFilms(customerId: number): Observable<CustomerFilmInfo[]> {
     const requestBody = {
-      customer_id:customerId
+      customer_id: customerId,
     };
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     });
 
-    return this.http.post<string[]>(`${this.apiUrl}/Customer/Films`, requestBody, { headers: headers });
-
+    return this.http.post<CustomerFilmInfo[]>(`${this.apiUrl}/Customer/Films`, requestBody, { headers: headers });
   }
-
-  
 }
