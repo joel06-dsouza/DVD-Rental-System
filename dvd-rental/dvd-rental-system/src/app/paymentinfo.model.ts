@@ -1,3 +1,5 @@
+import { Timestamp } from "rxjs";
+
 export class PaymentInfo {
     customer_id: number;
     payment_id: number;
@@ -6,10 +8,10 @@ export class PaymentInfo {
     staff_id: number;
     staff_name: string;
     rental_id: number;
-    rental_date: Date;
-    return_date: Date;
+    rental_date: Timestamp<Date>;
+    return_date: Timestamp<Date>;
     amount: number;
-    payment_date: Date;
+    payment_date: Timestamp<Date>;
     store_id: number;
     store_address: string;
 }

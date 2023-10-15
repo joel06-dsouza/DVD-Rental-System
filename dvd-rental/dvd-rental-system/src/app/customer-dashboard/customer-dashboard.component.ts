@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerDvdRentalService } from '../customerdvdrental.service';
 import { Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { PaymentcustComponent } from '../paymentcust/paymentcust.component';
 
 @Component({
   selector: 'app-customer-dashboard',
@@ -10,31 +12,45 @@ import { Subscription } from 'rxjs';
 export class CustomerDashboardComponent implements OnInit {
   private paymentSubscription: Subscription;
 
-  constructor(private dvdRentalService: CustomerDvdRentalService) {}
+  constructor(private dvdRentalService: CustomerDvdRentalService,private dialog: MatDialog) {}
+ 
+  openPaymentDialog(): void {
+    const dialogRef = this.dialog.open(PaymentcustComponent, {
+      width: '600px',
+    });
+  
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed', result);
+      // Handle any data that you want to receive from the dialog here.
+    });
+  }
 
+  openFilmCustomer(){
+    
+  }
   ngOnInit(): void {
     // Call the Payment method when the component initializes
     const customerId = localStorage.getItem('cId');
     const id = parseInt(customerId, 10);
    // Assuming you have a customer ID
-    this.makePayment(id);
+    // this.makePayment(id);
     this.showDetails(id);
     this.Film(id)
   }
 
-  makePayment(customerId: number) {
-    this.paymentSubscription = this.dvdRentalService.Payment(customerId).subscribe({
-      next: (response) => {
-        // Handle the response as needed
-        console.log("Successfully");
-        console.log('Payment response:', response);
-      },
-      error: (error) => {
-        // Handle errors
-        console.error('Payment error:', error);
-      }
-    });
-  }
+  // makePayment(customerId: number) {
+  //   this.paymentSubscription = this.dvdRentalService.Payment(customerId).subscribe({
+  //     next: (response) => {
+  //       // Handle the response as needed
+  //       console.log("Successfully");
+  //       console.log('Payment response:', response);
+  //     },
+  //     error: (error) => {
+  //       // Handle errors
+  //       console.error('Payment error:', error);
+  //     }
+  //   });
+  // }
 
   showDetails(customerId: number) {
     this.paymentSubscription = this.dvdRentalService.Details(customerId).subscribe({

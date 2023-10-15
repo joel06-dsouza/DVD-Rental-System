@@ -1,1 +1,20 @@
-welcome Customer 
+<app-admin-header></app-admin-header>
+<div class="dashboard-container">
+    <mat-card class="dashboard-card bounce-animation" style="border-radius: 20px;">
+      <mat-card-header id="header">
+        <img src="../../assets/pay.png.jpeg" id="icon">
+      </mat-card-header>
+      <mat-card-content>
+        <button mat-raised-button (click)="openPaymentDialog()">Payment</button>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="dashboard-card bounce-animation" style="border-radius: 20px;">
+        <mat-card-header id="header">
+            <!-- <mat-icon class="cartoon-icon">store</mat-icon> -->
+            <img src="../../assets/custfilm.png.jpeg" id="icon">
+        </mat-card-header>
+        <mat-card-content>
+            <button mat-raised-button (click)="openFilmCustomer()">Film</button>
+        </mat-card-content>
+    </mat-card>
+  </div>

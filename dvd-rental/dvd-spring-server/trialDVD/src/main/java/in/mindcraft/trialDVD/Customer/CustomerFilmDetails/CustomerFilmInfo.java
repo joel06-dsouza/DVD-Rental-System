@@ -19,10 +19,10 @@ public class CustomerFilmInfo {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "category_name")
+    @Column(name = "category")
     private String categoryName;
 
-    @Column(name = "language_name")
+    @Column(name = "language")
     private String languageName;
 
     @Column(name = "length")

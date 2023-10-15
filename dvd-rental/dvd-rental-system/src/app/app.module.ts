@@ -35,10 +35,11 @@ import { ProgressDialogComponent } from './progress-dialog/progress-dialog.compo
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminSideDialogueComponent } from './admin-side-dialogue/admin-side-dialogue.component';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
+import { PaymentcustComponent } from './paymentcust/paymentcust.component';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, DialogueComponent, AdmindashboardComponent, DisplayDialogComponent,FilmDialogComponent, ProgressDialogComponent, AdminHeaderComponent, AdminSideDialogueComponent, CustomerDashboardComponent],
+  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, DialogueComponent, AdmindashboardComponent, DisplayDialogComponent,FilmDialogComponent, ProgressDialogComponent, AdminHeaderComponent, AdminSideDialogueComponent, CustomerDashboardComponent, PaymentcustComponent],
   imports: [
     MatDialogModule,
     HttpClientModule,
