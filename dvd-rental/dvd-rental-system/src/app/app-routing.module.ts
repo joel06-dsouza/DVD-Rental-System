@@ -17,6 +17,8 @@ const routes: Routes = [
   { path: '**', component: ErrorPageComponent},
   { path: 'payment', component: PaymentcustComponent },
   { path: 'film', component: FilmcustomerComponent },
+  {path:'customer-display',component:CustomerDashboardComponent},
+  { path: '**', component: ErrorPageComponent}
 ];
 
 @NgModule({

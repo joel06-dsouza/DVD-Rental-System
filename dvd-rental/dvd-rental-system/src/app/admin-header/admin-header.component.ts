@@ -9,7 +9,7 @@ import { AdminSideDialogueComponent } from '../admin-side-dialogue/admin-side-di
 })
 export class AdminHeaderComponent implements OnInit {
   // Output event to trigger the side dialogue
-  @Output() openSideDialogue = new EventEmitter<void>();
+  @Output() openSideDialogue = new EventEmitter<void>(); 
 
   constructor(public dialog: MatDialog) {} // Inject MatBottomSheet
   ngOnInit(): void {

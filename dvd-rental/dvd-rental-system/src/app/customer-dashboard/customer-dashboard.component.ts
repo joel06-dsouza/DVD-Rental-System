@@ -1,23 +1,23 @@
+// customer-dashboard.component.ts
 import { Component } from '@angular/core';
-import { PaymentcustComponent } from '../paymentcust/paymentcust.component';
-import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-customer-dashboard',
   templateUrl: './customer-dashboard.component.html',
-  styleUrls: ['./customer-dashboard.component.css']
+  styleUrls: ['./customer-dashboard.component.css'],
 })
 export class CustomerDashboardComponent {
+  showSideNav = false; // Initially, side navigation is hidden
 
-  constructor(private dialog: MatDialog){
-    
+  toggleSideNav() {
+    this.showSideNav = !this.showSideNav; // Toggle the side navigation
   }
-  openPaymentDialog(): void {
-    const dialogRef = this.dialog.open(PaymentcustComponent, {
-      width: '600px', // Set a suitable width
-    });
+
+  openPaymentDialog() {
+    // Logic to open the Payment Details dialog
   }
-  openFilmCustomer(){
-    
+
+  openFilmDialog() {
+    // Logic to open the Film Details dialog
   }
 }
