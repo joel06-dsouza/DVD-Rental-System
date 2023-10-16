@@ -2,4 +2,40 @@
     max-height: 600px; /* Adjust the value as needed */
     overflow-y: auto;
   }
- 
+  #paymenttitle {
+    text-align: center;
+    font-size: 36px;
+    margin: 20px 0;
+    color: #ff5722;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+
+}
+
+.styled-table th {
+    background-color: #232b2b;
+    border: 1px solid #ccc;
+    /* font-weight: bold; */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.styled-table td {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.styled-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

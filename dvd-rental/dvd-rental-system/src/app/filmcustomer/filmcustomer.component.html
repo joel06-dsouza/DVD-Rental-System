@@ -1,6 +1,6 @@
 <mat-dialog-content class="scroll-dialog-content">
-    <table mat-table [dataSource]="data" class="mat-elevation-z7">
-      
+  <table #table class="styled-table" mat-table [dataSource]="data" id="paymenttable">
+    <h1 id="paymenttitle">Film Details</h1>
       <!-- Film ID -->
       <ng-container matColumnDef="filmId">
         <th mat-header-cell *matHeaderCellDef>Film ID</th>

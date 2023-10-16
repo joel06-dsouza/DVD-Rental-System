@@ -1,5 +1,4 @@
-
-h1 {
+#paymenttitle {
     text-align: center;
     font-size: 36px;
     margin: 20px 0;
@@ -11,50 +10,28 @@ h1 {
     text-underline-offset: 5px;
 }
 
-.mat-table-container {
-    margin: 10px;
-    overflow-x: auto; /* Add horizontal scrollbar for small screens */
-}
-
-/* Styles for screens smaller than 600px (typical mobile screens) */
-@media (max-width: 600px) {
-    .mat-table-container {
-        overflow-x: auto;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    table.mat-table {
-        display: block;
-    }
-}
-
-/* Table CSS */
-#paymentTable {
+.styled-table {
     width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+
 }
 
-/* Button Style */
-.convert {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
+.styled-table th {
+    background-color: #232b2b;
+    border: 1px solid #ccc;
+    /* font-weight: bold; */
+    color: #fff;
+    padding: 20px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 20px;
-    cursor: pointer;
 }
 
-/* Paginator Styling */
-.mat-paginator-page-size-label {
-    font-weight: bold;
+.styled-table td {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 5px;
 }
 
-.mat-paginator {
-    justify-content: center;
+.styled-table tr:nth-child(even) {
+    background-color: #f2f2f2;
 }

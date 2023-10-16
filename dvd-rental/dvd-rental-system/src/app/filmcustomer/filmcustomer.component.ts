@@ -28,58 +28,37 @@ export class FilmcustomerComponent {
     'customerId'
   ];
   
-  constructor(@Inject(MAT_DIALOG_DATA) public data: string[]) {}
+  dataSource: MatTableDataSource<any>;
 
-  // dataSource: MatTableDataSource<any>;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: string[]) {
+    this.dataSource = new MatTableDataSource(data);
+  }
 
-  // ngAfterViewInit() {
-  //   // Assign the paginator to your data source
+
+
+  ngAfterViewInit() {
+    // Assign the paginator to your data source
   
-  //   this.dataSource.paginator = this.paginator;
-  // }
+    this.dataSource.paginator = this.paginator;
+  }
   convertToExcel(): void {
-    const table = document.getElementById('dataTable');
+    const currentPageIndex = this.paginator.pageIndex;
+    const pageSize = this.paginator.pageSize;
+    const startIndex = currentPageIndex * pageSize;
+    const endIndex = startIndex + pageSize;
   
-    // Create an empty worksheet
-    const ws: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet([[]]);
+    const dataToExport = this.dataSource.data.slice(startIndex, endIndex);
   
-    const columnNames: string[] = []; // Specify the type as string[]
-  
-    // Iterate through the table header cells to extract the column names
-    table?.querySelectorAll('th[data-column-name]').forEach((headerCell, index) => {
-      // Get the column name from the data attribute
-      const columnName = headerCell.getAttribute('data-column-name');
-      if (columnName !== 'Actor') {
-        // Exclude the "Actor" column
-        columnNames.push(columnName as string); // Cast to string
-      }
+    // Format date columns (e.g., rentalDate, returnDate, paymentDate) to the desired format
+    dataToExport.forEach(row => {
+      row.rentalDate = new Date(row.rentalDate).toLocaleString('en-US');
+      row.returnDate = new Date(row.returnDate).toLocaleString('en-US');
+      row.paymentDate = new Date(row.paymentDate).toLocaleString('en-US');
     });
   
-    // Add column names as a single row to the worksheet
-    XLSX.utils.sheet_add_aoa(ws, [columnNames], { origin: 'A1' });
-  
-    // Iterate through the table data rows to extract the data
-    const dataRows: string[][] = []; // Specify the type as string[][]
-    table?.querySelectorAll('tbody tr').forEach((row) => {
-      const rowData: string[] = [];
-      // Iterate through the data cells in the row
-      row.querySelectorAll('td').forEach((cell, cellIndex) => {
-        // Only include data for non-"Actor" columns and check for null
-        if (columnNames[cellIndex] && cell.textContent) {
-          rowData.push(cell.textContent.trim());
-        }
-      });
-      dataRows.push(rowData);
-    });
-  
-    // Add data rows below the column names in the worksheet
-    XLSX.utils.sheet_add_aoa(ws, dataRows, { origin: 'A2' });
-  
-    // Create a workbook and add the worksheet
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(dataToExport);
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-  
-    // Save the workbook as an Excel file
     XLSX.writeFile(wb, 'table_data.xlsx');
   }
 }
