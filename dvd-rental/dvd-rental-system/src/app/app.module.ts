@@ -21,26 +21,44 @@ import { CdkTableModule } from '@angular/cdk/table';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { ErrorPageComponent } from './error-page/error-page.component';
-
 import { FooterComponent } from './footer/footer.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DialogueComponent } from './dialogue/dialogue.component';
 import { SideDialogueComponent } from './side-dialogue/side-dialogue.component';
-
-import { Route,Router } from '@angular/router';
-import { SidenavComponent } from './sidenav/sidenav.component';
+import { CommonModule } from '@angular/common';
+import { DialogueComponent } from './dialogue/dialogue.component';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { DisplayDialogComponent } from './display-dialog/display-dialog.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { FilmDialogComponent } from './film-dialog/film-dialog.component';
+import { ProgressDialogComponent } from './progress-dialog/progress-dialog.component';
 import { JwtInterceptor } from './jwt.interceptor';
+//mukul
+import { Tab1Component } from './tab1/tab1.component';
+import { Tab2Component } from './tab2/tab2.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule} from '@angular/material/list';
+import { MatIcon } from '@angular/material/icon';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { MatNavList } from '@angular/material/list';
 
 @NgModule({
-  declarations: [
-    AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent,DialogueComponent,SideDialogueComponent,
-    FooterComponent, HeaderComponent,
+  declarations: [AppComponent, 
+    LoginFormComponent, DisplayComponent, 
+    ErrorPageComponent, FooterComponent, HeaderComponent, 
+    SideDialogueComponent, DialogueComponent, 
+    AdmindashboardComponent, DisplayDialogComponent,
+    FilmDialogComponent, ProgressDialogComponent, 
+    SidenavComponent,
+    Tab1Component, Tab2Component,
+    
   ],
     
   imports: [
-   MatCardModule,MatToolbarModule,
+    
+    MatDialogModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -58,7 +76,13 @@ import { JwtInterceptor } from './jwt.interceptor';
     HttpClientModule,
     MatToolbarModule,
     MatDialogModule,
-    RouterModule
+    CommonModule,
+    MatProgressSpinnerModule,
+
+    //mukul
+    MatSidenavModule,
+    MatListModule
+  
   ],
   providers: [
 

@@ -1,0 +1,12 @@
+/* styles.css */
+
+/* Customize your theme here */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Universal styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f0f0;
+}
+
+/* Add other global styles here */

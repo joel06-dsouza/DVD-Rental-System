@@ -1,5 +1,9 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+import { DialogService } from '../dialog.service';
+
 
 @Component({
   selector: 'app-side-dialogue',
@@ -7,21 +11,34 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./side-dialogue.component.css']
 })
 export class SideDialogueComponent {
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef: MatDialogRef<SideDialogueComponent>
-  ) {}
+  constructor(public dialogRef: MatDialogRef<SideDialogueComponent>, private authService: AuthService, private router: Router,private dialogService: DialogService) { }
+  // GETTING ITEMS FROM LOCAL STORAGE
+  name = localStorage.getItem('FullName');
+  id = localStorage.getItem('StoreId');
+  email = localStorage.getItem('Email');
+  
 
-  // Function to close the dialogue
-  closeDialogue() {
+  // CLOSE DIALOG BOX METHOD
+  closeDialogue(): void {
     this.dialogRef.close();
   }
 
   logout() {
-    // Implement your logout logic here
-    // For example, you can perform a logout action, clear user data, and navigate to the logout page
-    console.log('Logout clicked');
-    // Close the dialogue after handling logout
-    this.dialogRef.close('logout'); // Pass 'logout' as the result to the afterClosed event
+    // Open the progress dialog
+    this.dialogService.openProgressDialog();
+  
+    // Simulate logout process (replace with your actual logout logic)
+    // For demonstration, we'll use a setTimeout
+    setTimeout(() => {
+      // Calling the logout method from AuthService
+      this.authService.logedOut();
+  
+      // Close the progress dialog when the logout is complete
+      this.dialogService.closeProgressDialog();
+  
+      // Navigate to the login page
+      this.router.navigate(['/login']);
+      this.dialogRef.close('logout');
+    }, 2000); // Simulate 2 seconds for demonstration
   }
 }

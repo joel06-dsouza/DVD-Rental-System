@@ -1,136 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <link rel="stylesheet" type="text/css"
-        href="C:\Users\user\dvd-rental-system\dvd-rental\dvd-rental-system\src\styles.css">
-    <!-- Add Angular Material styles here if not already included -->
-    <style>
-        /* CSS for positioning elements */
-        #container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            /* Change to flex-start for responsiveness */
-        }
-
-        body {
-            position: relative;
-            min-height: 100vh;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .content {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-
-        .right-align {
-            text-align: right;
-        }
-
-        .move-right {
-            margin-left: auto;
-        }
-
-        .toolbar-center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-grow: 1;
-        }
-
-        /* Adjustments for responsiveness */
-        @media (max-width: 768px) {
-            .toolbar-center {
-                padding-left: 0;
-                text-align: center;
-            }
-
-            .mat-icon {
-                padding-left: 0;
-                padding-right: 10px;
-            }
-
-            .move-right {
-                margin-left: 0;
-            }
-
-            footer.mat-toolbar {
-                text-align: center;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <div id="container">
-        <mat-toolbar color="primary">
-            <span class="toolbar-center text-white">MINDCRAFT SOFTWARE PVT. LTD.</span>
-            <mat-icon class="mr-2" (click)="toggleProfileBox()">account_circle</mat-icon>
-        </mat-toolbar>
 
 
 
-        <div [@slideInOut]="profileBoxState" id="login-box" class="move-right">
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form"></form>
-        </div>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side">
 
-        <div [@slideInOut]="profileBoxState" id="profile-box" class="move-right">
-            <mat-card class="profile-card">
-                <mat-card-header>
+      <button mat-icon-button (click)="toggleSidenav()">
+        <mat-icon>menu</mat-icon>
+      </button>
 
-                    <mat-icon class="mr-2" (click)="profilePhotoInput.click()">account_circle</mat-icon>
-                    <input type="file" #profilePhotoInput style="display: none;"
-                        (change)="onProfilePhotoChange($event)">
-                    <br />
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="'/tab1'">Tab 1</a>
+        <a mat-list-item [routerLink]="'/tab2'">Tab 2</a>
+      </mat-nav-list>
 
-
-                    <mat-card-title>WELCOME</mat-card-title>
-
-                    <mat-card-subtitle style="text-align: center;">
-                        {{ user.fullname }}
-                    </mat-card-subtitle>
-
-                </mat-card-header>
-                <mat-card-content>
-                    <div style="text-align: center;">ID <br />
-                        <span>{{ user.id }}</span>
-                    </div>
-
-                    <div style="text-align: center;">Email <br />
-                        <span>{{ user.email }}</span>
-                    </div>
-
-                </mat-card-content>
-
-                <mat-card-actions style="border: 50px;">
-                    <button mat-icon-button (click)="signOut()" style="border: 2px solid black;">
-                        <mat-icon>exit_to_app</mat-icon>
-                    </button>
-                    <span>Sign Out</span>
-                </mat-card-actions>
-            </mat-card>
-        </div>
-
-
-        <div class="content"></div>
-
-        <!-- <mat-toolbar color="primary" style="position: absolute; bottom: 0; width: 100%;">
-            <span class="toolbar-center text-white">DEVELOPED BY MINDCRAFT (2023 - 2024)</span>
-        </mat-toolbar> -->
-
-    </div>
-</body>
-
-</html>
+    </mat-sidenav>
+    
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

@@ -4,13 +4,15 @@ import { tap,delay } from "rxjs";
 import { HttpBackend,HttpClient } from "@angular/common/http";
 
 @Injectable({
-    providedIn:'root'
+    providedIn: 'root'
 })
 
-export class AuthService{
+export class AuthService {
+    
 
     private  apiUrl ='http://localhost:3000';
     constructor( private http:HttpClient){}
+
 
     register(user : {username : string,password : string}) : Observable<any>{
         return this.http.post(`${this.apiUrl}/login`,Credential)
@@ -45,7 +47,19 @@ export class AuthService{
     loggedIn(){
         return !!localStorage.getItem('StoreId');
 
+
     }
 
-    
+
+
+    logedOut() {
+
+        localStorage.removeItem('jwtToken');
+        localStorage.removeItem('StoreId');
+        localStorage.removeItem('FullName');
+
+
+    }
+
+
 }

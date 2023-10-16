@@ -4,16 +4,24 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { DisplayComponent } from './display/display.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AuthGuard } from './auth.guard';
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+//mukul
+import { Tab1Component } from './tab1/tab1.component';
+import { Tab2Component } from './tab2/tab2.component';
+import { MatNavList } from '@angular/material/list';
+
 
 const routes: Routes = [
   {path:'',component:LoginFormComponent},
   {path:'login' ,component:LoginFormComponent},
-  {path:'display',component:DisplayComponent,canActivate:[AuthGuard]},
+  {path:'staff-display',component:DisplayComponent,canActivate:[AuthGuard]},
+  {path:'admin-display',component:AdmindashboardComponent},
   { path: '**', component: ErrorPageComponent},
-  {path:'register',component:LoginComponent},
-  {path:'logout',component:LogoutComponent}
+
+  //mukul
+  {path:'tab1',component:Tab1Component},
+  {path:'tab2',component:Tab2Component},
+  {path:'',redirectTo:'/tab1',pathMatch:'full'}
 ];
 
 @NgModule({

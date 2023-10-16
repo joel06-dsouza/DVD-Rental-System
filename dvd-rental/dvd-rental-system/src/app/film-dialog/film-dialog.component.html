@@ -1,0 +1,263 @@
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <!-- <app-header (openSideDialogue)="openSideDialogue()"></app-header> -->
+  <app-header></app-header>
+  <h1>FILM DETAILS</h1>
+  <div class="dialog-content">
+  <div class="mat-table-container" style="max-height: 600px; overflow-y: auto;">
+      <!-- id takli -->
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" id="dataTable">
+              
+          <!---------------------------FILM ID COLUMN----------------------------->
+          <ng-container matColumnDef="filmid">
+              <th mat-header-cell *matHeaderCellDef data-column-name="Film ID" id="thcolor"> Film ID
+                  <button mat-button class="btn-toggle" [matMenuTriggerFor]="filmidMenu">
+                      <mat-icon>filter_alt</mat-icon>
+                  </button>
+              </th>
+              <td mat-cell *matCellDef="let element" id="tdpadid"> {{element.id}} </td>
+
+              <mat-menu #filmidMenu="matMenu">
+                  <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title"
+                      (click)="$event.stopPropagation()">
+                      Film Id.
+                  </div>
+
+                  <div mat-menu-item mat-filter-item [disableRipple]="true">
+                      <mat-form-field>
+                          <input matInput placeholder="Film Id" [(ngModel)]="searchValue.id"
+                              (click)="$event.stopPropagation()" (ngModelChange)="applyFilters()">
+                      </mat-form-field>
+                  </div>
+
+              </mat-menu>
+          </ng-container>
+
+          <!---------------------------TITLE COLUMN----------------------------->
+          <ng-container matColumnDef="title">
+              <th mat-header-cell *matHeaderCellDef data-column-name="Title" id="thcolor"> Title
+                  <button mat-button class="btn-toggle" [matMenuTriggerFor]="titleMenu">
+                      <mat-icon>filter_alt</mat-icon>
+                  </button>
+              </th>
+              <td mat-cell *matCellDef="let element" id="tdpad"> {{element.title}} </td>
+              <mat-menu #titleMenu="matMenu">
+                  <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title"
+                      (click)="$event.stopPropagation()">
+                      Title.
+                  </div>
+
+                  <div mat-menu-item mat-filter-item [disableRipple]="true">
+                      <mat-form-field>
+                          <input matInput placeholder="Title" [(ngModel)]="searchValue.title"
+                              (click)="$event.stopPropagation()" (ngModelChange)="applyFilters()">
+                      </mat-form-field>
+                  </div>
+
+              </mat-menu>
+          </ng-container>
+
+          <!---------------------------DESCRIPTION COLUMN----------------------------->
+          <ng-container matColumnDef="description">
+              <th mat-header-cell *matHeaderCellDef data-column-name="Description" id="thcolor"> Description
+                  <button mat-button class="btn-toggle" [matMenuTriggerFor]="descriptionMenu">
+                      <mat-icon>filter_alt</mat-icon>
+                  </button>
+              </th>
+              <td mat-cell *matCellDef="let element" id="tdpad"> {{element.description}} </td>
+              <mat-menu #descriptionMenu="matMenu">
+                  <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title"
+                      (click)="$event.stopPropagation()">
+                      Description.
+                  </div>
+
+                  <div mat-menu-item mat-filter-item [disableRipple]="true">
+                      <mat-form-field>
+                          <input matInput placeholder="Description" [(ngModel)]="searchValue.description"
+                              (click)="$event.stopPropagation()" (ngModelChange)="applyFilters()">
+                      </mat-form-field>
+                  </div>
+
+              </mat-menu>
+          </ng-container>
+
+          <!---------------------------RELEASE YEAR COLUMN----------------------------->
+          <ng-container matColumnDef="releaseYear">
+              <th mat-header-cell *matHeaderCellDef data-column-name="Release Year" id="thcolor"> Release Year
+                  <button mat-button class="btn-toggle" [matMenuTriggerFor]="releaseyrMenu">
+                      <mat-icon>filter_alt</mat-icon>
+                  </button>
+              </th>
+              <td mat-cell *matCellDef="let element" id="tdpad"> {{element.releaseYear}} </td>
+              <mat-menu #releaseyrMenu="matMenu">
+                  <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title"
+                      (click)="$event.stopPropagation()">
+                      Release Year.
+                  </div>
+
+                  <div mat-menu-item mat-filter-item [disableRipple]="true">
+                      <mat-form-field>
+                          <input matInput placeholder="Value" [(ngModel)]="searchValue.releaseYear"
+                              (click)="$event.stopPropagation()" (ngModelChange)="applyFilters()">
+                      </mat-form-field>
+                  </div>
+
+              </mat-menu>
+          </ng-container>
+
+          <!---------------------------LANGUAGE COLUMN----------------------------->
+          <ng-container matColumnDef="language">
+              <th mat-header-cell *matHeaderCellDef data-column-name="Language" id="thcolor"> Language
+                  <button mat-button class="btn-toggle" [matMenuTriggerFor]="languageMenu">
+                      <mat-icon>filter_alt</mat-icon>
+                  </button>
+              </th>
+              <td mat-cell *matCellDef="let element" id="tdpad"> {{element.languageName}} </td>
+              <mat-menu #languageMenu="matMenu">
+                  <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title"
+                      (click)="$event.stopPropagation()">
+                      Language.
+                  </div>
+
+                  <div mat-menu-item mat-filter-item [disableRipple]="true">
+                      <mat-form-field>
+                          <input matInput placeholder="Value" [(ngModel)]="searchValue.language"
+                              (click)="$event.stopPropagation()" (ngModelChange)="applyFilters()">
+                      </mat-form-field>
+                  </div>
+
+              </mat-menu>
+          </ng-container>
+
+          <!---------------------------RENTAL DURATION COLUMN----------------------------->
+          <ng-container matColumnDef="rentalDuration">
+              <th mat-header-cell *matHeaderCellDef data-column-name="Rental Duration" id="thcolor"> Rental Duration
+                  <button mat-button class="btn-toggle" [matMenuTriggerFor]="rentaldurationMenu">
+                      <mat-icon>filter_alt</mat-icon>
+                  </button>
+              </th>
+              <td mat-cell *matCellDef="let element" id="tdpad"> {{element.rentalDuration}} days </td>
+              <mat-menu #rentaldurationMenu="matMenu">
+                  <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title"
+                      (click)="$event.stopPropagation()">
+                      Rental Duration.
+                  </div>
+
+                  <div mat-menu-item mat-filter-item [disableRipple]="true">
+                      <mat-form-field>
+                          <input matInput placeholder="Value" [(ngModel)]="searchValue.rentalDuration"
+                              (click)="$event.stopPropagation()" (ngModelChange)="applyFilters()">
+                      </mat-form-field>
+                  </div>
+
+              </mat-menu>
+          </ng-container>
+
+          <!---------------------------RENTAL RATE COLUMN----------------------------->
+          <ng-container matColumnDef="rentalRate">
+              <th mat-header-cell *matHeaderCellDef data-column-name="Rental Rate" id="thcolor"> Rental Rate
+                  <button mat-button class="btn-toggle" [matMenuTriggerFor]="rentalrateMenu">
+                      <mat-icon>filter_alt</mat-icon>
+                  </button>
+              </th>
+              <td mat-cell *matCellDef="let element" id="tdpad"> ${{element.rentalRate}} </td>
+              <mat-menu #rentalrateMenu="matMenu">
+                  <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title"
+                      (click)="$event.stopPropagation()">
+                      Rental Rate.
+                  </div>
+
+                  <div mat-menu-item mat-filter-item [disableRipple]="true">
+                      <mat-form-field>
+                          <input matInput placeholder="Value" [(ngModel)]="searchValue.rentalRate"
+                              (click)="$event.stopPropagation()" (ngModelChange)="applyFilters()">
+                      </mat-form-field>
+                  </div>
+
+              </mat-menu>
+          </ng-container>
+
+          <!---------------------------LENGTH COLUMN----------------------------->
+          <ng-container matColumnDef="length">
+              <th mat-header-cell *matHeaderCellDef data-column-name="Length" id="thcolor"> Length
+                  <button mat-button class="btn-toggle" [matMenuTriggerFor]="lengthMenu">
+                      <mat-icon>filter_alt</mat-icon>
+                  </button>
+              </th>
+              <td mat-cell *matCellDef="let element" id="tdpad"> {{element.length}} mins </td>
+              <mat-menu #lengthMenu="matMenu">
+                  <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title"
+                      (click)="$event.stopPropagation()">
+                      Length.
+                  </div>
+
+                  <div mat-menu-item mat-filter-item [disableRipple]="true">
+                      <mat-form-field>
+                          <input matInput placeholder="Value" [(ngModel)]="searchValue.length"
+                              (click)="$event.stopPropagation()" (ngModelChange)="applyFilters()">
+                      </mat-form-field>
+                  </div>
+
+              </mat-menu>
+          </ng-container>
+
+          <!---------------------------RATING COLUMN----------------------------->
+          <ng-container matColumnDef="rating">
+              <th mat-header-cell *matHeaderCellDef data-column-name="Rating" id="thcolor"> Rating
+                  <button mat-button class="btn-toggle" [matMenuTriggerFor]="ratingMenu">
+                      <mat-icon>filter_alt</mat-icon>
+                  </button>
+              </th>
+              <td mat-cell *matCellDef="let element" id="tdpad"> {{element.rating}} </td>
+              <mat-menu #ratingMenu="matMenu">
+                  <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title"
+                      (click)="$event.stopPropagation()">
+                      Rating.
+                  </div>
+
+                  <div mat-menu-item mat-filter-item [disableRipple]="true">
+                      <mat-form-field>
+                          <input matInput placeholder="Value" [(ngModel)]="searchValue.rating"
+                              (click)="$event.stopPropagation()" (ngModelChange)="applyFilters()">
+                      </mat-form-field>
+                  </div>
+
+              </mat-menu>
+          </ng-container>
+
+          <!---------------------------ACTOR COLUMN----------------------------->
+          <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef id="thcolor"> Actor </th>
+              <td mat-cell *matCellDef="let element" id="tdpad">
+                  <!-- Add action buttons or icons here -->
+                  <button mat-icon-button color="primary" (click)="openActorListDialog(element.id)">
+                      <mat-icon>visibility</mat-icon>
+                  </button>
+              </td>
+          </ng-container>
+
+          <!-- Header Row -->
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+          <!-- Data Rows -->
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+      &nbsp;
+          <!-- Add MatPaginator below your table -->
+          <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+
+    
+    
+      <button (click)="convertToExcel()" class="convert">Convert To Excel</button>
+      <!-- <button class="convert"(click)="fetchPaginatedData('0','10')">Convert To Excel</button> -->
+
+      <app-footer></app-footer>
+  </div>
+</div> 
+</body>
