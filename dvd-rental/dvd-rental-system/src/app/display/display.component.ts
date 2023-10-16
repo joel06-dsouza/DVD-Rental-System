@@ -300,15 +300,17 @@ openActorListDialog(filmId: number) {
 
 
 
-// openActorDialog(actors: any) {
-//   // Open the dialog and pass actors data
-//   this.dialog.open(DialogueComponent, {
-//     data: {
-//       title: 'Actors List',
-//       actors: actors // Pass the actors' data here
-//     }
-//   });
-// }
+openActorDialog(actors: any) {
+  // Open the dialog and pass actors data
+  this.dialog.open(DialogueComponent, {
+    data: {
+      title: 'Actors List',
+      actors: actors // Pass the actors' data here
+    }
+  });
+
+
+}
 
 openSideDialogue() {
   // Open the side dialogue component

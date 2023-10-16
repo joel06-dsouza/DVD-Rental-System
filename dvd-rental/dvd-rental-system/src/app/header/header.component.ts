@@ -19,5 +19,4 @@ export class HeaderComponent implements OnInit {
       width: '350px' // Adjust the width as needed
     });
   }
-  
 }

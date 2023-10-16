@@ -1,20 +1,19 @@
-<!-- payment-dialog.component.html -->
-<h1>{{ data.title }}</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Payment Date</th>
-      <th>Amount</th>
-      <!-- Add more table headers for payment properties as needed -->
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let payment of data.content">
-      <td>{{ payment.payment_date }}</td>
-      <td>{{ payment.amount }}
-        
-      </td>
-      <!-- Add more table cells for payment properties as needed -->
-    </tr>
-  </tbody>
-</table>
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Define the columns -->
+      <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+        <th mat-header-cell *matHeaderCellDef>{{ column | titlecase }}</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element[column] }}
+        </td>
+      </ng-container>
+  
+      <!-- Create header rows and columns -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
+    <!-- Add pagination -->
+    <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
+  </div>
+  

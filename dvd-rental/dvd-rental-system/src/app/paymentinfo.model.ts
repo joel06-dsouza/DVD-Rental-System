@@ -1,20 +1,5 @@
-// import { Timestamp } from "rxjs";
+import { Timestamp } from "rxjs";
 
-// export class PaymentInfo {
-//     customer_id: number;
-//     payment_id: number;
-//     film_id: number;
-//     film_title: string;
-//     staff_id: number;
-//     staff_name: string;
-//     rental_id: number;
-//     rental_date: Timestamp<Date>;
-//     return_date: Timestamp<Date>;
-//     amount: number;
-//     payment_date: Timestamp<Date>;
-//     store_id: number;
-//     store_address: string;
-// }
 export class PaymentInfo {
     customer_id: number;
     payment_id: number;
@@ -23,11 +8,10 @@ export class PaymentInfo {
     staff_id: number;
     staff_name: string;
     rental_id: number;
-    rental_date: Date; // Use standard JavaScript Date object
-    return_date: Date; // Use standard JavaScript Date object
+    rental_date: Timestamp<Date>;
+    return_date: Timestamp<Date>;
     amount: number;
-    payment_date: Date; // Use standard JavaScript Date object
+    payment_date: Timestamp<Date>;
     store_id: number;
     store_address: string;
 }
-

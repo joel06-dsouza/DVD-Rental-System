@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
@@ -33,25 +34,16 @@ import { FilmDialogComponent } from './film-dialog/film-dialog.component';
 import { ProgressDialogComponent } from './progress-dialog/progress-dialog.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminSideDialogueComponent } from './admin-side-dialogue/admin-side-dialogue.component';
-import { CustHeaderComponent } from './cust-header/cust-header.component';
-import { CustSideDialogueComponent } from './cust-side-dialogue/cust-side-dialogue.component';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
-import { MatListModule } from '@angular/material/list';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatButtonModule } from '@angular/material/button';
 import { PaymentcustComponent } from './paymentcust/paymentcust.component';
 import { FilmcustomerComponent } from './filmcustomer/filmcustomer.component';
-import { CustomerDetailsDialogComponent } from './customer-details-dialog/customer-details-dialog.component';
-
-
+import { CustomerdetailsComponent } from './customerdetails/customerdetails.component';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, DialogueComponent, AdmindashboardComponent, DisplayDialogComponent,FilmDialogComponent, ProgressDialogComponent, AdminHeaderComponent, AdminSideDialogueComponent, CustHeaderComponent, CustSideDialogueComponent, CustomerDashboardComponent, PaymentcustComponent, FilmcustomerComponent, CustomerDetailsDialogComponent],
+  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, DialogueComponent, AdmindashboardComponent, DisplayDialogComponent,FilmDialogComponent, ProgressDialogComponent, AdminHeaderComponent, AdminSideDialogueComponent, CustomerDashboardComponent, PaymentcustComponent, FilmcustomerComponent, CustomerdetailsComponent],
   imports: [
     MatDialogModule,
-    MatListModule,
-    MatSidenavModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
@@ -72,9 +64,7 @@ import { CustomerDetailsDialogComponent } from './customer-details-dialog/custom
     MatDialogModule,
     CommonModule,
     MatProgressSpinnerModule,
-    MatFormFieldModule ,
-    MatDividerModule,
-    RouterModule,
+    MatFormFieldModule 
   ],
   providers: [],
   bootstrap: [AppComponent],

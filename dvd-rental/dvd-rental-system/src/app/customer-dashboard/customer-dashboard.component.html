@@ -20,7 +20,7 @@
                     style="padding-top: 40px; padding-left: 10px;">
             </mat-card-header>
             <mat-card-content>
-              <!-- <p id="count-label" (click)="openCustomerDetailsDialog()">Personal Details</p> -->
+                <p id="count-label" (click)="showDetails(customerId)">Personal<br> Information</p>
             </mat-card-content>
         </mat-card>
     
@@ -32,7 +32,7 @@
                     style="padding-top: 45px; padding-left: 10px;">
             </mat-card-header>
             <mat-card-content>
-                <p id="count-label"(click)="openFilmCustomer()">Films Rented Information</p>
+              <p id="count-label" (click)="openFilmDialog()">Films Rented Information</p>
             </mat-card-content>
         </mat-card>
     
@@ -44,10 +44,9 @@
                     style="padding-top: 45px; padding-left: 10px;">
             </mat-card-header>
             <mat-card-content>
-                <!-- <p id="count-label"  (click)="openPaymentInfoDialog()">Payment <br> Details</p> -->
+                <p id="count-label">Payment <br> Details</p>
             </mat-card-content>
         </mat-card>
-        <!-- <button mat-raised-button (click)="openPaymentDialog()">Payment</button> -->
     </div>
 
 <br>
