@@ -23,21 +23,25 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
-
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SideDialogueComponent } from './side-dialogue/side-dialogue.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
-import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { CommonModule } from '@angular/common';
 import { DialogueComponent } from './dialogue/dialogue.component';
-import { StaffComponent } from './staff/staff.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { DisplayDialogComponent } from './display-dialog/display-dialog.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { FilmDialogComponent } from './film-dialog/film-dialog.component';
 import { ProgressDialogComponent } from './progress-dialog/progress-dialog.component';
-
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
+import { AdminSideDialogueComponent } from './admin-side-dialogue/admin-side-dialogue.component';
+import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
+import { PaymentcustComponent } from './paymentcust/paymentcust.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { CustomerDetailsDialogComponent } from './customer-details-dialog/customer-details-dialog.component';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, SidenavComponent, AdmindashboardComponent, DialogueComponent, StaffComponent, ProgressDialogComponent],
+  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, DialogueComponent, AdmindashboardComponent, DisplayDialogComponent,FilmDialogComponent, ProgressDialogComponent, AdminHeaderComponent, AdminSideDialogueComponent, CustomerDashboardComponent, PaymentcustComponent, CustomerDetailsDialogComponent],
   imports: [
     MatProgressSpinnerModule,
     MatFormFieldModule,
@@ -60,7 +64,10 @@ import { ProgressDialogComponent } from './progress-dialog/progress-dialog.compo
     ReactiveFormsModule,
     HttpClientModule,
     MatToolbarModule,
-    MatDialogModule
+    MatDialogModule,
+    CommonModule,
+    MatProgressSpinnerModule,
+    MatFormFieldModule 
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -5,15 +5,15 @@ import { DisplayComponent } from './display/display.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AuthGuard } from './auth.guard';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
-import { StaffComponent } from './staff/staff.component';
+import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 
 const routes: Routes = [
   {path:'',component:LoginFormComponent},
   {path:'login' ,component:LoginFormComponent},
-  {path: 'admin', component: AdmindashboardComponent,canActivate: [AuthGuard] },
-  {path:'display',component:DisplayComponent,canActivate:[AuthGuard]},
-  {path:'staff',component:StaffComponent,canActivate:[AuthGuard]},
-  { path: '**', component: ErrorPageComponent},
+  {path:'staff-display',component:DisplayComponent,canActivate:[AuthGuard]},
+  {path:'admin-display',component:AdmindashboardComponent},
+  {path:'customer-display',component:CustomerDashboardComponent},
+  { path: '**', component: ErrorPageComponent}
 ];
 
 @NgModule({

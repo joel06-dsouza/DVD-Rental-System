@@ -9,7 +9,7 @@
                 style="padding-top: 20px; padding-left: 10px;">
         </mat-card-header>
         <mat-card-content>
-            <p id="count-label">Count: 10</p>
+            <p id="count-label">Count: 2</p>
         </mat-card-content>
     </mat-card>
 
@@ -60,7 +60,7 @@
         <!-- Store ID Column -->
         <ng-container matColumnDef="storeid">
             <th mat-header-cell *matHeaderCellDef id="thcolor1" style="background-color: #414a4c;"> Store ID </th>
-            <td mat-cell *matCellDef="let row"> {{ row.storeid }} </td>
+            <td mat-cell *matCellDef="let row"> {{ row.storeId }} </td>
         </ng-container>
 
         <!-- Manager ID Column -->
@@ -79,9 +79,9 @@
         <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef id="thcolor1" style="background-color: #414a4c;"> Action </th>
             <td mat-cell *matCellDef="let row">
-                <button mat-button color="primary" id="mbtn" (click)="openProfileCard()">Staff</button>
+                <button mat-button color="primary" id="mbtn" (click)="staff(row.id)">Staff</button>
                 &nbsp;
-                <button mat-button color="accent" id="mbtn">Film</button>
+                <button mat-button color="accent" id="mbtn" (click)="openFilmDetailsDialog(storeId1)">Film</button>
             </td>
         </ng-container>
 
@@ -91,4 +91,12 @@
 </div>
 <br />
 <br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 <app-footer></app-footer>

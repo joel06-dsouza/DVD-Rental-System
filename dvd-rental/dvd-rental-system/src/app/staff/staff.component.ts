@@ -24,7 +24,7 @@ export class StaffComponent {
   // LOGOUT METHOD
   logout() {
     // Calling the logout method from AuthService
-    this.authService.logout();
+    this.authService.logedOut();
     this.router.navigate(['/login']);
     this.dialogRef.close('logout');
   }
