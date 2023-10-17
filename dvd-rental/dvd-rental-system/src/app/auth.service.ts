@@ -12,7 +12,7 @@ export class AuthService {
 
 
     loggedIn() {
-        return !!localStorage.getItem('jwtToken') || !!localStorage.getItem('ajwtToken')
+        return !!localStorage.getItem('jwtToken') || !!localStorage.getItem('ajwtToken') ||  !!localStorage.getItem('cToken')
 
     }
 
@@ -24,6 +24,10 @@ export class AuthService {
         localStorage.removeItem('ajwtToken');
         localStorage.removeItem('aName');
         localStorage.removeItem('aId');
+        localStorage.removeItem('cId');
+        localStorage.removeItem('cName')
+        localStorage.removeItem('cToken')
+        localStorage.removeItem('Email')
 
 
 
