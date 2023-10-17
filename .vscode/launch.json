@@ -2,57 +2,11 @@
     "configurations": [
         {
             "type": "java",
-            "name": "TrialDvdApplication",
-            "request": "launch",
-            "mainClass": "com.example.TrialDvdApplication",
-            "projectName": "auth"
-        },
-        {
-            "type": "java",
-            "name": "Spring Boot-DvdSpringServerApplication<dvd-spring-server>",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "mainClass": "in.mindcraft.controllers.DvdSpringServerApplication",
-            "projectName": "dvd-spring-server",
-            "args": "",
-            "envFile": "${workspaceFolder}/.env"
-        },
-        {
-            "type": "java",
-<<<<<<< HEAD
-            "name": "Spring Boot-AuthApplication<auth>",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "mainClass": "com.example.auth.AuthApplication",
-            "projectName": "auth",
-=======
-            "name": "Spring Boot-DvdSpringServerApplication<TrialApplication>",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "mainClass": "in.mindcraft.controllers.DvdSpringServerApplication",
-            "projectName": "TrialApplication",
-            "args": "",
-            "envFile": "${workspaceFolder}/.env"
-        },
-        {
-            "type": "java",
             "name": "Spring Boot-TrialDvdApplication<trialDVD>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "mainClass": "in.mindcraft.trialDVD.TrialDvdApplication",
             "projectName": "trialDVD",
-            "args": "",
-            "envFile": "${workspaceFolder}/.env",
-            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=58175 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=trialDVD"
-        },
-        {
-            "type": "java",
-            "name": "Spring Boot-JwtTokenManagementApplication<trialDVD>",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "mainClass": "in.mindcraft.trialDVD.JWT.JwtTokenManagementApplication",
-            "projectName": "trialDVD",
->>>>>>> c1639322e2e5f14a68e64b119fdc0b798402c998
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }

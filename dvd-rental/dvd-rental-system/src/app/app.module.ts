@@ -36,14 +36,18 @@ import { AdminSideDialogueComponent } from './admin-side-dialogue/admin-side-dia
 import { CustHeaderComponent } from './cust-header/cust-header.component';
 import { CustSideDialogueComponent } from './cust-side-dialogue/cust-side-dialogue.component';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
+import { PaymentcustComponent } from './paymentcust/paymentcust.component';
+import { FilmcustomerComponent } from './filmcustomer/filmcustomer.component';
+
+
+
 
 
 @NgModule({
-  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, DialogueComponent, AdmindashboardComponent, DisplayDialogComponent,FilmDialogComponent, ProgressDialogComponent, AdminHeaderComponent, AdminSideDialogueComponent, CustHeaderComponent, CustSideDialogueComponent, CustomerDashboardComponent, SidenavComponent],
+  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, DialogueComponent, AdmindashboardComponent, DisplayDialogComponent,FilmDialogComponent, ProgressDialogComponent, AdminHeaderComponent, AdminSideDialogueComponent, CustHeaderComponent, CustSideDialogueComponent, CustomerDashboardComponent, PaymentcustComponent, FilmcustomerComponent],
   imports: [
     MatDialogModule,
     MatListModule,
@@ -67,7 +71,10 @@ import { MatButtonModule } from '@angular/material/button';
     MatToolbarModule,
     MatDialogModule,
     CommonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatFormFieldModule ,
+    MatDividerModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

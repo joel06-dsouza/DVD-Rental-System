@@ -13,8 +13,8 @@ import { DialogService } from '../dialog.service';
 export class AdminSideDialogueComponent {
   constructor(public dialogRef: MatDialogRef<AdminSideDialogueComponent>, private authService: AuthService, private router: Router,private dialogService: DialogService) { }
   // GETTING ITEMS FROM LOCAL STORAGE
-  name = localStorage.getItem('FullName');
-  id = localStorage.getItem('StoreId');
+  name = localStorage.getItem('aName');
+  id = localStorage.getItem('aId');
   
   
 
@@ -42,3 +42,4 @@ export class AdminSideDialogueComponent {
     }, 1000); // Simulate 2 seconds for demonstration
   }
 }
+    

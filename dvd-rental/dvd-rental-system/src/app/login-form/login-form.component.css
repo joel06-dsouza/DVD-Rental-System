@@ -1,26 +1,28 @@
-/* Add these styles to your CSS file for animations and colorful buttons */
-
-.colorful-button {
-    background-color: #007bff; /* Blue background color */
-    color: white;
-    transition: background-color 0.3s, transform 0.2s;
+.login-card {
+    box-shadow: 0 10px 100px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #cccccc;
+    padding: 30px;
+    width: 400px;
+    border-radius: 30px;
   }
   
-  .colorful-button:hover {
-    background-color: #787775; /* Darker blue on hover */
-    transform: scale(1.05); /* Scale up on hover */
+  .logo {
+    margin-left: 80px;
+    font-size: 24px;
+    font-weight: bold;
   }
   
-  .round-input .mat-form-field-wrapper {
-    border-radius: px;
+  .header-title {
+    /* Add any additional styles for header title */
   }
   
-  .login-card {
-    transition: transform 0.3s;
-
+  .login-form {
+    margin-left: 70px;
   }
   
-  .login-card:hover {
-    transform: scale(1.05); /* Scale up the card on hover */
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
   }
   
