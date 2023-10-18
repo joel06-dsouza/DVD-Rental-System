@@ -10,7 +10,6 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "staff")
-
 public class Staff {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,12 +45,10 @@ public class Staff {
 
     @Column(name = "picture")
     private byte[] picture;
-	
-    
+
     public Staff() {
 		super();
 	}
-
 
 	public Staff(Long id, String firstName, String lastName, Long addressId, String email, Long storeId, Boolean active,
 			String username, String password, byte[] picture) {
@@ -167,15 +164,8 @@ public class Staff {
 	public void setPicture(byte[] picture) {
 		this.picture = picture;
 	}
-    
-    
-    
-    
-    
-   
-   
-    
-    
+      
+	
 }
     
     

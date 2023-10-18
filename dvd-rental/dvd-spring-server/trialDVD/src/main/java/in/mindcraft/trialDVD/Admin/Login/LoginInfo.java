@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+
 @Entity
 @Table(name = "admin")
 public class LoginInfo {
@@ -26,6 +27,7 @@ public class LoginInfo {
 	 
 	 @Column(name="password")
 	 private String password;
+
 
 	public LoginInfo() {
 		super();
@@ -79,7 +81,5 @@ public class LoginInfo {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	 
-	 
 	 
 }

@@ -6,14 +6,15 @@ import { FilmInfo } from '../filminfo.model';
 import { Router } from '@angular/router';
 import { LoginModel } from './login.model';
 import * as crypto from 'crypto-js';
+
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
-  token: string|undefined;
-  loginModel: LoginModel; 
+  token: string | undefined;
+  loginModel: LoginModel;
   loginForm!: FormGroup;
   filmInfoList: FilmInfo[] = []; // Declare and initialize an empty array for film data
   loginFailed: boolean = false; //login failed
@@ -90,9 +91,9 @@ export class LoginFormComponent implements OnInit {
 
 
   onSubmit() {
-    if (this.loginForm && this.loginForm.valid) {
-      const username = this.loginForm.get('username')!.value;
-      const password = this.loginForm.get('password')!.value;
+    if (this.loginModel.loginForm && this.loginModel.loginForm.valid) {
+      const username = this.loginModel.loginForm.get('username')!.value;
+      const password = this.loginModel.loginForm.get('password')!.value;
       const enteredPasswordHash = crypto.SHA1(password).toString();
   
       const loginRequest = {
@@ -103,6 +104,8 @@ export class LoginFormComponent implements OnInit {
       // Attempt to login as an admin first
       this.adminDvdRentalService.loginAdmin(username, enteredPasswordHash).subscribe(
         (adminResponse) => {
+
+          
           // Handle admin login success
           alert('Admin Login Successful');
           this.route.navigate(['admin-display'])
