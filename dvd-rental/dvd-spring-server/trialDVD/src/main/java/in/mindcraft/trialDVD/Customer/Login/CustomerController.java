@@ -3,9 +3,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import in.mindcraft.trialDVD.JwtTokenProvider;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Collections; // Import java.util.Collections
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("Customer")
@@ -13,6 +16,10 @@ public class CustomerController {
 
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Autowired
+    private JwtTokenProvider jwtTokenProvider;
+
 
     @GetMapping
     public List<CustomerInfo> getAllCustomers() {
@@ -29,15 +36,34 @@ public class CustomerController {
         }
     }
 
+    // @GetMapping("/login/{name}")
+    // public List<CustomerInfo> getCustomersByName(@PathVariable String name) {
+    //     List<CustomerInfo> customers = customerRepository.findByName(name);
+    //     if (!customers.isEmpty()) {
+    //         return customers;
+    //     } else {
+    //         return Collections.emptyList(); // Use java.util.Collections.emptyList()
+    //     }
+    // }
+
     @GetMapping("/login/{name}")
-    public List<CustomerInfo> getCustomersByName(@PathVariable String name) {
-        List<CustomerInfo> customers = customerRepository.findByName(name);
-        if (!customers.isEmpty()) {
-            return customers;
-        } else {
-            return Collections.emptyList(); // Use java.util.Collections.emptyList()
-        }
+public ResponseEntity<?> getCustomersByName(@PathVariable String name) {
+    List<CustomerInfo> customers = customerRepository.findByName(name);
+    long storeId=1;
+    if (!customers.isEmpty()) {
+       
+        String jwtToken = jwtTokenProvider.generateToken(name,storeId);
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("jwtToken", jwtToken);
+        response.put("customers", customers);
+
+        return ResponseEntity.ok(response);
+    } else {
+        return ResponseEntity.notFound().build();
     }
+}
+
 
     @PostMapping
     public ResponseEntity<CustomerInfo> createCustomer(@RequestBody CustomerInfo customer) {
