@@ -43,6 +43,7 @@ export class CustomerDashboardComponent implements OnInit {
       this.filmData = response;
       const dialogRef = this.dialog.open(FilmcustomerComponent, {
         data: this.filmData,
+      
       });
 
       dialogRef.afterClosed().subscribe(() => {

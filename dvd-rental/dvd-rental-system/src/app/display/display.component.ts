@@ -190,43 +190,7 @@ ngAfterViewInit() {
     });
   }
   
-  // fetchPaginatedData() {
-  //   const page = (this.currentPage + 1).toString(); // Add 1 to currentPage because pagination usually starts from 0
-  //   const size = this.pageSize.toString();
-  
-  //   this.admindvdRentalService.getPaginatedData(page, size).subscribe((data: any) => {
-  //     // Handle the paginated data here
-  //     console.log(data);
-  
-  //     // Update your data source with the new data
-  //     this.dataSource.data = data.content; // Assuming 'content' contains your paginated data
-  //   });
-  // }
 
-  // onPageChange(event: any) {
-  //   this.currentPage = event.pageIndex;
-  //   console.log(this.currentPage)
-  //   // You can also update your data or perform other actions here based on the new page
-  // }
-  
-
-  // fetchPaginatedData(event: any) {
-  //   this.currentPage = event.pageIndex;
-  //   console.log(this.currentPage)
-  //   console.log(this.currentPage)
-  //   const page = (this.currentPage + 1).toString(); // Add 1 to currentPage because pagination usually starts from 0
-  //   const size = this.pageSize.toString(); // Convert pageSize to string
-  
-  //   this.admindvdRentalService.getPaginatedData(page, size).subscribe((data: any) => {
-  //     // Handle the paginated data here
-  //     console.log(data);
-  
-  
-  //     this.dataSource.data = data.content; // Assuming 'content' contains your paginated data
-  //   });
-  // }
-  
-  
   
 
   

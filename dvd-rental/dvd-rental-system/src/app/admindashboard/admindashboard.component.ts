@@ -33,23 +33,7 @@ export class AdmindashboardComponent {
     // this.getFilmByStoreId() 
   }
   
-  // loadData1(storeId: string) {
-  //   this.adminService.AdminStore(storeId).subscribe((data: YourData[]) => {
-  //     // Update the data source with the fetched data
-  //     this.dataSource.data = data;
-
-  //     console.log(data);
-  //   });
-  // }
-
-  // loadData2(storeId: string) {
-  //   this.adminService.AdminStore(storeId).subscribe((data: YourData[]) => {
-  //     // Append the fetched data to the existing data source
-  //     this.dataSource.data = this.dataSource.data.concat(data);
-  //     console.log(data)
-  //     console.log(this.dataSource.data);
-  //   });
-  // }
+ 
 
   loadData1(storeId: string) {
     this.adminService.AdminStore(storeId).subscribe((data: YourData[]) => {
@@ -71,29 +55,7 @@ export class AdmindashboardComponent {
     });
   }
   
-  // staff(id:string) {
-  //   console.log(id);
-  //   this.adminService.AdminStoreDetail(id).subscribe((data) => {
-  //     // Handle the response data here
-  //     console.log(data);
-  //   });
 
-  // }
-
-
-  // film(id:string) {
-  //   const storeId = id; // Replace with the actual store ID
-  //   this.adminService.AdminFilm(storeId).subscribe(
-  //     (response) => {
-  //       // Handle the response data here
-  //       console.log(response);
-  //     },
-  //     (error) => {
-  //       // Handle any errors here
-  //       console.error(error);
-  //     }
-  //   );
-  // }
   staff(id: string) {
     console.log(id);
     this.adminService.AdminStoreDetail(id).subscribe((data) => {

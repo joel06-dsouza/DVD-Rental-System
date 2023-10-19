@@ -38,11 +38,16 @@ import { CustomerDashboardComponent } from './customer-dashboard/customer-dashbo
 import { PaymentcustComponent } from './paymentcust/paymentcust.component';
 import { FilmcustomerComponent } from './filmcustomer/filmcustomer.component';
 import { CustomerdetailsComponent } from './customerdetails/customerdetails.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { CustHeaderComponent } from './cust-header/cust-header.component';
+import { CustSideDialogueComponent } from './cust-side-dialogue/cust-side-dialogue.component';
+
 
 
 @NgModule({
-  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, DialogueComponent, AdmindashboardComponent, DisplayDialogComponent,FilmDialogComponent, ProgressDialogComponent, AdminHeaderComponent, AdminSideDialogueComponent, CustomerDashboardComponent, PaymentcustComponent, FilmcustomerComponent, CustomerdetailsComponent],
+  declarations: [AppComponent, LoginFormComponent, DisplayComponent, ErrorPageComponent, FooterComponent, HeaderComponent, SideDialogueComponent, DialogueComponent, AdmindashboardComponent, DisplayDialogComponent,FilmDialogComponent, ProgressDialogComponent, AdminHeaderComponent, AdminSideDialogueComponent, CustomerDashboardComponent, PaymentcustComponent, FilmcustomerComponent, CustomerdetailsComponent, CustHeaderComponent, CustSideDialogueComponent],
   imports: [
+    FlexLayoutModule,
     MatDialogModule,
     HttpClientModule,
     BrowserModule,

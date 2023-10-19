@@ -1,15 +1,15 @@
-import { Component, Inject, ViewChild } from '@angular/core';
+import { Component, Inject, ViewChild, AfterViewInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import * as XLSX from 'xlsx';
+
 @Component({
   selector: 'app-filmcustomer',
   templateUrl: './filmcustomer.component.html',
   styleUrls: ['./filmcustomer.component.css']
 })
-export class FilmcustomerComponent {
-
+export class FilmcustomerComponent implements AfterViewInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator; 
   
@@ -34,13 +34,11 @@ export class FilmcustomerComponent {
     this.dataSource = new MatTableDataSource(data);
   }
 
-
-
   ngAfterViewInit() {
     // Assign the paginator to your data source
-  
     this.dataSource.paginator = this.paginator;
   }
+
   convertToExcel(): void {
     const currentPageIndex = this.paginator.pageIndex;
     const pageSize = this.paginator.pageSize;

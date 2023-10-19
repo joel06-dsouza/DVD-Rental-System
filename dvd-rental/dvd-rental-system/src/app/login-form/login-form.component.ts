@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DvdRentalService } from '../dvdrental.service'; 
-import { AdminDvdRentalService } from '../admindvdrental.service'; 
-import { FilmInfo } from '../filminfo.model'; 
+import { DvdRentalService } from '../dvdrental.service';
+import { AdminDvdRentalService } from '../admindvdrental.service';
+import { FilmInfo } from '../filminfo.model';
 import { Router } from '@angular/router';
 import { LoginModel } from './login.model';
 import * as crypto from 'crypto-js';
@@ -15,13 +15,14 @@ import { CustomerDvdRentalService } from '../customerdvdrental.service';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
-  token: string|undefined;
-  loginModel: LoginModel; 
+  token: string | undefined;
+  cjwtToken:string|undefined;
+  loginModel: LoginModel;
   loginForm!: FormGroup;
   filmInfoList: FilmInfo[] = []; // Declare and initialize an empty array for film data
   loginFailed: boolean = false; //login failed
 
-  constructor(private fb: FormBuilder, private dvdRentalService: DvdRentalService,private adminDvdRentalService: AdminDvdRentalService, private customerDvdRentalService: CustomerDvdRentalService, private route:Router) {
+  constructor(private fb: FormBuilder, private dvdRentalService: DvdRentalService, private adminDvdRentalService: AdminDvdRentalService, private customerDvdRentalService: CustomerDvdRentalService, private route: Router) {
     this.loginModel = new LoginModel(new FormBuilder());
   }
 
@@ -34,7 +35,7 @@ export class LoginFormComponent implements OnInit {
 
 
 
- 
+
 
 
 
@@ -44,30 +45,30 @@ export class LoginFormComponent implements OnInit {
       const username = this.loginForm.get('username')!.value;
       const password = this.loginForm.get('password')!.value;
       const enteredPasswordHash = crypto.SHA1(password).toString();
-  
+
       const loginRequest = {
         username: username,
         password: enteredPasswordHash
       };
-  
+
       // Attempt to login as an admin first
       this.adminDvdRentalService.loginAdmin(username, enteredPasswordHash).subscribe(
         (adminResponse) => {
           // Handle admin login success
-          
+
           //roll 
-          console.log("Admin Respone  ",adminResponse)
-          console.log("Admin Id",adminResponse.adminId)
-          console.log("Admin Name",adminResponse.adminFullName)
-          localStorage.setItem('aName',adminResponse.adminFullName)
-          localStorage.setItem('aId',adminResponse.adminId)
-          localStorage.setItem('ajwtToken',adminResponse.jwtToken)
+          console.log("Admin Respone  ", adminResponse)
+          console.log("Admin Id", adminResponse.adminId)
+          console.log("Admin Name", adminResponse.adminFullName)
+          localStorage.setItem('aName', adminResponse.adminFullName)
+          localStorage.setItem('aId', adminResponse.adminId)
+          localStorage.setItem('ajwtToken', adminResponse.jwtToken)
           alert('Admin Login Successful');
           this.route.navigate(['admin-display'])
 
         },
         (adminError) => {
-          
+
           this.dvdRentalService.loginUser(username, enteredPasswordHash).subscribe(
             (staffresponse) => {
               // Handle the response as before
@@ -79,9 +80,9 @@ export class LoginFormComponent implements OnInit {
               localStorage.setItem('jwtToken', JSON.stringify(staffresponse.jwtToken));
               localStorage.setItem('StoreId', staffresponse.storeId);
               localStorage.setItem('FullName', staffresponse.fullName);
-              localStorage.setItem('Email',staffresponse.email)
-    
-            
+              localStorage.setItem('Email', staffresponse.email)
+
+
               this.route.navigate(['staff-display']);
             },
             (satfferror) => {
@@ -90,37 +91,37 @@ export class LoginFormComponent implements OnInit {
               if (enteredPasswordHash === "8cb2237d0679ca88db6464eac60da96345513964") {
                 console.log("Password match, proceeding to customer login");
                 this.customerDvdRentalService.getCustomersByName(username).subscribe(
-                  (customers) => {
+                  (response) => {
                     this.route.navigate(['customer-display']);
                     console.log("Successfully logged in as a customer");
-                    console.log('Customers:', customers);
-                    console.log('Customer ID:', customers[0].id);
-                    
-                     localStorage.setItem('cId',customers[0].id)
+                    this.cjwtToken=JSON.stringify(response.jwtToken)
+                    console.log("Token",this.cjwtToken)
+                    console.log('Id', response.customers[0].id)
+                   localStorage.setItem('cId',response.customers[0].id)
+                   localStorage.setItem('cToken',this.cjwtToken)
+                   localStorage.setItem('cName',response.customers[0].name)
+
                   },
                   (error) => {
-                    // Handle the error when customer login fails
-                    alert("Error in Customer Login");
-                    console.error('Error in Customer Login:', error);
+                
+                    console.error('Error while fetching customer data:', error);
                   }
                 );
               } else {
-                // Handle the case where the password doesn't match
-                alert("Invalid Password");
-                console.error("Invalid Password");
+               
+                alert("Invalid Credential");
+                console.error("Invalid Credential");
               }
             }
-            
-              // alert('Login Failed');
-              // console.error('Login failed:', error);
-              
-            
+
+            // alert('Login Failed');
+            // console.error('Login failed:', error);
+
+
           );
         }
       );
     }
   }
 
-  
-  
 }

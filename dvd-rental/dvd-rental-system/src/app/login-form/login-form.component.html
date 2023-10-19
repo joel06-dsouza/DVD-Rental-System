@@ -1,27 +1,40 @@
-<section class="body">
-  <div class="container" fxLayout="row" fxLayoutAlign="center center">
-    <div class="login-box horizontal-align" fxFlex="50%">
-      <div class="col-sm-6 animation">
-        <mat-card class="login-card">
-          <mat-toolbar>
-            Login
-          </mat-toolbar>
-          <form [formGroup]="loginForm" (submit)="onSubmit()">
-            <mat-form-field appearance="outline" style="width: 100%;">
-              <mat-label>Username</mat-label>
-              <input matInput formControlName="username">
-            </mat-form-field>
-            <mat-form-field appearance="outline" style="width: 100%;">
-              <mat-label>Password</mat-label>
-              <input matInput type="password" formControlName="password">
-            </mat-form-field>
-            <button type="submit" mat-raised-button color="primary">LOGIN</button>
-          </form>
-          <div class="horizontal-align" *ngIf="loginFailed">
-            <p class="error-message">Incorrect Credentials</p>
-          </div>
-        </mat-card>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+  <section class="body">
+    <div class="container" fxLayout="row" fxLayoutAlign="center center">
+      <div class="login-background"></div> <!-- Background image container -->
+      <div class="login-box horizontal-align" fxFlex="50%">
+        <div class="col-sm-6 animation">
+          <mat-card class="login-card">
+            <mat-toolbar>
+              Login
+            </mat-toolbar>
+            <form [formGroup]="loginForm" (submit)="onSubmit()">
+              <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Username</mat-label>
+                <img src="../../assets/username1.svg" class="icon">
+                <input matInput formControlName="username">
+              </mat-form-field>
+              <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Password</mat-label>
+                <img src="../../assets/password1.svg" class="icon">
+                <input matInput type="password" formControlName="password">
+              </mat-form-field>
+              <button type="submit" mat-raised-button color="primary">LOGIN</button>
+            </form>
+            <div class="horizontal-align" *ngIf="loginFailed">
+              <p class="error-message">Incorrect Credentials</p>
+            </div>
+          </mat-card>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</body>
+</html>
