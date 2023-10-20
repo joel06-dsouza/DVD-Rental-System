@@ -16,7 +16,7 @@ export class AuthService {
 
     register(user : {username : string,password : string}) : Observable<any>{
         return this.http.post(`${this.apiUrl}/login`,Credential)
-        .pipe(/* mycode to display token on vs console */
+        .pipe(
    
    tap(response =>{
       if(response.token){

@@ -9,6 +9,7 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
 import { Tab1Component } from './tab1/tab1.component';
 import { Tab2Component } from './tab2/tab2.component';
 import { MatNavList } from '@angular/material/list';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: '**', component: ErrorPageComponent},
 
   //mukul
+  {path:'sidenav',component:SidenavComponent},
   {path:'tab1',component:Tab1Component},
   {path:'tab2',component:Tab2Component},
   {path:'',redirectTo:'/tab1',pathMatch:'full'}

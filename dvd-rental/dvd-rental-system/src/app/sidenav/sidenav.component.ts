@@ -1,3 +1,4 @@
+/* sidenav.component.ts */
 import { Component } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -25,3 +26,4 @@ export class SidenavComponent {
   
   }
 }
+

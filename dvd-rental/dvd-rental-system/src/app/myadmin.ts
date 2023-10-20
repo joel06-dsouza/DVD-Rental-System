@@ -1,4 +1,5 @@
 // server.js
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
@@ -6,7 +7,7 @@ const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 3000;
-const secretKey = 'Mukul@Mindcraft'; // Change this to a secure secret key
+const secretKey = 'yourSecretKey'; // Change this to a secure secret key
 
 app.use(cors());
 app.use(bodyParser.json());
