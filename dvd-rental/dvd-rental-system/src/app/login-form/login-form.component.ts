@@ -46,32 +46,31 @@ export class LoginFormComponent implements OnInit {
   
       // Attempt to login as an admin first
       this.authservice.loggedIn(username, enteredPasswordHash).subscribe(
-        (adminResponse : any) => {
-          if(adminResponse.token){
+        (Response : any) => {
+          if(Response.token){
             console.log("Login success");
-            console.log("Token: ",adminResponse.token)
-            console.log("Role: ", adminResponse.role)
-            console.log("Id: ", adminResponse.staff_id)
-            localStorage.setItem('token',adminResponse.token)
-            localStorage.setItem('role', adminResponse.role)
-            localStorage.setItem('StoreId', adminResponse.staff_id)
+            console.log("Token: ",Response.token)
+            console.log("Role: ", Response.role)
+            console.log("Id: ", Response.staff_id)
+            localStorage.setItem('token',Response.token)
+            localStorage.setItem('role', Response.role)
+            localStorage.setItem('StoreId', Response.staff_id)
             window.alert("Login success")
             
-            if(adminResponse.role == 'ROLE_STAFF'){
+            if(Response.role == 'ROLE_STAFF'){
               this.route.navigate(['staff-display']);
             }
-            if(adminResponse.role == 'ROLE_ADMIN'){
+            if(Response.role == 'ROLE_ADMIN'){
               this.route.navigate(['admin-display']);
             }
-            if(adminResponse.role == 'ROLE_CUSTOMER'){
+            if(Response.role == 'ROLE_CUSTOMER'){
               this.route.navigate(['customer-display']);
             }
           }
         },
-        (adminError) => {
-          
-          window.alert("Invalid")
-          console.error("Login failed",adminError)
+        (Error) => {
+          window.alert("No User Found, Try Again")
+          console.error("Login failed",Error)
         }
       );
     }
