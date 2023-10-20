@@ -1,160 +1,1108 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+/* 
+body {
+    background: #f5f5f5;
+} */
 
-html, body { height: 100%; 
-background-image: url('data:image/png;base64,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');
-background-size: cover;
+@media only screen and (max-width: 767px) {
+    .hide-on-mobile {
+        display: none;
+    }
 }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;background-color: #f9e8a7; }
 
-/* my-custom-button.scss */
-.center-container {
+
+/*******************************LOGGING OUT SPINNER********************/
+/* .content {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100vh; /* Center vertically in the viewport */
-}
-
-.login-form {
-    width: 300px; /* Adjust the width as needed */
+    justify-content: center;
     text-align: center;
-    padding: 20px; /* Add some padding to the form container */
 }
 
-.mat-form-field {
-    width: 100%; /* Make all form fields full width */
-    margin-bottom: 20px; /* Spacing between fields */
-    text-align: left; /* Align text to the left within form fields */
+
+::ng-deep mat-progress-spinner#spinner {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 10px;
+  }
+   */
+
+
+/*******************************HEADER COMPONENT************************/
+#profile:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
 }
 
-button {
-    width: 100%; /* Make the button full width */
+.header {
+    /* background-color: #685AB2; */
+    background-color: #232b2b;
+    /* color: #DED5EB; */
+    color: #fff;
+    height: 45px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* You can add global styles to this file, and also import other style files */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.company-logo {
+    width: 65px;
+    height: 45px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.company-name {
+    text-align: center;
+}
+
+.company-name h1 {
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 15px;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+}
+
+#profile-icon {
+    font-size: 30px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    overflow: visible;
+}
+
+#profile-icon:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+
+/*******************************************FOOTER*************************/
+
+footer {
+    text-align: center;
+    padding: 10px;
+    /* background-color: #685AB2; */
+    background-color: #232b2b;
+    /* color: #DED5EB; */
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    height: 45px;
+}
+
+#foot {
+    padding-top: 15px;
+}
+
+/*****************************LOGIN PAGE*******************************/
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.login-box {
+    /* background: url(https://images.unsplash.com/photo-1651647232601-fbea5b6cca0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTN8fGJsYWNrJTIwbG9naW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60); */
+    /* background: url(https://images.unsplash.com/photo-1541450805268-4822a3a774ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80); */
+    background: url('../src/assets/bg14.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+    margin: 50px auto;
+    min-height: 700px;
+    margin-top: 0px;
+}
+
+#loginbox2 {
+    box-shadow: 0 10px 100px 20px rgba(0, 0, 0, 0.3);
+    border: px solid #cccccc;
+    padding: 30px;
+    width: 400px;
+    border-radius: 30px;
+    margin-top: 100px;
+    margin-left: auto;
+    background-color: rgb(243, 243, 243);
+    margin-right: auto;
+}
+
+#loginlogo {
+    font-family: "Script MT";
+    font-size: 54px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: black;
+    padding-left: 60px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+#inputusername {
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    background: none;
+    font-size: 16px;
+    color: #555;
+    height: 40px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+#inputusername:focus {
+    outline: none;
+    border-color: #ff5733;
+    box-shadow: 0 0 5px rgba(255, 87, 51, 0.5);
+}
+
+mat-label {
+    font-size: 16px;
+    /* Adjust the font size as needed */
+    color: #333;
+    /* Adjust the color as needed */
+}
+
+#formfield1 {
+    width: 300px;
+    border-radius: 40px;
+}
+
+/* Define the keyframes animation */
+@keyframes fadeInSlideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Apply the animation to the login box */
+.animation {
+    animation: fadeInSlideIn 0.5s ease-in-out;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .logo {
+        font-size: 34px;
+    }
+}
+
+
+
+
+
+
+
+
+/*****************************PAGE NOT FOUND***********************************8*/
+
+
+@import url('https://fonts.googleapis.com/css?family=Dosis:300,400,500');
+
+@-moz-keyframes rocket-movement {
+    100% {
+        -moz-transform: translate(1200px, -600px);
+    }
+}
+
+@-webkit-keyframes rocket-movement {
+    100% {
+        -webkit-transform: translate(1200px, -600px);
+    }
+}
+
+@keyframes rocket-movement {
+    100% {
+        transform: translate(1200px, -600px);
+    }
+}
+
+@-moz-keyframes spin-earth {
+    100% {
+        -moz-transform: rotate(-360deg);
+        transition: transform 20s;
+    }
+}
+
+@-webkit-keyframes spin-earth {
+    100% {
+        -webkit-transform: rotate(-360deg);
+        transition: transform 20s;
+    }
+}
+
+@keyframes spin-earth {
+    100% {
+        -webkit-transform: rotate(-360deg);
+        transform: rotate(-360deg);
+        transition: transform 20s;
+    }
+}
+
+@-moz-keyframes move-astronaut {
+    100% {
+        -moz-transform: translate(-160px, -160px);
+    }
+}
+
+@-webkit-keyframes move-astronaut {
+    100% {
+        -webkit-transform: translate(-160px, -160px);
+    }
+}
+
+@keyframes move-astronaut {
+    100% {
+        -webkit-transform: translate(-160px, -160px);
+        transform: translate(-160px, -160px);
+    }
+}
+
+@-moz-keyframes rotate-astronaut {
+    100% {
+        -moz-transform: rotate(-720deg);
+    }
+}
+
+@-webkit-keyframes rotate-astronaut {
+    100% {
+        -webkit-transform: rotate(-720deg);
+    }
+}
+
+@keyframes rotate-astronaut {
+    100% {
+        -webkit-transform: rotate(-720deg);
+        transform: rotate(-720deg);
+    }
+}
+
+@-moz-keyframes glow-star {
+    40% {
+        -moz-opacity: 0.3;
+    }
+
+    90%,
+    100% {
+        -moz-opacity: 1;
+        -moz-transform: scale(1.2);
+    }
+}
+
+@-webkit-keyframes glow-star {
+    40% {
+        -webkit-opacity: 0.3;
+    }
+
+    90%,
+    100% {
+        -webkit-opacity: 1;
+        -webkit-transform: scale(1.2);
+    }
+}
+
+@keyframes glow-star {
+    40% {
+        -webkit-opacity: 0.3;
+        opacity: 0.3;
+    }
+
+    90%,
+    100% {
+        -webkit-opacity: 1;
+        opacity: 1;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+        border-radius: 999999px;
+    }
+}
+
+.spin-earth-on-hover {
+
+    transition: ease 200s !important;
+    transform: rotate(-3600deg) !important;
+}
 
 html,
 body {
-    height: 100%;
-}
-
-body {
     margin: 0;
-    /* font-family: Roboto, "Helvetica Neue", sans-serif; */
+    width: 100%;
+    height: 100%;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 300;
+    -webkit-user-select: none;
+    /* Safari 3.1+ */
+    -moz-user-select: none;
+    /* Firefox 2+ */
+    -ms-user-select: none;
+    /* IE 10+ */
+    user-select: none;
+    /* Standard syntax */
 }
 
-/***********************************WORKING*****************/
-/* Style for the table container */
+.bg-purple {
+    background: url(http://salehriaz.com/404Page/img/bg_purple.png);
+    background-repeat: repeat-x;
+    background-size: cover;
+    background-position: left top;
+    height: 100%;
+    overflow: hidden;
+
+}
+
+.custom-navbar {
+    padding-top: 15px;
+}
+
+.brand-logo {
+    margin-left: 25px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.navbar-links {
+    display: inline-block;
+    float: right;
+    margin-right: 15px;
+    text-transform: uppercase;
+
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /*    overflow: hidden;*/
+    display: flex;
+    align-items: center;
+}
+
+li {
+    float: left;
+    padding: 0px 15px;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 12px;
+
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+li a:hover {
+    color: #ffcb39;
+}
+
+.btn-request {
+    padding: 10px 25px;
+    border: 1px solid #FFCB39;
+    border-radius: 100px;
+    font-weight: 400;
+}
+
+.btn-request:hover {
+    background-color: #FFCB39;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-go-home {
+    position: relative;
+    z-index: 200;
+    margin: 15px auto;
+    width: 100px;
+    padding: 10px 15px;
+    border: 1px solid #FFCB39;
+    border-radius: 100px;
+    font-weight: 400;
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 11px;
+
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+.btn-go-home:hover {
+    background-color: #3BC3FF;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+.central-body {
+    /*    width: 100%;*/
+    padding: 17% 5% 10% 5%;
+    text-align: center;
+}
+
+.objects img {
+    z-index: 90;
+    pointer-events: none;
+}
+
+.object_rocket {
+    z-index: 95;
+    position: absolute;
+    transform: translateX(-50px);
+    top: 75%;
+    pointer-events: none;
+    animation: rocket-movement 200s linear infinite both running;
+}
+
+.object_earth {
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    z-index: 90;
+    /*    animation: spin-earth 100s infinite linear both;*/
+}
+
+.object_moon {
+    position: absolute;
+    top: 12%;
+    left: 25%;
+}
+
+.object_astronaut {
+    animation: rotate-astronaut 200s infinite linear both alternate;
+}
+
+.box_astronaut {
+    z-index: 110 !important;
+    position: absolute;
+    top: 60%;
+    right: 20%;
+    will-change: transform;
+    animation: move-astronaut 50s infinite linear both alternate;
+}
+
+.image-404 {
+    position: relative;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.stars {
+    background: url(http://salehriaz.com/404Page/img/overlay_stars.svg);
+    background-repeat: repeat;
+    background-size: contain;
+    background-position: left top;
+}
+
+.glowing_stars .star {
+    position: absolute;
+    border-radius: 100%;
+    background-color: #fff;
+    width: 3px;
+    height: 3px;
+    opacity: 0.3;
+    will-change: opacity;
+}
+
+.glowing_stars .star:nth-child(1) {
+    top: 80%;
+    left: 25%;
+    animation: glow-star 2s infinite ease-in-out alternate 1s;
+}
+
+.glowing_stars .star:nth-child(2) {
+    top: 20%;
+    left: 40%;
+    animation: glow-star 2s infinite ease-in-out alternate 3s;
+}
+
+.glowing_stars .star:nth-child(3) {
+    top: 25%;
+    left: 25%;
+    animation: glow-star 2s infinite ease-in-out alternate 5s;
+}
+
+.glowing_stars .star:nth-child(4) {
+    top: 75%;
+    left: 80%;
+    animation: glow-star 2s infinite ease-in-out alternate 7s;
+}
+
+.glowing_stars .star:nth-child(5) {
+    top: 90%;
+    left: 50%;
+    animation: glow-star 2s infinite ease-in-out alternate 9s;
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar-links {
+        display: none;
+    }
+
+    .custom-navbar {
+        text-align: center;
+    }
+
+    .brand-logo img {
+        width: 120px;
+    }
+
+    .box_astronaut {
+        top: 70%;
+    }
+
+    .central-body {
+        padding-top: 25%;
+    }
+}
+
+
+
+
+/************************HEADER USER ICON BOX CSS*****************/
+#yash {
+    position: fixed;
+    top: 100px;
+    right: 40px;
+    z-index: 999;
+}
+
+#card {
+    height: 350px;
+    width: 300px;
+}
+
+#heading {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    margin-left: 80px;
+    color: red;
+}
+
+#btn {
+    margin-left: 100px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+
+#content {
+    margin-top: 20px;
+}
+
+#wlcm {
+    padding-left: 70px;
+}
+
+/***************************DISPLAY PAGE CSS**********************/
+#displayhead {
+    text-align: center;
+    font-size: 36px;
+    margin: 20px 0;
+    color: #ff5722;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
 .mat-table-container {
-    margin: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    margin: 10px;
+    overflow-x: auto;
+    /* Add horizontal scrollbar for small screens */
 }
 
-/* Style for table */
-.mat-elevation-z8 {
+/* Styles for screens smaller than 600px (typical mobile screens) */
+@media (max-width: 600px) {
+    .mat-table-container {
+        overflow-x: auto;
+    }
+
+    #displayhead {
+        font-size: 24px;
+    }
+
+    table.mat-table {
+        display: block;
+    }
+}
+
+/*TABLE CSS*/
+#dataTable {
+    width: 100%;
     border-collapse: collapse;
+    border: 1px solid #b8a9a9;
 }
 
-/* Style for table cells */
-.mat-elevation-z8 th {
-    color: #0056b3;
-    background-color: aqua;
-    border: 1px solid black;
-    font-weight: 500;
+/*TABLE HEADER ROW CSS*/
+#thcolor {
+    /* background-color: rgb(244, 143, 143); */
+    /* background-color: #B29CD0; */
+    background-color: #3b444b;
+    /* padding: 10px; */
+    text-align: left;
+    /* color: rgb(113, 100, 100); */
+    color: #fff;
+    border: 1px solid #b8a9a9;
+    font-weight: 450;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+/*TABLE HEADER ROW CSS*/
+#tdpad {
+    padding: 20px;
     text-align: center;
-    padding: 10px;
+    border: 1px solid #b8a9a9;
 }
 
-/* Style for table cells */
-.mat-elevation-z8 td {
-    text-align: center;
-    border: 1px solid gray;
-    background-color: #f5f5f5;
-    font-weight: 500;
-    padding: 10px;
-}
-
-/* Style for the filter menu titles */
-.menu-title {
+/*TABLE TD ROW CSS*/
+#tdpadid {
     font-weight: bold;
-    font-size: 16px;
-    padding: 10px;
+    text-align: center;
+    color: black;
+    font-size: 15px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    border: 1px solid #b8a9a9;
 }
 
-/* Style for the button */
+/* CONVERT TO EXCEL BUTTON CSS */
 .convert {
-    background-color: #007bff;
+    display: block;
+    margin: 20px auto;
+    background-color: #f37878;
     color: white;
     padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
     transition: background-color 0.3s;
-    margin: 5px;
 }
 
-/* Hover effect */
+/* CONVERT TO EXCEL BUTTON CSS */
 .convert:hover {
-    background-color: #0056b3;
+    background-color: #f93c3c;
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
 }
 
-/* Filter button */
-.btn-toggle mat-icon {
-    padding: 5px;
-    border-radius: 4px;
-    background-color: #c8dff8;
+/* FILTER ICON */
+.btn-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 1px;
 }
 
-h1 {
-    text-align: center;
-    /* Center-align the text */
-    /* Replace 'Your-Preferred-Font' with your font choice */
-    font-size: 20px;
-    /* Adjust the font size */
-    color: #007BFF;
-    /* Set the text color */
-    text-transform: uppercase;
-    /* Convert text to uppercase */
-    letter-spacing: 2px;
-    /* Adjust letter spacing */
+/* PAGINATOR */
+.mat-paginator {
     margin-top: 20px;
-    /* Add some top margin for spacing */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    /* Add a subtle text shadow */
+    display: flex;
+    justify-content: center;
 }
 
-a {
-    text-decoration: none;
-    color: #007bff;
-    margin: 5px;
+/* ALTERNATE COLOR FOR ROWS */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
 
-a:hover {
+/* EYE ICON */
+#iconcolor {
+    color: #09ebeb;
+}
+
+#filter {
+    height: 18px;
+    display: inline;
+}
+
+#filter:hover {
+    cursor: pointer;
+}
+
+/**********************ADMIN DASHBOARD COMPONENT*******************/
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 20px;
+    /* Adjust the radius as needed */
+    overflow: hidden;
+    /* Ensures the rounded corners are applied */
+}
+
+#thcolor1 {
+    /* background-color: #414a4c; */
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.dashboard-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.dashboard-card {
+    width: 250px;
+    margin: 16px;
+    padding: 16px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#count-label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+    color: #333;
+}
+
+#header {
+    width: 200px;
+    height: 100px;
+    /* background-color: #8fdcf6; */
+    background-color: #465057;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+#title {
+    padding-left: 50px;
+    padding-top: 30px;
+    color: #ff5733;
+}
+
+.dashboard-card:hover {
+    transform: scale(1.05);
+    /* Change background color on hover */
+}
+
+/* Animation */
+@keyframes bounceIn {
+    0% {
+        transform: translateY(-50px);
+        /* Start the cards off the screen */
+        opacity: 0;
+    }
+
+    70% {
+        transform: translateY(10px);
+        /* Bounce effect */
+        opacity: 1;
+    }
+
+    85% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.bounce-animation {
+    animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/*******************TABLE******************/
+/* Add more styles as needed */
+#table-responsive {
+    overflow-x: auto;
+    margin: 20px;
+}
+
+#mtable {
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+#mtable th,
+#mtable td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+#mtable th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+#mtable tr:nth-child(even) {
+    background-color: #f2f2f2;
+    /* Alternate row background color */
+}
+
+#mbtn {
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+#mbtn[color="primary"] {
+    background-color: #3498db;
+    /* Button background color */
+    color: #fff;
+    /* Button text color */
+}
+
+#mbtn[color="accent"] {
+    background-color: #f39c12;
+    /* Button background color */
+    color: #fff;
+    /* Button text color */
+}
+
+#mbtn:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+
+/* Responsive CSS for smaller screens */
+@media (max-width: 768px) {
+    .mat-table {
+        font-size: 14px;
+        /* Decrease font size for smaller screens */
+    }
+}
+
+
+#storedhead {
+    font-size: 24px;
+    color: #333;
+    /* Text color */
+    text-align: center;
+    margin-top: 30px;
+    /* Adjust the spacing as needed */
+    text-transform: uppercase;
+    /* Uppercase text */
+    letter-spacing: 2px;
+    /* Add letter spacing */
     text-decoration: underline;
+    text-underline-offset: 5px;
+    color: #3498db;
+    padding-bottom: 10px;
+    /* Spacing between the text and the border */
+}
+
+/* Optional: Add hover effect */
+#storedhead:hover {
+    color: #1a72b8;
+    /* Text color on hover */
 }
 
 
-/* login page  */
-/* login-form.component.css */
+/**************************************SIDE DIALOGUE*****************/
+#dvd {
+    padding-left: 100px;
+}
 
-.login-form {
-    max-width: 300px; /* Adjust the maximum width as needed */
-    margin: 0 auto;  /* Center the form horizontally */
-    padding: 20px;
-    background-color: #efefec; /* Set a background color */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a box shadow for a card-like effect */
-    border-radius: 5px; /* Add rounded corners */
-  }
-  
-  /* Style the form fields */
-  .login-form mat-form-field {
-    width: 100%;
+/* Custom styles for the dialog box */
+.custom-dialog-title {
+    font-size: 24px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    color: #414a4c;
+}
+
+.custom-dialog-header {
+    display: flex;
+    margin-left: 120px;
+    align-items: center;
     margin-bottom: 20px;
-  }
-  
-  /* Style the submit button */
-  .login-form button {
+}
+
+#svgicon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.custom-dialog-content {
+    font-size: 18px;
+    color: #666;
+}
+
+.custom-actor-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.custom-actor-item {
+    margin-bottom: 10px;
+}
+
+.custom-dialog-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#closebtn {
+    background-color: #353839;
+    color: #fff;
+    margin-left: 150px;
+}
+
+#closebtn:hover {
+    transform: scale(0.9);
+    transition: 0.2s ease-in-out;
+}
+
+/* Style the custom actor table */
+.custom-actor-table {
     width: 100%;
-  }
-  
+    border-collapse: collapse;
+    border-radius: 4px;
+}
+
+.custom-actor-table th,
+.custom-actor-table td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: center;
+}
+
+.custom-actor-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+
+/*********************************LOGIN FORM**********************/
+/* Add your custom styles here */
+.login-card {
+    width: 350px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    animation: fadeInSlideIn 1s ease-in-out forwards;
+    transform: translateX(-100%);
+    opacity: 0;
+    /* background-color: transparent;  change kele mi ha */
+}
+
+.login-card mat-toolbar {
+    background: none;
+    color: rgb(113, 100, 100);
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    text-decoration: underline;
+    text-underline-offset: 9px;
+}
+
+
+.input-container {
+    background: none;
+}
+
+#uname {
+    background: none;
+    border-radius: 50px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+
+input {
+    width: 100%;
+    font-size: 16px;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 5px 0;
+}
+
+#loginbtn {
+    border-radius: 10px;
+    padding: 10px;
+    width: 150px;
+    margin-top: 20px;
+    border: none solid gray;
+}
+
+.aqua {
+    background-color: #B2656F;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    color: white;
+    border: none;
+}
+
+.aqua:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 31px;
+    height: auto;
+    padding-top: 10px;
+}
+
+.input-container1 {
+    margin-top: 40px;
+}
+
+#input {
+    border-radius: 50px;
+    background-color: rgb(236, 236, 236);
+    height: 45px;
+    padding-left: 15px;
+    border-bottom: #B2656F;
+
+}
+
+#input1 {
+    border-radius: 50px;
+    background-color: rgb(236, 236, 236);
+    height: 45px;
+    padding-left: 15px;
+}

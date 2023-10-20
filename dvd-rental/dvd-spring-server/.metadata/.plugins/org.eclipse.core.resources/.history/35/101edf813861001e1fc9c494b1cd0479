@@ -1,0 +1,23 @@
+package in.mindcraft.trialDVD.Staff;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("Staff")
+public class ActorsController {
+    @Autowired
+    private ActorsRepository actorsRepository; 
+
+    @GetMapping("/actors")
+    @RequestMapping(value = "/actors", method = { RequestMethod.GET, RequestMethod.POST })
+    public List<String> getActorsByFilmId(@RequestParam("filmId") Long filmId) {
+        return actorsRepository.findActorsByFilmId(filmId); // Use the correct repository variable
+    }
+}
