@@ -24,12 +24,12 @@ public class LoginService {
 
     
     public Map<String, String> loginCheck(UserInfo user) {
-        String sql = "SELECT * FROM myusers WHERE username = ? ";
+        String sql = "SELECT * FROM myusers WHERE username = ? and password = ?";
         System.out.println(user.getName());
-        List<Map<String, Object>> result = jdbcTemplate.queryForList(sql, user.getName());
-        System.out.println("Reached here");
+        List<Map<String, Object>> result = jdbcTemplate.queryForList(sql, user.getName(), user.getPassword());
+        // System.out.println("Reached here");
         if (!result.isEmpty()) {
-            System.out.println("Reached here 1");
+            // System.out.println("Reached here 1");
             Map<String, String> response = new HashMap<>();
             String fetchRole = "SELECT role FROM myusers WHERE username = ?";
             List<Map<String,Object>> result1 = jdbcTemplate.queryForList(fetchRole, user.getName());

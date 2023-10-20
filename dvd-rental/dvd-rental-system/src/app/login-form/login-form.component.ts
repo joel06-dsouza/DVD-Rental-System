@@ -69,7 +69,7 @@ export class LoginFormComponent implements OnInit {
           }
         },
         (Error) => {
-          window.alert("No User Found, Try Again")
+          window.alert("Check your Credentials. Try Again!")
           console.error("Login failed",Error)
         }
       );
