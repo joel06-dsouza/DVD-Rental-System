@@ -10,3 +10,5 @@ public interface ActorsRepository extends JpaRepository<ActorsInfo, Long> {
 	@Query("SELECT a.actors FROM ActorsInfo a WHERE a.id = :filmId")
 	List<String> findActorsByFilmId(@Param("filmId") Long filmId);
 }
+
+
