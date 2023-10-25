@@ -1,4 +1,4 @@
-package in.mindcraft.server;
+package in.mindcraft.server.services;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.function.Function;
 
 @Configuration
-public class JwtUtil {
+public class JwtService {
 
     @Value("${jwt.secret}") // This is the secret key from your application.properties
     private String secret;

@@ -6,14 +6,14 @@ import { FilmInfo } from './FilmInfo.model';
   providedIn: 'root'
 })
 
-export class DvdRentalService {
+export class StaffDvdRentalService {
   private apiUrl = 'http://localhost:8080'; // Update with your Express.js server URL
 
   constructor(private http: HttpClient) { }
 
 
 
-  loginUser(username: string, password: string): Observable<any> {
+  loginStaff(username: string, password: string): Observable<any> {
     const requestBody = {
       username: username,
       password: password

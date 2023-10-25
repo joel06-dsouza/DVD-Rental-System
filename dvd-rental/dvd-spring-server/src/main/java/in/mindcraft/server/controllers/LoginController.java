@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import in.mindcraft.server.JwtUtil;
 import in.mindcraft.server.pojos.UserInfo;
+import in.mindcraft.server.services.JwtService;
 import in.mindcraft.server.services.LoginService;
 
 import java.util.Map;
@@ -20,10 +20,10 @@ import java.util.Map;
 public class LoginController {
 
     private final LoginService login;
-    private final JwtUtil jwtUtil;
+    private final JwtService jwtUtil;
 
     @Autowired
-    public LoginController(LoginService login,JwtUtil jwtUtil) {
+    public LoginController(LoginService login,JwtService jwtUtil) {
         this.login = login;
         this.jwtUtil = jwtUtil;
     }
