@@ -107,7 +107,15 @@ footer {
 }
 
 /*****************************LOGIN PAGE*******************************/
+@media only screen and (max-width: 767px) {
+    .login-card {
+        width: 80%; /* Adjust the width as needed for smaller screens */
+        margin-top: 50px;
+    }
 
+    .logo {
+        font-size: 24px; /* Adjust the font size as needed for smaller screens */
+    }
 .error-message {
     color: red;
     font-size: 14px;
@@ -117,7 +125,7 @@ footer {
 .login-box {
     /* background: url(https://images.unsplash.com/photo-1651647232601-fbea5b6cca0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTN8fGJsYWNrJTIwbG9naW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60); */
     /* background: url(https://images.unsplash.com/photo-1541450805268-4822a3a774ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80); */
-    background: url('../src/assets/bg14.jpg');
+    /* background: url('C:\Users\user\dvd-rental-system\dvd-rental\dvd-rental-system\src\assets\dvdbg.jpg'); */
     background-size: cover;
     background-position: center;
     padding: 50px;
@@ -125,7 +133,7 @@ footer {
     min-height: 700px;
     margin-top: 0px;
 }
-
+}
 #loginbox2 {
     box-shadow: 0 10px 100px 20px rgba(0, 0, 0, 0.3);
     border: px solid #cccccc;
@@ -202,6 +210,7 @@ mat-label {
         font-size: 34px;
     }
 }
+
 
 
 
@@ -590,14 +599,18 @@ li a:hover {
 /************************HEADER USER ICON BOX CSS*****************/
 #yash {
     position: fixed;
-    top: 100px;
+    top: 80px;
     right: 40px;
     z-index: 999;
 }
 
 #card {
-    height: 350px;
+    height: 380px;
     width: 300px;
+}
+
+#time {
+    color: red;
 }
 
 #heading {
@@ -609,8 +622,13 @@ li a:hover {
 
 #btn {
     margin-left: 100px;
-    margin-top: 60px;
+    margin-top: 40px;
     margin-bottom: 10px;
+}
+
+#btn:hover {
+    transform: scale(0.9);
+    transition: 0.2 ease-in-out;
 }
 
 #content {

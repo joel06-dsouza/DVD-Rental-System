@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import in.mindcraft.trialDVD.Staff.JwtToken;
-import in.mindcraft.trialDVD.Staff.JwtTokenProvider;
+import in.mindcraft.trialDVD.JwtToken;
+import in.mindcraft.trialDVD.JwtTokenProvider;
 
 import java.util.Map;
 import java.util.HashMap;

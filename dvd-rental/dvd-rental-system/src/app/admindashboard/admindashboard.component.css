@@ -14,6 +14,8 @@
       cursor: pointer;
       border-radius: 10px;
       overflow: hidden;
+      
+
   }
   
   .cartoon-icon {
@@ -172,4 +174,10 @@
     max-height: 400px; /* Set a maximum height for the dialog content */
     overflow-y: auto; /* Add a vertical scrollbar if content overflows */
     width: 100%; /* Make the content occupy the full width of the dialog */
+  }
+  #custdash{
+    background: url(https://img.freepik.com/free-vector/white-film-strip-background-with-text-space_1017-26105.jpg?w=996&t=st=1697625819~exp=1697626419~hmac=0a0444584c86cb09ad5f1f84366f75e59c9bc87c30212932ba432dcfcbf5f1b0);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }

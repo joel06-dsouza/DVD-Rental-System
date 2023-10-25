@@ -1,28 +1,46 @@
 .login-card {
-    box-shadow: 0 10px 100px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid #cccccc;
-    padding: 30px;
-    width: 400px;
-    border-radius: 30px;
-  }
-  
-  .logo {
-    margin-left: 80px;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .header-title {
-    /* Add any additional styles for header title */
-  }
-  
-  .login-form {
-    margin-left: 70px;
-  }
-  
-  .error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  
+  box-shadow: 0 10px 100px 20px rgba(0, 0, 0, 0.3);
+  border: px solid #cccccc;
+  padding: 30px;
+  width: 400px;
+  border-radius: 30px;
+  margin-top: 100px;
+  margin-left: auto;
+  background-color: rgb(243, 243, 243);
+  margin-right: auto;
+}
+
+.logo {
+  margin-left: 80px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.header-title {
+  /* Add any additional styles for header title */
+}
+
+.login-form {
+  margin-left: 70px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.login-background {
+  background-image: url('C:\Users\user\dvd-rental-system\dvd-rental\dvd-rental-system\src\assets\dvdbg.jpg'); /* Replace with the path to your background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.7; /* Adjust the opacity as needed */
+}
+
