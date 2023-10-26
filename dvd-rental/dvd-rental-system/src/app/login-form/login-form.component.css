@@ -16,9 +16,9 @@
   font-weight: bold;
 }
 
-.header-title {
+/* .header-title {
   /* Add any additional styles for header title */
-}
+ */
 
 .login-form {
   margin-left: 70px;
@@ -31,7 +31,7 @@
 }
 
 .login-background {
-  background-image: url('C:\Users\user\dvd-rental-system\dvd-rental\dvd-rental-system\src\assets\dvdbg.jpg'); /* Replace with the path to your background image */
+  /* background-image: url('C:\Users\user\Desktop\DvdRental\dvd-rental-system\dvd-rental\dvd-rental-system\src\assets\bg14.jpg'); Replace with the path to your background image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

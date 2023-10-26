@@ -1,293 +1,62 @@
-<head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+<!-- display.component.html -->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Define the table columns -->
+    <ng-container matColumnDef="filmid">
+      <th mat-header-cell *matHeaderCellDef> Film ID </th>
+      <td mat-cell *matCellDef="let film"> {{ film.id }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> Title </th>
+      <td mat-cell *matCellDef="let film"> {{ film.title }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let film"> {{ film.description }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="releaseYear">
+      <th mat-header-cell *matHeaderCellDef> Release Year </th>
+      <td mat-cell *matCellDef="let film"> {{ film.releaseYear }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="language">
+      <th mat-header-cell *matHeaderCellDef> Language </th>
+      <td mat-cell *matCellDef="let film"> {{ film.languageName }} </td>
+    </ng-container>
 
-<body>
-    <app-header (openSideDialogue)="openSideDialogue()" id="dishead"></app-header>
-    <h1 style="color: #414a4c;" id="displayhead">FILM DETAILS</h1>
-    <div class="mat-table-container">
-        <!-- id takli -->
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z7" id="dataTable">
+    <ng-container matColumnDef="rentalDuration">
+        <th mat-header-cell *matHeaderCellDef> Language </th>
+        <td mat-cell *matCellDef="let film"> {{ film.rentalDuration}} </td>
+      </ng-container>
 
-            <!---------------------------FILM ID COLUMN----------------------------->
-            <ng-container matColumnDef="filmid">
-                <th mat-header-cell *matHeaderCellDef data-column-name="Film ID" id="thcolor">
-                    <tr>
-                        <th>Film&nbsp;ID&nbsp;</th>
-                        <th>  
-                            <img src="../../assets/filter.svg" alt="Company Logo" class="company-logo" id="filter" [matMenuTriggerFor]="filmidMenu" style="padding-top: 10px; width: 20px; padding-left: 3px;">                          
-                            <!-- <mat-icon>filter_alt</mat-icon> -->
-                        </th>
-                    </tr>
-                </th>
-                <td mat-cell *matCellDef="let element" id="tdpadid"> {{element.id}} </td>
+      <ng-container matColumnDef="rentalRate">
+        <th mat-header-cell *matHeaderCellDef> Language </th>
+        <td mat-cell *matCellDef="let film"> {{ film.rentalRate}} </td>
+      </ng-container>
 
-                <mat-menu #filmidMenu="matMenu">
-                    <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title"
-                        (click)="$event.stopPropagation()">
-                        Film Id.
-                    </div>
+      <ng-container matColumnDef="length">
+        <th mat-header-cell *matHeaderCellDef> Language </th>
+        <td mat-cell *matCellDef="let film"> {{ film.length}} </td>
+      </ng-container>
+  
 
-                    <div mat-menu-item mat-filter-item [disableRipple]="true">
-                        <mat-form-field class="input-container1">
-                            <input matInput placeholder="Film Id" [(ngModel)]="searchValue.id"
-                                (click)="$event.stopPropagation()" (ngModelChange)="applyFilters()">
-                        </mat-form-field>
-                    </div>
+      <ng-container matColumnDef="rating">
+        <th mat-header-cell *matHeaderCellDef> Language </th>
+        <td mat-cell *matCellDef="let film"> {{ film.rating}} </td>
+      </ng-container>
 
-                </mat-menu>
-            </ng-container>
 
-            <!---------------------------TITLE COLUMN----------------------------->
-            <ng-container matColumnDef="title">
-                <th mat-header-cell *matHeaderCellDef data-column-name="Title" id="thcolor">
-                    <tr>
-                        <th>Title&nbsp;</th>
-                        <th>  
-                            <img src="../../assets/filter.svg" alt="Company Logo" class="company-logo" id="filter" [matMenuTriggerFor]="titleMenu" style="padding-top: 10px; width: 20px; padding-left: 3px;">                          
-                            <!-- <mat-icon>filter_alt</mat-icon> -->
-                        </th>
-                    </tr>
-                </th>
-                <td mat-cell *matCellDef="let element" id="tdpad"> {{element.title}} </td>
-                <mat-menu #titleMenu="matMenu">
-                    <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title"
-                        (click)="$event.stopPropagation()">
-                        Title.
-                    </div>
-
-                    <div mat-menu-item mat-filter-item [disableRipple]="true">
-                        <mat-form-field>
-                            <input matInput placeholder="Title" [(ngModel)]="searchValue.title"
-                                (click)="$event.stopPropagation()" (ngModelChange)="applyFilters()">
-                        </mat-form-field>
-                    </div>
-
-                </mat-menu>
-            </ng-container>
-
-            <!---------------------------DESCRIPTION COLUMN----------------------------->
-            <ng-container matColumnDef="description">
-                <th mat-header-cell *matHeaderCellDef data-column-name="Description" id="thcolor">
-                    <tr>
-                        <th>Description&nbsp;</th>
-                        <th>  
-                            <img src="../../assets/filter.svg" alt="Company Logo" class="company-logo" id="filter" [matMenuTriggerFor]="descriptionMenu" style="padding-top: 10px; width: 20px; padding-left: 3px;">                          
-                            <!-- <mat-icon>filter_alt</mat-icon> -->
-                        </th>
-                    </tr>
-                </th>
-                <td mat-cell *matCellDef="let element" id="tdpad"> {{element.description}} </td>
-                <mat-menu #descriptionMenu="matMenu">
-                    <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title"
-                        (click)="$event.stopPropagation()">
-                        Description.
-                    </div>
-
-                    <div mat-menu-item mat-filter-item [disableRipple]="true">
-                        <mat-form-field>
-                            <input matInput placeholder="Description" [(ngModel)]="searchValue.description"
-                                (click)="$event.stopPropagation()" (ngModelChange)="applyFilters()">
-                        </mat-form-field>
-                    </div>
-
-                </mat-menu>
-            </ng-container>
-
-            <!---------------------------RELEASE YEAR COLUMN----------------------------->
-            <ng-container matColumnDef="releaseYear">
-                <th mat-header-cell *matHeaderCellDef data-column-name="Release Year" id="thcolor">
-                    <tr>
-                        <th>Release&nbsp;Year&nbsp;</th>
-                        <th>  
-                            <img src="../../assets/filter.svg" alt="Company Logo" class="company-logo" id="filter" [matMenuTriggerFor]="releaseyrMenu" style="padding-top: 10px; width: 20px; padding-left: 3px;">                          
-                            <!-- <mat-icon>filter_alt</mat-icon> -->
-                        </th>
-                    </tr>
-                </th>
-                <td mat-cell *matCellDef="let element" id="tdpad"> {{element.releaseYear}} </td>
-                <mat-menu #releaseyrMenu="matMenu">
-                    <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title"
-                        (click)="$event.stopPropagation()">
-                        Release Year.
-                    </div>
-
-                    <div mat-menu-item mat-filter-item [disableRipple]="true">
-                        <mat-form-field>
-                            <input matInput placeholder="Value" [(ngModel)]="searchValue.releaseYear"
-                                (click)="$event.stopPropagation()" (ngModelChange)="applyFilters()">
-                        </mat-form-field>
-                    </div>
-
-                </mat-menu>
-            </ng-container>
-
-            <!---------------------------LANGUAGE COLUMN----------------------------->
-            <ng-container matColumnDef="language">
-                <th mat-header-cell *matHeaderCellDef data-column-name="Language" id="thcolor">
-                    <tr>
-                        <th>Language&nbsp;</th>
-                        <th>  
-                            <img src="../../assets/filter.svg" alt="Company Logo" class="company-logo" id="filter" [matMenuTriggerFor]="languageMenu" style="padding-top: 10px; width: 20px; padding-left: 3px;">                          
-                            <!-- <mat-icon>filter_alt</mat-icon> -->
-                        </th>
-                    </tr>
-                </th>
-                <td mat-cell *matCellDef="let element" id="tdpad"> {{element.languageName}} </td>
-                <mat-menu #languageMenu="matMenu">
-                    <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title"
-                        (click)="$event.stopPropagation()">
-                        Language.
-                    </div>
-
-                    <div mat-menu-item mat-filter-item [disableRipple]="true">
-                        <mat-form-field>
-                            <input matInput placeholder="Value" [(ngModel)]="searchValue.language"
-                                (click)="$event.stopPropagation()" (ngModelChange)="applyFilters()">
-                        </mat-form-field>
-                    </div>
-
-                </mat-menu>
-            </ng-container>
-
-            <!---------------------------RENTAL DURATION COLUMN----------------------------->
-            <ng-container matColumnDef="rentalDuration">
-                <th mat-header-cell *matHeaderCellDef data-column-name="Rental Duration" id="thcolor">
-                    <tr>
-                        <th>Rental&nbsp;Time&nbsp;</th>
-                        <th>  
-                            <img src="../../assets/filter.svg" alt="Company Logo" class="company-logo" id="filter" [matMenuTriggerFor]="rentaldurationMenu" style="padding-top: 10px; width: 20px; padding-left: 3px;">                          
-                            <!-- <mat-icon>filter_alt</mat-icon> -->
-                        </th>
-                    </tr>
-                </th>
-                <td mat-cell *matCellDef="let element" id="tdpad"> {{element.rentalDuration}} days </td>
-                <mat-menu #rentaldurationMenu="matMenu">
-                    <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title"
-                        (click)="$event.stopPropagation()">
-                        Rental Duration.
-                    </div>
-
-                    <div mat-menu-item mat-filter-item [disableRipple]="true">
-                        <mat-form-field>
-                            <input matInput placeholder="Value" [(ngModel)]="searchValue.rentalDuration"
-                                (click)="$event.stopPropagation()" (ngModelChange)="applyFilters()">
-                        </mat-form-field>
-                    </div>
-
-                </mat-menu>
-            </ng-container>
-
-            <!---------------------------RENTAL RATE COLUMN----------------------------->
-            <ng-container matColumnDef="rentalRate">
-                <th mat-header-cell *matHeaderCellDef data-column-name="Rental Rate" id="thcolor">
-                    <tr>
-                        <th>Rate&nbsp;</th>
-                        <th>  
-                            <img src="../../assets/filter.svg" alt="Company Logo" class="company-logo" id="filter" [matMenuTriggerFor]="rentalrateMenu" style="padding-top: 10px; width: 20px; padding-left: 3px;">                          
-                            <!-- <mat-icon>filter_alt</mat-icon> -->
-                        </th>
-                    </tr>
-                </th>
-                <td mat-cell *matCellDef="let element" id="tdpad"> ${{element.rentalRate}} </td>
-                <mat-menu #rentalrateMenu="matMenu">
-                    <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title"
-                        (click)="$event.stopPropagation()">
-                        Rental Rate.
-                    </div>
-
-                    <div mat-menu-item mat-filter-item [disableRipple]="true">
-                        <mat-form-field>
-                            <input matInput placeholder="Value" [(ngModel)]="searchValue.rentalRate"
-                                (click)="$event.stopPropagation()" (ngModelChange)="applyFilters()">
-                        </mat-form-field>
-                    </div>
-
-                </mat-menu>
-            </ng-container>
-
-            <!---------------------------LENGTH COLUMN----------------------------->
-            <ng-container matColumnDef="length">
-                <th mat-header-cell *matHeaderCellDef data-column-name="Length" id="thcolor">
-                    <tr>
-                        <th>Length&nbsp;</th>
-                        <th>  
-                            <img src="../../assets/filter.svg" alt="Company Logo" class="company-logo" id="filter" [matMenuTriggerFor]="lengthMenu" style="padding-top: 10px; width: 20px; padding-left: 3px;">                          
-                            <!-- <mat-icon>filter_alt</mat-icon> -->
-                        </th>
-                    </tr>
-                </th>
-                <td mat-cell *matCellDef="let element" id="tdpad"> {{element.length}} mins </td>
-                <mat-menu #lengthMenu="matMenu">
-                    <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title"
-                        (click)="$event.stopPropagation()">
-                        Length.
-                    </div>
-
-                    <div mat-menu-item mat-filter-item [disableRipple]="true">
-                        <mat-form-field>
-                            <input matInput placeholder="Value" [(ngModel)]="searchValue.length"
-                                (click)="$event.stopPropagation()" (ngModelChange)="applyFilters()">
-                        </mat-form-field>
-                    </div>
-
-                </mat-menu>
-            </ng-container>
-
-            <!---------------------------RATING COLUMN----------------------------->
-            <ng-container matColumnDef="rating">
-                <th mat-header-cell *matHeaderCellDef data-column-name="Rating" id="thcolor">
-                    <tr>
-                        <th>Rating&nbsp;</th>
-                        <th>  
-                            <img src="../../assets/filter.svg" alt="Company Logo" class="company-logo" id="filter" [matMenuTriggerFor]="ratingMenu" style="padding-top: 10px; width: 20px; padding-left: 3px;">                          
-                            <!-- <mat-icon>filter_alt</mat-icon> -->
-                        </th>
-                    </tr>
-                </th>
-                <td mat-cell *matCellDef="let element" id="tdpad"> {{element.rating}} </td>
-                <mat-menu #ratingMenu="matMenu">
-                    <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title"
-                        (click)="$event.stopPropagation()">
-                        Rating.
-                    </div>
- 
-                    <div mat-menu-item mat-filter-item [disableRipple]="true">
-                        <mat-form-field>
-                            <input matInput placeholder="Value" [(ngModel)]="searchValue.rating"
-                                (click)="$event.stopPropagation()" (ngModelChange)="applyFilters()">
-                        </mat-form-field>
-                    </div>
-
-                </mat-menu>
-            </ng-container>
-
-            <!---------------------------ACTOR COLUMN----------------------------->
-            <ng-container matColumnDef="action">
-                <th mat-header-cell *matHeaderCellDef id="thcolor"> Actor </th>
-                <td mat-cell *matCellDef="let element" id="tdpad">
-                    <!-- Add action buttons or icons here -->
-                    <button mat-icon-button color="primary" (click)="openActorListDialog(element.id)">
-                        <!-- <mat-icon id="iconcolor">visibility</mat-icon> -->
-                        <img src="../../assets/view.svg" alt="Company Logo" class="company-logo">
-                    </button>
-                </td>
-            </ng-container>
-
-            <!-- Header Row -->
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-
-            <!-- Data Rows -->
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-        &nbsp;
-        <!-- Add MatPaginator below your table -->
-        <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
-
-        <button (click)="convertToExcel()" class="convert">Convert To Excel</button>
-        <!-- <button class="convert">Convert To Excel</button> -->
-
-        <app-footer id="foot"></app-footer>
-    </div>
-</body>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Language </th>
+        <td mat-cell *matCellDef="let film"> {{ film.action}} </td>
+      </ng-container>
+    <!-- Add more column definitions as needed -->
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
+  

@@ -10,9 +10,9 @@ import { CustomerDashboardComponent } from './customer-dashboard/customer-dashbo
 const routes: Routes = [
   {path:'',component:LoginFormComponent},
   {path:'login' ,component:LoginFormComponent},
-  {path:'staff-display',component:DisplayComponent,canActivate:[AuthGuard]},
-  {path:'admin-display',component:AdmindashboardComponent,canActivate:[AuthGuard]},
-  {path:'customer-display',component:CustomerDashboardComponent , canActivate:[AuthGuard]},
+  {path:'staff-display',component:DisplayComponent,canActivate:[AuthGuard],data:{role: 'ROLE_STAFF'}},
+  {path:'admin-display',component:AdmindashboardComponent,canActivate:[AuthGuard],data:{role: 'ROLE_ADMIN'}},
+  {path:'customer-display',component:CustomerDashboardComponent,canActivate:[AuthGuard],data:{role: 'ROLE_CUSTOMER'}},
   { path: '**', component: ErrorPageComponent}
 ];
 

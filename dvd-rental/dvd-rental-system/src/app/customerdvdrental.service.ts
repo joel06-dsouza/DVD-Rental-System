@@ -56,6 +56,12 @@ export class CustomerDvdRentalService {
     return this.http.post<string[]>(`${this.apiUrl}/Customer/Films`, requestBody, { headers: headers });
 
   }
-
   
+
+  CustomerAllfilms(category_name: string): Observable<any>{
+    const requestBody= {category_name: category_name};
+    return this.http.post(`${this.apiUrl}/Customer/filmByCategory`,requestBody);
+  }
+  
+
 }

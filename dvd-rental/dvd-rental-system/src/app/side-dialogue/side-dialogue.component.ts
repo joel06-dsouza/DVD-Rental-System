@@ -39,6 +39,6 @@ export class SideDialogueComponent {
       // Navigate to the login page
       this.router.navigate(['/login']);
       this.dialogRef.close('logout');
-    }, 500); // Simulate 2 seconds for demonstration
+    }, 2000); // Simulate 2 seconds for demonstration
   }
 }
