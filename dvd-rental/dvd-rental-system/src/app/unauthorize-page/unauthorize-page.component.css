@@ -1,0 +1,36 @@
+/* error.component.css */
+.error-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    color: #f44336; /* Red color */
+  }
+  
+  p {
+    font-size: 1.5rem;
+    margin-top: 20px;
+  }
+  
+  /* Add more CSS styles to the button */
+.error-button {
+    background-color: #2196F3; /* Blue background color */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Padding around the button */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Show a hand cursor on hover */
+    font-size: 1.2rem; /* Increase font size */
+    transition: background-color 0.3s; /* Add a smooth background color transition */
+  }
+  
+  /* Style the button on hover */
+  .error-button:hover {
+    background-color: #0b7dda; /* Darker blue on hover */
+  }
