@@ -10,12 +10,17 @@ export class CustomerDvdRentalService {
 
   constructor(private http: HttpClient) {}
 
-  getCustomersByName(name: string): Observable<any> {
-   
-    const url = `${this.apiUrl}/Customer/login/${name}`;
+  getCustomersByName(username: string, password: string): Observable<any> {
+    const requestBody = {
+        username: username,
+        password: password
+    };
 
-   
-    return this.http.get(url);
+    const headers = new HttpHeaders({
+        'Content-Type': 'application/json'
+    });
+
+    return this.http.post<any>(`${this.apiUrl}/Customer/login`, requestBody, { headers: headers });
   }
 
   Payment(customerId:number): Observable<PaymentInfo[]>  {
