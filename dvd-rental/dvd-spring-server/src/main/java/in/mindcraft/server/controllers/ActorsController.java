@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import in.mindcraft.server.repository.ActorsRepository;
@@ -16,6 +17,7 @@ public class ActorsController {
     private ActorsRepository actorsRepository; 
     
     @PostMapping("/actors")
+    @PreAuthorize("hasRole('ROLE_STAFF')")
     public ResponseEntity<List<String>> getActorsByFilmIdWithRequestBody(@RequestBody Map<String, Object> request) {
         Object filmIdObject = request.get("filmId");
 

@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { PaymentcustComponent } from '../paymentcust/paymentcust.component';
 import { FilmcustomerComponent } from '../filmcustomer/filmcustomer.component';
 import { CustomerdetailsComponent } from '../customerdetails/customerdetails.component';
+// import { AllFilmDetailsComponent } from '../all-film-details/all-film-details.component';
+import { RentedFilmsComponent } from '../rented-films/rented-films.component';
 
 @Component({
   selector: 'app-customer-dashboard',
@@ -52,16 +54,8 @@ export class CustomerDashboardComponent implements OnInit {
     });
   }
 
-  showDetails(): void {
-    this.dvdRentalService.Details(this.customerId).subscribe((response) => {
-      // Handle the response and pass it to the dialog
-      this.openCustomerDetailsDialog(response);
-    });
-  }
-
-  openCustomerDetailsDialog(customerDetails: any) {
-    const dialogRef = this.dialog.open(CustomerdetailsComponent, {
-      data: customerDetails
+  openAllFilmsDetailsDialog():void {
+    const dialogRef = this.dialog.open(RentedFilmsComponent, {
     });
 
     dialogRef.afterClosed().subscribe(() => {
@@ -69,3 +63,5 @@ export class CustomerDashboardComponent implements OnInit {
     });
   }
 }
+
+

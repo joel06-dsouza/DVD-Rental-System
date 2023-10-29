@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <mat-dialog-content class="scroll-dialog-content">
+        <table #table class="styled-table" mat-table [dataSource]="dataSource" id="paymenttable">
+            <!-- Store ID -->
+            <ng-container matColumnDef="storeId">
+                <th mat-header-cell *matHeaderCellDef>Store ID</th>
+                <td mat-cell *matCellDef="let film">{{ film.storeId }}</td>
+            </ng-container>
+
+            <!-- Staff ID -->
+            <ng-container matColumnDef="staffId">
+                <th mat-header-cell *matHeaderCellDef>Staff ID</th>
+                <td mat-cell *matCellDef="let film">{{ film.staffId }}</td>
+            </ng-container>
+
+            <!-- Staff Name -->
+            <ng-container matColumnDef="staffName">
+                <th mat-header-cell *matHeaderCellDef>Staff Name</th>
+                <td mat-cell *matCellDef="let film">{{ film.staffName }}</td>
+            </ng-container>
+
+            <!-- Customer ID -->
+            <ng-container matColumnDef="customerId">
+                <th mat-header-cell *matHeaderCellDef>Customer ID</th>
+                <td mat-cell *matCellDef="let film">{{ film.customerId }}</td>
+            </ng-container>
+
+            <!-- Film ID -->
+            <caption>Film Details</caption>
+            <ng-container matColumnDef="filmId">
+                <th mat-header-cell *matHeaderCellDef>Film ID</th>
+                <td mat-cell *matCellDef="let film">{{ film.filmId }}</td>
+            </ng-container>
+
+            <!-- Title -->
+            <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef>Title</th>
+                <td mat-cell *matCellDef="let film">{{ film.title }}</td>
+            </ng-container>
+
+            <!-- Category -->
+            <ng-container matColumnDef="categoryName">
+                <th mat-header-cell *matHeaderCellDef>Category</th>
+                <td mat-cell *matCellDef="let film">{{ film.categoryName }}</td>
+            </ng-container>
+
+            <!-- Payment ID -->
+            <ng-container matColumnDef="paymentId">
+                <th mat-header-cell *matHeaderCellDef>Payment ID</th>
+                <td mat-cell *matCellDef="let film">{{ film.paymentId }}</td>
+            </ng-container>
+
+            <!-- Payment Date -->
+            <ng-container matColumnDef="paymentDate">
+                <th mat-header-cell *matHeaderCellDef>Payment Date</th>
+                <td mat-cell *matCellDef="let film">{{ film.paymentDate| date: 'dd-MM-yyyy'  }}</td>
+            </ng-container>
+
+            <!-- Rental ID -->
+            <ng-container matColumnDef="rentalId">
+                <th mat-header-cell *matHeaderCellDef>Rental ID</th>
+                <td mat-cell *matCellDef="let film">{{ film.rentalId }}</td>
+            </ng-container>
+
+            <!-- Rental Date -->
+            <ng-container matColumnDef="rentaldate">
+                <th mat-header-cell *matHeaderCellDef>Rental Date</th>
+                <td mat-cell *matCellDef="let film">{{ film.rentalDate| date: 'dd-MM-yyyy'  }}</td>
+            </ng-container>
+
+            <!-- Return Date -->
+            <ng-container matColumnDef="returndate">
+                <th mat-header-cell *matHeaderCellDef>Return Date</th>
+                <td mat-cell *matCellDef="let film">{{ film.returnDate| date: 'dd-MM-yyyy'  }}</td>
+            </ng-container>
+
+            <!-- Amount -->
+            <ng-container matColumnDef="amount">
+                <th mat-header-cell *matHeaderCellDef>Amount</th>
+                <td mat-cell *matCellDef="let film">{{ film.amount }}</td>
+            </ng-container>
+
+            <!-- Header Row -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+            <!-- Data Rows -->
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[10,20]" showFirstLastButtons></mat-paginator>
+
+        <button (click)="convertToExcel()" class="convert">Convert To Excel</button>
+    </mat-dialog-content>
+
+</body>
+
+</html>

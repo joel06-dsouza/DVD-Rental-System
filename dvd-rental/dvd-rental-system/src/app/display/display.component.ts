@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { FilmInfo } from '../FilmInfo.model';
-import { DvdRentalService } from '../dvdrental.service';
+import { StaffDvdRentalService } from '../staffdvdrental.service';
 import { Observable, Subscription, filter, of } from 'rxjs';
 import * as XLSX from 'xlsx';
 import { MatDialog } from '@angular/material/dialog';
@@ -51,7 +51,7 @@ export class DisplayComponent {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator; // Access the paginator element in your template
 
-  constructor(private dvdRentalService: DvdRentalService,private dialog: MatDialog,private admindvdRentalService: AdminDvdRentalService) {
+  constructor(private staffdvdRentalService: StaffDvdRentalService,private dialog: MatDialog,private admindvdRentalService: AdminDvdRentalService) {
     this.filmInfoSubscription = new Subscription();
     this.actorsSubscription = new Subscription();
     this.dataSource = new MatTableDataSource<any>([]);
@@ -103,7 +103,7 @@ ngAfterViewInit() {
 // }
 
 loadData() {
-  this.dvdRentalService.getPaginatedData().subscribe(
+  this.staffdvdRentalService.getPaginatedData().subscribe(
     (response: ApiResponse<FilmInfoPage>) => {
       console.log('API Response:', response);
 
@@ -180,10 +180,10 @@ loadData() {
   //   // Unsubscribe from previous subscriptions to avoid memory leaks
   //   this.filmInfoSubscription.unsubscribe();
 
-  //   // Call the film service method to fetch film data by store ID and subscribe with an observer
-  //   this.filmInfoSubscription = this.dvdRentalService.getAllFilmInfoByStoreId(storeId).subscribe({
-  //     next: (data) => {
-  //       this.filmInfoList = data;
+    // Call the film service method to fetch film data by store ID and subscribe with an observer
+    // this.filmInfoSubscription = this.staffdvdRentalService.getAllFilmInfoByStoreId(storeId).subscribe({
+    //   next: (data) => {
+    //     this.filmInfoList = data;
 
   //       // Update the dataSource with the fetched data
   //       this.dataSource = new MatTableDataSource(this.filmInfoList);
@@ -209,7 +209,7 @@ loadData() {
   
   //   const filmIdToFetch = id;
   
-  //   this.actorsSubscription = this.dvdRentalService.getActorsByFilmId(filmIdToFetch).subscribe({
+  //   this.actorsSubscription = this.staffdvdRentalService.getActorsByFilmId(filmIdToFetch).subscribe({
   //     next: (actors) => {
   //       this.actors = actors;
   //       // No more alert here

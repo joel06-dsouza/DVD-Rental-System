@@ -1,0 +1,32 @@
+
+<app-cust-header></app-cust-header>
+
+<div class="text-center">
+    <h2>Animation Films</h2>
+    <div class="button-container">
+        <button [class.active]="isAllAnimationActive" [class.inactive]="!isAllAnimationActive"
+            (click)="showAllAnimationFilms()">All Animation Films</button>
+        <button [class.active]="isRentedAnimationActive" [class.inactive]="!isRentedAnimationActive"
+            (click)="showRentedAnimationFilms()">Rented Animatiion Films</button>
+    </div>
+
+    <div class="container space-between">
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8" id="actiontable">
+            <!-- Define columns for Rented Action Films -->
+            <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+                <mat-header-cell *matHeaderCellDef id="actionhead">{{ column }}</mat-header-cell>
+                <mat-cell *matCellDef="let film" id="actionrow">{{ film[column] }}</mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+        
+        <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+
+        <button class="back-button" color [routerLink]="['/category']">Back</button>
+    </div>
+
+</div>
+
+<app-footer></app-footer>
