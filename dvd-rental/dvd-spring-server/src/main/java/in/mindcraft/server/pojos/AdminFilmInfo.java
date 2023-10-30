@@ -2,6 +2,8 @@ package in.mindcraft.server.pojos;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -9,7 +11,12 @@ import jakarta.persistence.Table;
 @Table(name = "filmview")
 public class AdminFilmInfo {
     @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
     private Long id;
+
+	@Column(name = "store_id")
+    private Long storeId;
 
     @Column(name = "title")
     private String title;
@@ -32,18 +39,17 @@ public class AdminFilmInfo {
     @Column(name = "length")
     private Integer length;
 
-    @Column(name = "store_id")
-    private Long storeId;	
-    
     @Column(name = "rating")
     private String rating;
-    
 
-    public AdminFilmInfo() {
+//    @Column(name = "actor_name")
+//    private String ActorName;
+
+	public AdminFilmInfo() {
 		super();
 	}
 
-    public AdminFilmInfo(Long id, String title, String description, Integer releaseYear, String languageName,
+	public AdminFilmInfo(Long id, String title, String description, Integer releaseYear, String languageName,
 			Integer rentalDuration, Double rentalRate, Integer length, String rating) {
 		super();
 		this.id = id;
@@ -58,8 +64,7 @@ public class AdminFilmInfo {
 //		this.ActorName = ActorName;
 	}
 
-
-    public Long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -130,4 +135,17 @@ public class AdminFilmInfo {
 	public void setRating(String rating) {
 		this.rating = rating;
 	}
+//
+//	public String getActorName() {
+//		return ActorName;
+//	}
+//
+//	public void setActorName(String ActorName) {
+//		this.ActorName = ActorName;
+//	}
+    
+    
+    
+    
+    
 }

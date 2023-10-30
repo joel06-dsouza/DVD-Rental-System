@@ -2,6 +2,7 @@ package in.mindcraft.server .controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import in.mindcraft.server.pojos.CustomerFilmInfo;
@@ -21,6 +22,7 @@ public class CustomerFilmController {
     }
 
     @PostMapping("/Films")
+    @PreAuthorize("hasRole('ROLE_CUSTOMER')")
     public ResponseEntity<List<CustomerFilmInfo>> getFilmsByCustomerId(@RequestBody Map<String, Integer> request) {
         Integer customerId = request.get("customer_id");
         if (customerId == null) {

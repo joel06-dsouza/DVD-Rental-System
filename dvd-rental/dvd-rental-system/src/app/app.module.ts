@@ -19,9 +19,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
 import { AppComponent } from './app.component';
-import { LoginFormComponent } from './login-form/login-form.component';
+/* import { LoginFormComponent } from './login-form/login-form.component'; */
 import { DisplayComponent } from './display/display.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ErrorPageComponent } from './error-page/error-page.component';
@@ -33,37 +32,44 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
 import { DisplayDialogComponent } from './display-dialog/display-dialog.component';
 import { FilmDialogComponent } from './film-dialog/film-dialog.component';
 import { ProgressDialogComponent } from './progress-dialog/progress-dialog.component';
-import { JwtInterceptor } from './jwt.interceptor';
-//mukul
-import { Tab1Component } from './tab1/tab1.component';
-import { Tab2Component } from './tab2/tab2.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule} from '@angular/material/list';
-import { MatIcon } from '@angular/material/icon';
-import { SidenavComponent } from './sidenav/sidenav.component';
-import { MatNavList } from '@angular/material/list';
-//satvik
+ 
+import { CategoryCardsComponent } from './category-cards/category-cards.component';
+import { ActionFilmsComponent } from './action/action-films.component';
+import { ForeignFilmsComponent } from './foreign-films/foreign-films.component';
+import { GamesFilmsComponent } from './games-films/games-films.component';
+import { HorrorFilmsComponent } from './horror-films/horror-films.component';
+import { MusicFilmsComponent } from './music-films/music-films.component';
+import { NewFilmsComponent } from './new-films/new-films.component';
+import { SciFiFilmsComponent } from './sci-fi-films/sci-fi-films.component';
+import { SportsFilmsComponent } from './sports-films/sports-films.component';
+import { TravelFilmsComponent } from './travel-films/travel-films.component';
+import { AnimationFilmsComponent } from './animation-films/animation-films.component';
+import { ChildrenFilmsComponent } from './children-films/children-films.component';
+import { ClassicFilmsComponent } from './classic-films/classic-films.component';
+import { ComedyFilmsComponent } from './comedy-films/comedy-films.component';
+import { DocumentaryFilmsComponent } from './documentary-films/documentary-films.component';
+import { DramaFilmsComponent } from './drama-films/drama-films.component';
+import { FamilyFilmsComponent } from './family-films/family-films.component';
+import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
+import { RentedFilmsComponent } from './rented-films/rented-films.component';
 
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminSideDialogueComponent } from './admin-side-dialogue/admin-side-dialogue.component';
-import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 import { PaymentcustComponent } from './paymentcust/paymentcust.component';
 import { FilmcustomerComponent } from './filmcustomer/filmcustomer.component';
 import { CustomerdetailsComponent } from './customerdetails/customerdetails.component';
 import { CdkTableModule } from '@angular/cdk/table';
 import{CustHeaderComponent} from './cust-header/cust-header.component';
 import{CustSideDialogueComponent} from './cust-side-dialogue/cust-side-dialogue.component';
+import { LoginComponent } from './login/login.component';
+import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-@NgModule({
-  declarations: [AppComponent, 
-    LoginFormComponent, DisplayComponent, 
-    ErrorPageComponent, FooterComponent, HeaderComponent, 
-    SideDialogueComponent, DialogueComponent, 
-    AdmindashboardComponent, DisplayDialogComponent,
-    FilmDialogComponent, ProgressDialogComponent, 
-    SidenavComponent,
-    Tab1Component, Tab2Component,
-    LoginFormComponent,
+@NgModule(
+  {
+  declarations: [
+    AppComponent,
+    
+    /* LoginComponent */
     DisplayComponent,
     ErrorPageComponent,
     FooterComponent,
@@ -76,18 +82,24 @@ import{CustSideDialogueComponent} from './cust-side-dialogue/cust-side-dialogue.
     ProgressDialogComponent,
     AdminHeaderComponent,
     AdminSideDialogueComponent,
-    CustomerDashboardComponent,
     PaymentcustComponent,
     FilmcustomerComponent,
     CustomerdetailsComponent,
     CustHeaderComponent,
-    CustSideDialogueComponent
+    CustSideDialogueComponent,
+    CategoryCardsComponent, ActionFilmsComponent,
+    ForeignFilmsComponent, GamesFilmsComponent,
+    HorrorFilmsComponent, MusicFilmsComponent, NewFilmsComponent, SciFiFilmsComponent,
+    SportsFilmsComponent, TravelFilmsComponent,
+    AnimationFilmsComponent, ChildrenFilmsComponent,
+    ClassicFilmsComponent, ComedyFilmsComponent, DocumentaryFilmsComponent,
+    DramaFilmsComponent, FamilyFilmsComponent, AnimationFilmsComponent,
+    CustomerDashboardComponent,
+    RentedFilmsComponent
   ],
-    
-  imports: [
-    
-    MatDialogModule,
-    HttpClientModule,
+  imports:
+   [
+    MatToolbarModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -107,23 +119,12 @@ import{CustSideDialogueComponent} from './cust-side-dialogue/cust-side-dialogue.
     MatDialogModule,
     CommonModule,
     MatProgressSpinnerModule,
-
-    //mukul
-    MatSidenavModule,
-    MatListModule,
-  
     MatFormFieldModule,
     MatIconModule,
   ],
-  providers: [
-
-    {
-provide : HTTP_INTERCEPTORS,
-useClass : JwtInterceptor,
-multi : true
-    }
-  ],
+  providers: [  ],
 
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule {}
+export class AppModule { }

@@ -9,6 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
+
+import in.mindcraft.server.pojos.AdminFilmInfo;
+import in.mindcraft.server.repository.AdminFilmRepository;
+
+import in.mindcraft.server.pojos.AdminFilmInfo;
+import in.mindcraft.server.repository.AdminFilmRepository;
 
 import in.mindcraft.server.pojos.AdminFilmInfo;
 import in.mindcraft.server.repository.AdminFilmRepository;
@@ -22,8 +29,9 @@ public class AdminFilmController {
     public AdminFilmController(AdminFilmRepository filmRepository) {
         this.filmRepository = filmRepository;
     }
-
+    
     @PostMapping("/filmByStoreId")
+    @PreAuthorize("hasRole('ROLE_STAFF')")
     public ResponseEntity<?> getAllFilmInfoByStoreId(@RequestBody Map<String, Object> request) {
     Object storeIdObject = request.get("storeId");
     if (storeIdObject == null) {
@@ -33,7 +41,6 @@ public class AdminFilmController {
     try {
         Long storeId = Long.parseLong(storeIdObject.toString());
         List<AdminFilmInfo> filmInfoList = filmRepository.findByStoreId(storeId);
-
         if (filmInfoList.isEmpty()) {
             return ResponseEntity.notFound().build(); // Handle the case where no data is found
         }

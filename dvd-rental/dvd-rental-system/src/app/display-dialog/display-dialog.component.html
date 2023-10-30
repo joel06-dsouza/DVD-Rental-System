@@ -1,27 +1,26 @@
-<!-- DisplayDialogComponent.html -->
+<mat-card class="custom-card">
+  <mat-card-header class="custom-card-header">
+    <mat-card-title id="staffheading">Staff Details</mat-card-title>
+  </mat-card-header>
 
-<div class="staff-details-card">
-  <h2>{{ data.title }}</h2>
-  <div class="staff-info">
-    <div class="field">
-      <span class="label">First Name:</span>
-      <span class="value">{{ data.content[0].first_name }}</span>
-    </div>
-    <div class="field">
-      <span class="label">Last Name:</span>
-      <span class="value">{{ data.content[0].last_name }}</span>
-    </div>
-    <div class="field">
-      <span class="label">Email:</span>
-      <span class="value">{{ data.content[0].email }}</span>
-    </div>
-    <div class="field">
-      <span class="label">Username:</span>
-      <span class="value">{{ data.content[0].username }}</span>
-    </div>
-    <div class="field">
-      <span class="label">Address:</span>
-      <span class="value">{{ data.content[0].address }}</span>
-    </div>
+  <div class="field">
+    <span class="label">First Name:</span>
+    <span class="value">{{ data.content[0].first_name }}</span>
   </div>
-</div>
+  <div class="field">
+    <span class="label">Last Name:</span>
+    <span class="value">{{ data.content[0].last_name }}</span>
+  </div>
+  <div class="field">
+    <span class="label">Email:</span>
+    <span class="value">{{ data.content[0].email }}</span>
+  </div>
+  <div class="field">
+    <span class="label">Username:</span>
+    <span class="value">{{ data.content[0].username }}</span>
+  </div>
+  <div class="field">
+    <span class="label">Address:</span>
+    <span class="value">{{ data.content[0].address }}</span>
+  </div>
+</mat-card>
