@@ -1,23 +1,49 @@
 .header {
-    background-color: #333; /* Header background color */
-    color: #fff; /* Text color */
-  
-    display: flex; /* Use flexbox for centering */
-    justify-content: space-between; /* Space elements evenly */
-    align-items: center; /* Center vertically */
-    padding: 29px;
-    font-size: 20px;
-    font-weight: 600;
-  }
-  
-  .toolbar-center {
-    flex: 1; /* Allow the center span to grow and take available space */
-    text-align: center; /* Center the text horizontally */
-  }
-  
-  .mr-2 {
-    margin-right: 8px; /* Add margin to the icon for spacing */
-  }
-  
+  background-color: #4e4e4e;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.company-logo {
+  width: 65px;
+  height: 45px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.company-name {
+  text-align: center;
+}
+
+.company-name h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+}
+
+#profile-icon {
+  font-size: 30px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+  overflow: visible;
+}
+
+#profile-icon:hover {
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
+}
+
   /* Add more styles as needed */
   

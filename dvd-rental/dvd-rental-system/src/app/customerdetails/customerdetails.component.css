@@ -1,0 +1,47 @@
+/* Styling for the entire card */
+.custom-card {
+  width: 300px;
+  margin: 20px;
+  padding: 16px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 5px #888888; /* Add a subtle box shadow */
+}
+
+/* Styling for the card header */
+.custom-card-header {
+  background-color: #0a0a0b; /* Custom background color */
+  color: white; /* Text color */
+  padding: 10px; /* Add padding to the header */
+}
+
+/* Styling for the title */
+mat-card-title {
+  color: #f3f8fc; /* Title text color */
+}
+
+/* Styling for the subtitle */
+.custom-subtitle {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #333; /* Custom text color for subtitle */
+}
+
+/* Styling for the label and value in the staff info */
+.field {
+  margin: 8px 0;
+}
+
+.label {
+  font-weight: bold;
+  color: #555; /* Label text color */
+}
+
+.value {
+  color: #333; /* Value text color */
+}
+.custdetailsheading{
+  
+  margin-left: 80px;
+  color: rgb(244, 236, 236);
+}
