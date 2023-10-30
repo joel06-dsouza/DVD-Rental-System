@@ -10,27 +10,27 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { DisplayComponent } from './display/display.component';
 import { AppRoutingModule } from './app-routing.module';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatCardModule } from '@angular/material/card';
-import { CdkTableModule } from '@angular/cdk/table';
-import {MatMenuModule} from '@angular/material/menu';
-import { MatSelectModule } from '@angular/material/select';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { FooterComponent } from './footer/footer.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
-import { MatDialogModule } from '@angular/material/dialog';
 import { SideDialogueComponent } from './side-dialogue/side-dialogue.component';
-import { CommonModule } from '@angular/common';
 import { DialogueComponent } from './dialogue/dialogue.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { DisplayDialogComponent } from './display-dialog/display-dialog.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { FilmDialogComponent } from './film-dialog/film-dialog.component';
 import { ProgressDialogComponent } from './progress-dialog/progress-dialog.component';
 import { JwtInterceptor } from './jwt.interceptor';
@@ -42,6 +42,17 @@ import { MatListModule} from '@angular/material/list';
 import { MatIcon } from '@angular/material/icon';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatNavList } from '@angular/material/list';
+//satvik
+
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
+import { AdminSideDialogueComponent } from './admin-side-dialogue/admin-side-dialogue.component';
+import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
+import { PaymentcustComponent } from './paymentcust/paymentcust.component';
+import { FilmcustomerComponent } from './filmcustomer/filmcustomer.component';
+import { CustomerdetailsComponent } from './customerdetails/customerdetails.component';
+import { CdkTableModule } from '@angular/cdk/table';
+import{CustHeaderComponent} from './cust-header/cust-header.component';
+import{CustSideDialogueComponent} from './cust-side-dialogue/cust-side-dialogue.component';
 
 @NgModule({
   declarations: [AppComponent, 
@@ -52,7 +63,25 @@ import { MatNavList } from '@angular/material/list';
     FilmDialogComponent, ProgressDialogComponent, 
     SidenavComponent,
     Tab1Component, Tab2Component,
-    
+    LoginFormComponent,
+    DisplayComponent,
+    ErrorPageComponent,
+    FooterComponent,
+    HeaderComponent,
+    SideDialogueComponent,
+    DialogueComponent,
+    AdmindashboardComponent,
+    DisplayDialogComponent,
+    FilmDialogComponent,
+    ProgressDialogComponent,
+    AdminHeaderComponent,
+    AdminSideDialogueComponent,
+    CustomerDashboardComponent,
+    PaymentcustComponent,
+    FilmcustomerComponent,
+    CustomerdetailsComponent,
+    CustHeaderComponent,
+    CustSideDialogueComponent
   ],
     
   imports: [
@@ -81,8 +110,10 @@ import { MatNavList } from '@angular/material/list';
 
     //mukul
     MatSidenavModule,
-    MatListModule
+    MatListModule,
   
+    MatFormFieldModule,
+    MatIconModule,
   ],
   providers: [
 
