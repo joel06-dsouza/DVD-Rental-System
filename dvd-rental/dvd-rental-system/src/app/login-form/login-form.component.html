@@ -1,0 +1,29 @@
+<div class="login-box" fxLayoutAlign="center center" fxFlexFill>
+  <mat-card class="login-card">
+    <mat-toolbar>
+      Login
+    </mat-toolbar>
+    <form [formGroup]="loginModel.loginForm" (submit)="onSubmit()">
+      <mat-form-field class="input-container1">
+        <input matInput placeholder="Username" formControlName="username" id="input">
+        <img src="../../assets/username1.svg" class="icon">
+      </mat-form-field>
+      <div *ngIf="loginModel.username.invalid && (loginModel.username.dirty || loginModel.username.touched)">
+        <mat-error>Username is required</mat-error>
+      </div>
+      <mat-form-field class="input-container">
+        <input matInput type="password" placeholder="Password" formControlName="password" id="input1">
+        <img src="../../assets/password1.svg" class="icon">
+      </mat-form-field>
+      <div *ngIf="loginModel.password.invalid && (loginModel.password.dirty || loginModel.password.touched)">
+        <mat-error>Password is required</mat-error>
+      </div>
+      <!-- Add a div to display error message -->
+      <div *ngIf="loginFailed" class="error-message">
+         Incorrect Credentials
+      </div>
+      <button type="submit" id="loginbtn" [disabled]="!loginModel.loginForm.valid"
+        [class.aqua]="loginModel.loginForm.valid">Login</button>
+    </form>
+  </mat-card>
+</div>

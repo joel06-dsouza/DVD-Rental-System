@@ -1,0 +1,11 @@
+.table-dialog {
+  max-height: 600px; /* Set a maximum height for the dialog content */
+  overflow-y: auto; /* Add a vertical scrollbar if content overflows */
+  width: 100%; /* Make the content occupy the full width of the dialog */
+  }
+  .center-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Add margin to separate the heading from the table */
+  }
