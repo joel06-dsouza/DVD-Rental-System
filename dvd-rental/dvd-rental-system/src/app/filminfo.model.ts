@@ -4,11 +4,11 @@ export interface FilmInfo {
   title: string;
   description: string;
   category_name: string;
-  language_name: string;
+  languagename: string;
   length: number;
   rating: string; // You can adjust the type as needed
-  rental_duration: number;
-  rental_rate: number;
-  release_year: number;
+  rentalduration: number;
+  rentalrate: number;
+  releaseyear: number;
   store_id: number;
 }

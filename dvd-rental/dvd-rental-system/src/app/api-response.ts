@@ -4,4 +4,5 @@ export interface ApiResponse<T> {
     status: string;
     message: string;
     data: { filmInfoPage: T };
+    content;
 }

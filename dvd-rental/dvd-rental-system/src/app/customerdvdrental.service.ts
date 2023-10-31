@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PaymentInfo } from './paymentinfo.model';
 import { RentedFilm } from './RentedFilm.model';
+import { ApiResponse } from './api-response';
+import { FilmInfoPage } from './FilmInfo.page';
 @Injectable({
   providedIn: 'root',
 })
@@ -37,7 +39,7 @@ export class CustomerDvdRentalService {
 
   }
 
-  Details(customerId:number): Observable<string[]>  {
+  Details(customerId:string): Observable<string[]>  {
     console.log(customerId)
     const requestBody = {
       customerId:customerId
@@ -75,7 +77,7 @@ export class CustomerDvdRentalService {
   }
 
   getRentedFilmsForLoggedInCustomer(): Observable<RentedFilm[]> {
-    const customerId = +localStorage.getItem('Id'); 
+    const customerId = +localStorage.getItem('cId'); 
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
@@ -83,5 +85,15 @@ export class CustomerDvdRentalService {
 
     return this.http.post<RentedFilm[]>(`${this.apiUrl}/rented-films/customer/${customerId}`, { headers });
   }
+
+  getPaginatedData(storeId: number=1,  page: number=1 , size: number=10 ): Observable<ApiResponse<FilmInfoPage>> {
+    const requestBody = { storeId, page, size};
+    const headers = new HttpHeaders({
+        'Content-Type': 'application/json'
+    });
+
+    return this.http.post<ApiResponse<FilmInfoPage>>(`${this.apiUrl}/Staff/filmByPagination`, requestBody, { headers });
+}
+
 
 }

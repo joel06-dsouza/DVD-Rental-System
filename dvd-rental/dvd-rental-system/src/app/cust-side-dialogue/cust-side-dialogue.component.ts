@@ -18,8 +18,8 @@ export class CustSideDialogueComponent {
 
   constructor(private dvdRentalService: CustomerDvdRentalService, private dialog: MatDialog, public dialogRef: MatDialogRef<CustSideDialogueComponent>, private authService: AuthService, private router: Router, private dialogService: DialogService) { }
   // GETTING ITEMS FROM LOCAL STORAGE
-  name = localStorage.getItem('username');
-  customerId = localStorage.getItem('Id');
+  name = localStorage.getItem('cName');
+  customerId = localStorage.getItem('cId');
 
   // CLOSE DIALOG BOX METHOD
   closeDialogue(): void {
@@ -41,9 +41,9 @@ export class CustSideDialogueComponent {
   }
 
   showDetails(): void {
-    // this.dvdRentalService.Details().subscribe((response) => {
-    //   this.openCustomerDetailsDialog(response);
-    // });
+    this.dvdRentalService.Details(this.customerId).subscribe((response) => {
+      this.openCustomerDetailsDialog(response);
+    });
   }
 
   openCustomerDetailsDialog(customerDetails: any) {

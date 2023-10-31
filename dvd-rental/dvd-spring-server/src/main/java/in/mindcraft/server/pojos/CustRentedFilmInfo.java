@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "rented_films")
+@Table(name = "rented_film")
 public class CustRentedFilmInfo {
 
     @Id
@@ -30,7 +30,6 @@ public class CustRentedFilmInfo {
 
     @Column(name = "store_id")
     private Long store_id;
-
     
     @Column(name = "staff_id")
     private Long staff_id;

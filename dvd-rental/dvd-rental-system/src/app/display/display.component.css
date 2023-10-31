@@ -13,7 +13,6 @@ h1 {
 .mat-table-container {
     margin: 10px;
     overflow-x: auto;
-    /* Add horizontal scrollbar for small screens */
 }
 
 /* Styles for screens smaller than 600px (typical mobile screens) */
@@ -31,16 +30,15 @@ h1 {
     }
 }
 
-/*TABLE CSS*/
+/* TABLE CSS */
 #dataTable {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #b8a9a9;
 }
 
-/*TABLE HEADER ROW CSS*/
+/* TABLE HEADER ROW CSS */
 #thcolor {
-    /* background-color: rgb(244, 143, 143); */
     background-color: #3BC3FF;
     padding: 10px;
     text-align: left;
@@ -51,14 +49,19 @@ h1 {
     text-transform: uppercase;
 }
 
-/*TABLE HEADER ROW CSS*/
+/* TABLE HEADER ROW CSS */
 #tdpad {
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     border: 1px solid #b8a9a9;
 }
 
-/*TABLE TD ROW CSS*/
+.mat-row.table-row {
+    padding: 10px; /* Reduce the top and bottom padding to make the rows smaller */
+    font-size: 14px; /* Reduce the font size to make the text smaller */
+}
+
+/* TABLE TD ROW CSS */
 #tdpadid {
     font-weight: bold;
     text-align: center;
@@ -123,3 +126,48 @@ tr:nth-child(even) {
 #iconcolor {
     color: #09ebeb;
 }
+/* Pagination styles */
+.pagination {
+    justify-content: flex-end; /* Align pagination to the right */
+  }
+  
+  .pagination .page-item:not(:first-child) {
+    margin-left: 10px; /* Add spacing between page numbers */
+  }
+  
+  .pagination .page-link {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 40%; /* Make page numbers circular */
+    width: 30px; /* Adjust width as needed */
+    height: 30px; /* Adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .pagination .page-link:hover {
+    background-color: #0056b3;
+    border: 1px solid #0056b3;
+  }
+  
+  /* To center numbers inside circular page-link */
+  .pagination .page-link span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .input-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px; /* Adjust the gap between input and button as needed */
+  }
+  
+  /* Align placeholder text to the right and make it smaller */
+  .input-container mat-form-field input::placeholder {
+    text-align: right;
+    font-size: 14px; /* Adjust the font size as needed */
+  }
+  
+  

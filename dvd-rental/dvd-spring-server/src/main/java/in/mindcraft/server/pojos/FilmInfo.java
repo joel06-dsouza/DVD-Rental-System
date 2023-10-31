@@ -2,6 +2,8 @@ package in.mindcraft.server.pojos;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -9,7 +11,12 @@ import jakarta.persistence.Table;
 @Table(name = "filmview")
 public class FilmInfo {
     @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
     private Long id;
+
+	@Column(name = "store_id")
+    private Long storeId;
 
     @Column(name = "title")
     private String title;
@@ -32,9 +39,6 @@ public class FilmInfo {
     @Column(name = "length")
     private Integer length;
 
-    @Column(name = "store_id")
-    private Long storeId;	
-    
     @Column(name = "rating")
     private String rating;
 
@@ -145,3 +149,4 @@ public class FilmInfo {
     
     
 }
+

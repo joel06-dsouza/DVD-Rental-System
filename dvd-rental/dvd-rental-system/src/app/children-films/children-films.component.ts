@@ -23,7 +23,10 @@ export class ChildrenFilmsComponent {
   customer_id: string;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator; 
-
+  
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  } 
   constructor(private customerDvdRentalService: CustomerDvdRentalService) {
     this.dataSource = new MatTableDataSource<Film>([
     ]);
@@ -34,9 +37,6 @@ export class ChildrenFilmsComponent {
     this.fetchfilms(); 
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
 
   showAllChildrenFilms() {
     this.isAllChildrenActive = true;
