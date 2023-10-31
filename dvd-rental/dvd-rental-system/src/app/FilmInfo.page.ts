@@ -1,4 +1,4 @@
-import { FilmInfo } from './filminfo.model';
+import {FilmInfo } from './filminfo.model';
 
 export interface FilmInfoPage {
     content: FilmInfo[],

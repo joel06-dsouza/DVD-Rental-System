@@ -33,6 +33,7 @@ public ResponseEntity<List<CustAllFilmInfo>> getFilmDetailsByCategoryName(@Reque
     if(category_name == null){
         return ResponseEntity.badRequest().build();
 
+        
     }
 
     List<CustAllFilmInfo> allfilmDetailsList = custAllFilmRepo.findByCategoryName(category_name);

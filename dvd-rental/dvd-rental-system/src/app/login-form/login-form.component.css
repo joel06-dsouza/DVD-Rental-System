@@ -16,9 +16,7 @@
   font-weight: bold;
 }
 
-/* .header-title {
-  /* Add any additional styles for header title */
- */
+
 
 .login-form {
   margin-left: 70px;
@@ -44,3 +42,19 @@
   opacity: 0.7; /* Adjust the opacity as needed */
 }
 
+.login-card mat-toolbar {
+  background: none;
+  color: rgb(113, 100, 100);
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  text-decoration: underline;
+  text-underline-offset: 9px;
+}
+
+
+mat-form-field {
+  width: 100%;
+}

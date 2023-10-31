@@ -4,7 +4,7 @@ import { AuthService } from '../auth.service';
 import { StaffDvdRentalService } from '../staffdvdrental.service';
 import { AdminDvdRentalService } from '../admindvdrental.service';
 import { CustomerDvdRentalService } from '../customerdvdrental.service';
-import { FilmInfo } from '../FilmInfo.model';
+import { FilmInfo } from '../filminfo.model';
 import { Router } from '@angular/router';
 import { LoginModel } from './login.model';
 import * as crypto from 'crypto-js';

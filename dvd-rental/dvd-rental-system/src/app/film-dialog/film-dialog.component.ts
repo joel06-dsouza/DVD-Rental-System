@@ -4,7 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { Subscription } from 'rxjs';
 import { AdminDvdRentalService } from '../admindvdrental.service';
-import { FilmInfo } from '../FilmInfo.model';
+import { FilmInfo } from '../filminfo.model';
 import * as XLSX from 'xlsx';
 import { DialogueComponent } from '../dialogue/dialogue.component';
 import { SideDialogueComponent } from '../side-dialogue/side-dialogue.component';

@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { FilmInfo } from '../FilmInfo.model';
+
+import { FilmInfo } from '../filminfo.model';
 import { StaffDvdRentalService } from '../staffdvdrental.service';
 import { Observable, Subscription, filter, of } from 'rxjs';
 import * as XLSX from 'xlsx';

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { FilmInfo } from './FilmInfo.model';
+import { FilmInfo } from './filminfo.model';
 
 import { ApiResponse } from './api-response';
 import { FilmInfoPage } from './FilmInfo.page';

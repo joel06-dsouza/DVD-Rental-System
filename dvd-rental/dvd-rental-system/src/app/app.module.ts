@@ -61,14 +61,15 @@ import { CustomerdetailsComponent } from './customerdetails/customerdetails.comp
 import { CdkTableModule } from '@angular/cdk/table';
 import{CustHeaderComponent} from './cust-header/cust-header.component';
 import{CustSideDialogueComponent} from './cust-side-dialogue/cust-side-dialogue.component';
-import { LoginComponent } from './login/login.component';
+
 import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 @NgModule(
   {
   declarations: [
     AppComponent,
-    
+    LoginFormComponent,
     /* LoginComponent */
     DisplayComponent,
     ErrorPageComponent,

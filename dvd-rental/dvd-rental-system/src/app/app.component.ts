@@ -11,7 +11,7 @@ import { MatNavList } from '@angular/material/list';
 export class AppComponent {
 
   title = 'dvdrental';
-  isUserLoggedIn = false;
+/*   isUserLoggedIn = false;
 
   constructor(public authService: AuthService) {}
 
@@ -20,7 +20,7 @@ export class AppComponent {
   logout(): void{
     this.authService.logedOut();
   }
-
+ */
 }
 
 
