@@ -10,27 +10,20 @@ import { FormControl,FormGroup } from '@angular/forms';
 })
 export class RegisterComponent {
   user = { username: '', password: '' };
-/* formData:FormGroup;
- */
+
 
   constructor(private authService: AuthService, 
     private router: Router) { }
 
-    /* ngOnInit(){
-      this.formData=new FormGroup({
-        username:new FormControl(''),
-        password:new FormControl('')
-      })
-    } */
-
+  /*  
   register() : void {
-    /* const user=this.formData.value; */
+    
     this.authService.register(this.user).subscribe(response => {
       console.log('Registered:', response);
       this.authService.saveToken(response.token);
-      this.router.navigate(['/login']); // Redirect to login after successful registration
+      this.router.navigate(['/login']); 
     }, error => {
       console.error('Registration error:', error);
     });
-  }
+  } */
 }

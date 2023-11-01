@@ -59,13 +59,20 @@ export class LoginFormComponent implements OnInit {
           if (Response.token) {
             localStorage.setItem('token', Response.token);
             localStorage.setItem('role', Response.role);
+            console.log("before response.role")
 
             if (Response.role === 'ROLE_ADMIN') {
               this.handleAdminLogin(username, enteredPasswordHash);
+              console.log("admn")
+
             } else if (Response.role === 'ROLE_STAFF') {
               this.handleStaffLogin(username, enteredPasswordHash);
+              console.log("staf")
+
             } else if (Response.role === 'ROLE_CUSTOMER') {
               this.handleCustomerLogin(username, enteredPasswordHash);
+              console.log("cust")
+              
             }
           }
         },

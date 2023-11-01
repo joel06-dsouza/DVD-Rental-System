@@ -1,4 +1,4 @@
-// server.js
+/* // server.js
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -48,3 +48,4 @@ app.post('/register', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+ */

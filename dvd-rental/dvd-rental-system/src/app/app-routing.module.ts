@@ -24,7 +24,7 @@ import { NewFilmsComponent } from './new-films/new-films.component';
 import { SciFiFilmsComponent } from './sci-fi-films/sci-fi-films.component';
 import { SportsFilmsComponent } from './sports-films/sports-films.component';
 import { TravelFilmsComponent } from './travel-films/travel-films.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path:'',component:LoginFormComponent},
