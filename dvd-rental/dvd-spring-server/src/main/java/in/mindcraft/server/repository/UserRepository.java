@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 import in.mindcraft.server.pojos.UserInfo;
 
 @Repository
-public interface UserRepository extends JpaRepository<UserInfo, Long> {
+public interface UserRepository extends JpaRepository<UserInfo, Integer > {
     // Define custom query methods if needed
-    UserInfo findByUsername(String username);
+   UserInfo findByUsername(String username);
 }
 

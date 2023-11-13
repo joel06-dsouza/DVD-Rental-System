@@ -15,14 +15,13 @@ public class CustRentedFilmInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-@Column(name = "film_id")
+    @Column(name = "film_id")
     private Long film_id;
 
-@Column(name = "customer_id")
+        @Column(name = "customer_id")
     private Long customer_id;
 
     
-
     @Column(name = "amount")
     private Integer amount;
 
@@ -33,7 +32,6 @@ public class CustRentedFilmInfo {
     private Long store_id;
 
     
-
     @Column(name = "staff_id")
     private Long staff_id;
 

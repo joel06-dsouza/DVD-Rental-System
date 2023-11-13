@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FilmInfo } from './FilmInfo.model';
+import { ApiResponse } from './api-response';
+import { FilmInfoPage } from './FilmInfo.page';
 @Injectable({
   providedIn: 'root'
 })
@@ -38,6 +40,15 @@ export class StaffDvdRentalService {
 
     return this.http.post<FilmInfo[]>(`${this.apiUrl}/Staff/filmByStoreId`, requestBody, { headers: headers });
   }
+  
+  getPaginatedData(storeId: number= 1,  page: number = 1, size: number = 10): Observable<ApiResponse<FilmInfoPage>> {
+    const requestBody = { storeId, page, size };
+    const headers = new HttpHeaders({
+        'Content-Type': 'application/json'
+    });
+
+    return this.http.post<ApiResponse<FilmInfoPage>>(`${this.apiUrl}/Staff/filmByPagination`, requestBody, { headers });
+}
 
  
   getActorsByFilmId(filmId: number): Observable<string[]> {

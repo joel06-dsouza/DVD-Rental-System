@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import in.mindcraft.server.pojos.CustRentedFilmInfo;
 import in.mindcraft.server.repository.CustRentedFilmRepo;
 
-
-
 @RestController
 @RequestMapping("/Customer")
 public class CustRentedFilmController {

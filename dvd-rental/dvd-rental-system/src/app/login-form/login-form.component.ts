@@ -56,7 +56,7 @@ export class LoginFormComponent implements OnInit {
             } else if (Response.role === 'ROLE_STAFF') {
               this.handleStaffLogin(username, enteredPasswordHash);
             } else if (Response.role === 'ROLE_CUSTOMER') {
-              this.handleCustomerLogin(username);
+              this.handleCustomerLogin(username, enteredPasswordHash);
             }
           }
         },
@@ -73,12 +73,12 @@ export class LoginFormComponent implements OnInit {
       (adminResponse: any) => {
         localStorage.setItem('aName', adminResponse.adminFullName);
         localStorage.setItem('aId', adminResponse.adminId);
-        localStorage.setItem('ajwtToken', adminResponse.jwtToken);
         alert('Admin Login Successful');
         this.route.navigate(['admin-display']);
       },
       (adminError) => {
         alert("Error in Admin Login");
+        localStorage.clear();
         console.error("Admin login failed", adminError);
       }
     );
@@ -87,31 +87,32 @@ export class LoginFormComponent implements OnInit {
   private handleStaffLogin(username: string, passwordHash: string) {
     this.staffDvdRentalService.loginStaff(username, passwordHash).subscribe(
       (staffresponse: any) => {
-        localStorage.setItem('jwtToken', JSON.stringify(staffresponse.jwtToken));
         localStorage.setItem('StoreId', staffresponse.storeId);
         localStorage.setItem('FullName', staffresponse.fullName);
         localStorage.setItem('Email', staffresponse.email);
-        alert('Login Successful');
+        alert('Staff Login Successful');
         this.route.navigate(['staff-display']);
       },
       (staffError) => {
         alert("Error in Staff Login");
+        localStorage.clear();
         console.error("Staff login failed", staffError);
       }
     );
   }
 
-  private handleCustomerLogin(username: string) {
-    this.customerDvdRentalService.getCustomersByName(username).subscribe(
+  private handleCustomerLogin(username: string, passwordHash: string ) {
+    this.customerDvdRentalService.getCustomersByName(username, passwordHash).subscribe(
       (customerResponse: any) => {
-        localStorage.setItem('cId', customerResponse[0].id);
-        localStorage.setItem('cName', username);
+        localStorage.setItem('cId', customerResponse.id);
+        localStorage.setItem('cName', customerResponse.name);
         alert('Customer Login Successful');
         this.route.navigate(['customer-display']);
       },
       (customerError) => {
-        alert("Error in Customer Login");
-        console.error("Customer login failed", customerError);
+        alert('Error in Customer Login');
+        localStorage.clear();
+        console.error('Customer login failed', customerError);
       }
     );
   }

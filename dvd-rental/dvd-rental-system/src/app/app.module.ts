@@ -18,7 +18,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { DisplayComponent } from './display/display.component';
@@ -34,13 +33,32 @@ import { FilmDialogComponent } from './film-dialog/film-dialog.component';
 import { ProgressDialogComponent } from './progress-dialog/progress-dialog.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminSideDialogueComponent } from './admin-side-dialogue/admin-side-dialogue.component';
-import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 import { PaymentcustComponent } from './paymentcust/paymentcust.component';
 import { FilmcustomerComponent } from './filmcustomer/filmcustomer.component';
 import { CustomerdetailsComponent } from './customerdetails/customerdetails.component';
 import { CdkTableModule } from '@angular/cdk/table';
-import{CustHeaderComponent} from './cust-header/cust-header.component';
-import{CustSideDialogueComponent} from './cust-side-dialogue/cust-side-dialogue.component';
+import { CustHeaderComponent } from './cust-header/cust-header.component';
+import { CustSideDialogueComponent } from './cust-side-dialogue/cust-side-dialogue.component';
+import { CategoryCardsComponent } from './category-cards/category-cards.component';
+import { ActionFilmsComponent } from './action/action-films.component';
+import { ForeignFilmsComponent } from './foreign-films/foreign-films.component';
+import { GamesFilmsComponent } from './games-films/games-films.component';
+import { HorrorFilmsComponent } from './horror-films/horror-films.component';
+import { MusicFilmsComponent } from './music-films/music-films.component';
+import { NewFilmsComponent } from './new-films/new-films.component';
+import { SciFiFilmsComponent } from './sci-fi-films/sci-fi-films.component';
+import { SportsFilmsComponent } from './sports-films/sports-films.component';
+import { TravelFilmsComponent } from './travel-films/travel-films.component';
+import { AnimationFilmsComponent } from './animation-films/animation-films.component';
+import { ChildrenFilmsComponent } from './children-films/children-films.component';
+import { ClassicFilmsComponent } from './classic-films/classic-films.component';
+import { ComedyFilmsComponent } from './comedy-films/comedy-films.component';
+import { DocumentaryFilmsComponent } from './documentary-films/documentary-films.component';
+import { DramaFilmsComponent } from './drama-films/drama-films.component';
+import { FamilyFilmsComponent } from './family-films/family-films.component';
+import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
+import { RentedFilmsComponent } from './rented-films/rented-films.component';
+import { StaffComponent } from './staff/staff.component';
 
 
 @NgModule({
@@ -59,13 +77,21 @@ import{CustSideDialogueComponent} from './cust-side-dialogue/cust-side-dialogue.
     ProgressDialogComponent,
     AdminHeaderComponent,
     AdminSideDialogueComponent,
-    CustomerDashboardComponent,
     PaymentcustComponent,
     FilmcustomerComponent,
     CustomerdetailsComponent,
     CustHeaderComponent,
-    CustSideDialogueComponent
-    
+    CustSideDialogueComponent,
+    CategoryCardsComponent, ActionFilmsComponent,
+    ForeignFilmsComponent, GamesFilmsComponent,
+    HorrorFilmsComponent, MusicFilmsComponent, NewFilmsComponent, SciFiFilmsComponent,
+    SportsFilmsComponent, TravelFilmsComponent,
+    AnimationFilmsComponent, ChildrenFilmsComponent,
+    ClassicFilmsComponent, ComedyFilmsComponent, DocumentaryFilmsComponent,
+    DramaFilmsComponent, FamilyFilmsComponent, AnimationFilmsComponent,
+    CustomerDashboardComponent,
+    RentedFilmsComponent,
+    StaffComponent
   ],
   imports: [
     BrowserModule,
@@ -93,4 +119,6 @@ import{CustSideDialogueComponent} from './cust-side-dialogue/cust-side-dialogue.
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
+
+

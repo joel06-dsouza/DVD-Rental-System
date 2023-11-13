@@ -13,23 +13,13 @@ public class CorsConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        // registry.addMapping("/**")
-        //     .allowedOrigins("http://localhost:4200") // Allow requests from this origin
-        //     .allowedMethods("GET", "POST", "PUT", "DELETE") // Allowed HTTP methods
-        //     .allowedHeaders("*") // Allowed headers (you can customize this)
-        //     .allowCredentials(true); // Allow cookies if your application uses them
-
-        registry.addMapping("/Staff/login")
+        registry.addMapping("/**")
             .allowedOrigins("http://localhost:4200") // Allow requests from this origin
-            .allowedMethods("GET", "POST") // Allowed HTTP methods
+            .allowedMethods("GET", "POST", "PUT", "DELETE") // Allowed HTTP methods
             .allowedHeaders("*") // Allowed headers (you can customize this)
-            .allowCredentials(true);
+            .allowCredentials(true); // Allow cookies if your application uses them
 
-        registry.addMapping("/admin/login")
-            .allowedOrigins("http://localhost:4200") // Allow requests from this origin
-            .allowedMethods("GET", "POST") // Allowed HTTP methods
-            .allowedHeaders("*") // Allowed headers (you can customize this)
-            .allowCredentials(true);
+     
         
     }
 }
